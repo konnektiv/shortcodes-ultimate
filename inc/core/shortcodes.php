@@ -852,7 +852,6 @@ class Su_Shortcodes {
 		} else {
 			return $text;
 		}
-		}
 	}
 
 	public static function members( $atts = null, $content = null ) {
