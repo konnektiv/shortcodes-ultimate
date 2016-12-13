@@ -672,7 +672,7 @@ class Su_Tools {
 		// Prepare empty array for slides
 		$slides = array();
 		// Loop through source types
-		foreach ( array( 'media', 'posts', 'category', 'taxonomy' ) as $type )
+		foreach ( array( 'media', 'posts', 'category', 'taxonomy' ) as $type ) {
 			if ( strpos( trim( $args['source'] ), $type . ':' ) === 0 ) {
 				$args['source'] = array(
 					'type' => $type,
@@ -680,6 +680,7 @@ class Su_Tools {
 				);
 				break;
 			}
+		}
 		// Source is not parsed correctly, return empty array
 		if ( !is_array( $args['source'] ) ) return $slides;
 		// Default posts query
