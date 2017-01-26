@@ -110,6 +110,12 @@ Upgrade normally
 
 == Changelog ==
 
+= 5.0.0 =
+* [Pull request #45](https://github.com/gndev/shortcodes-ultimate/pull/45).Added missing brackets to foreach loop
+* [Pull request #40](https://github.com/gndev/shortcodes-ultimate/pull/40). https for Google Maps
+* [Pull request #39](https://github.com/gndev/shortcodes-ultimate/pull/39). https for Youtube
+* [Pull request #20](https://github.com/gndev/shortcodes-ultimate/pull/20). Added Access Check to permalink Shortcode
+
 = 4.9.9 =
 * Fixed: vote popup at plugins page
 * Minor improvements, fixes
