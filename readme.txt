@@ -111,6 +111,7 @@ Upgrade normally
 == Changelog ==
 
 = 5.0.0 =
+* PHP7 compatibility. Checked with [php7cc](https://github.com/sstalle/php7cc) and [PHP Compatibility Checker](https://wordpress.org/plugins/php-compatibility-checker/)
 * [Pull request #45](https://github.com/gndev/shortcodes-ultimate/pull/45).Added missing brackets to foreach loop
 * [Pull request #40](https://github.com/gndev/shortcodes-ultimate/pull/40). https for Google Maps
 * [Pull request #39](https://github.com/gndev/shortcodes-ultimate/pull/39). https for Youtube
