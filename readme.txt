@@ -110,6 +110,9 @@ Upgrade normally
 
 == Changelog ==
 
+= 4.10.1 =
+* Fixed: lightbox javascript
+
 = 4.10.0 =
 * Fixed: security vulnerability at 'Examples' admin page (insecure call of file_get_contents() at inc/core/tools.php:774)
 * Fixed: added access check to permalink shortcode. [Pull request #20](https://github.com/gndev/shortcodes-ultimate/pull/20).
