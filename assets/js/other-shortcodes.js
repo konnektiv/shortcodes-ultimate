@@ -56,31 +56,29 @@ jQuery(document).ready(function($) {
 	anchor_nav();
 
 	// Lightbox
-	$('.su-lightbox').each(function() {
-		$(this).on('click', '.su-lightbox', function(e) {
-			e.preventDefault();
-			e.stopPropagation();
-			if ($(this).parent().attr('id') === 'su-generator-preview') $(this).html(su_other_shortcodes.no_preview);
-			else {
-				var type = $(this).data('mfp-type');
-				$(this).magnificPopup({
-					type: type,
-					tClose: su_magnific_popup.close,
-					tLoading: su_magnific_popup.loading,
-					gallery: {
-						tPrev: su_magnific_popup.prev,
-						tNext: su_magnific_popup.next,
-						tCounter: su_magnific_popup.counter
-					},
-					image: {
-						tError: su_magnific_popup.error
-					},
-					ajax: {
-						tError: su_magnific_popup.error
-					}
-				}).magnificPopup('open');
-			}
-		});
+	$(document).on('click', '.su-lightbox', function(e) {
+		e.preventDefault();
+		e.stopPropagation();
+		if ($(this).parent().attr('id') === 'su-generator-preview') $(this).html(su_other_shortcodes.no_preview);
+		else {
+			var type = $(this).data('mfp-type');
+			$(this).magnificPopup({
+				type: type,
+				tClose: su_magnific_popup.close,
+				tLoading: su_magnific_popup.loading,
+				gallery: {
+					tPrev: su_magnific_popup.prev,
+					tNext: su_magnific_popup.next,
+					tCounter: su_magnific_popup.counter
+				},
+				image: {
+					tError: su_magnific_popup.error
+				},
+				ajax: {
+					tError: su_magnific_popup.error
+				}
+			}).magnificPopup('open');
+		}
 	});
 	// Tables
 	$('.su-table tr:even').addClass('su-even');
