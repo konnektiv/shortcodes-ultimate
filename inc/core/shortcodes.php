@@ -1431,7 +1431,7 @@ class Su_Shortcodes {
 		// Get user data
 		$user = get_user_by( 'id', $atts['user_id'] );
 		// Get user data if user was found
-		$user = ( $user && isset( $user->data->$atts['field'] ) ) ? $user->data->$atts['field'] : $atts['default'];
+		$user = ( $user && isset( $user->data->{$atts['field']} ) ) ? $user->data->{$atts['field']} : $atts['default'];
 		// Apply cutom filter
 		if ( $atts['filter'] && function_exists( $atts['filter'] ) ) $user = call_user_func( $atts['filter'], $user );
 		// Return result
@@ -1454,7 +1454,7 @@ class Su_Shortcodes {
 		// Get the post
 		$post = get_post( $atts['post_id'] );
 		// Set default value if meta is empty
-		$post = ( empty( $post ) || empty( $post->$atts['field'] ) ) ? $atts['default'] : $post->$atts['field'];
+		$post = ( empty( $post ) || empty( $post->{$atts['field']} ) ) ? $atts['default'] : $post->{$atts['field']};
 		// Apply cutom filter
 		if ( $atts['filter'] && function_exists( $atts['filter'] ) ) $post = call_user_func( $atts['filter'], $post );
 		// Return result
