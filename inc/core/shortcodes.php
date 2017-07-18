@@ -847,11 +847,7 @@ class Su_Shortcodes {
 		$atts['id'] = su_scattr( $atts['id'] );
 		// Prepare link text
 		$text = ( $content ) ? $content : get_the_title( $atts['id'] );
-		if (current_user_can('read',$atts['id'])) {
-			return '<a href="' . get_permalink( $atts['id'] ) . '" class="' . su_ecssc( $atts ) . '" title="' . $text . '" target="_' . $atts['target'] . '">' . $text . '</a>';
-		} else {
-			return $text;
-		}
+		return '<a href="' . get_permalink( $atts['id'] ) . '" class="' . su_ecssc( $atts ) . '" title="' . $text . '" target="_' . $atts['target'] . '">' . $text . '</a>';
 	}
 
 	public static function members( $atts = null, $content = null ) {

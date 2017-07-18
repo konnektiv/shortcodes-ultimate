@@ -113,6 +113,7 @@ Upgrade normally
 = 4.10.2 =
 * Improved: compatibility with PHP7 ([user] and [post] shortcodes)
 * Fixed: [slider] and [custom_gallery] markup (skipped whitespaces among link attributes)
+* Removed: user capability check in [permalink]
 
 = 4.10.1 =
 * Fixed: lightbox javascript
