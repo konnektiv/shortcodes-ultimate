@@ -110,6 +110,9 @@ Upgrade normally
 
 == Changelog ==
 
+= 4.10.2 =
+* Improved: compatibility with PHP7 ([user] and [post] shortcodes)
+
 = 4.10.1 =
 * Fixed: lightbox javascript
 
