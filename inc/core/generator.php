@@ -155,11 +155,8 @@ class Su_Generator {
 			$return .= apply_filters( 'su/generator/breadcrumbs', '<a href="javascript:void(0);" class="su-generator-home" title="' . __( 'Click to return to the shortcodes list', 'shortcodes-ultimate' ) . '">' . __( 'All shortcodes', 'shortcodes-ultimate' ) . '</a> &rarr; <span>' . $shortcode['name'] . '</span> <small class="alignright">' . $shortcode['desc'] . '</small><div class="su-generator-clear"></div>' );
 			$return .= '</div>';
 			// Shortcode note
-			if ( isset( $shortcode['note'] ) || isset( $shortcode['example'] ) ) {
-				$return .= '<div class="su-generator-note"><i class="fa fa-info-circle"></i><div class="su-generator-note-content">';
-				if ( isset( $shortcode['note'] ) ) $return .= wpautop( $shortcode['note'] );
-				if ( isset( $shortcode['example'] ) ) $return .= wpautop( '<a href="' . admin_url( 'admin.php?page=shortcodes-ultimate-examples&example=' . $shortcode['example'] ) . '" target="_blank">' . __( 'Examples of use', 'shortcodes-ultimate' ) . ' &rarr;</a>' );
-				$return .= '</div></div>';
+			if ( isset( $shortcode['note'] ) ) {
+				$return .= '<div class="su-generator-note"><i class="fa fa-info-circle"></i><div class="su-generator-note-content">' . wpautop( $shortcode['note'] ) . '</div></div>';
 			}
 			// Shortcode has atts
 			if ( isset( $shortcode['atts'] ) && count( $shortcode['atts'] ) ) {
@@ -184,8 +181,16 @@ class Su_Generator {
 			if ( $shortcode['type'] == 'single' ) $return .= '<input type="hidden" name="su-generator-content" id="su-generator-content" value="false" />';
 			// Wrapping shortcode
 			else {
+
+				if ( !isset( $shortcode['content'] ) ) {
+					$shortcode['content'] = '';
+				}
+
+				if ( is_array( $shortcode['content'] ) ) {
+					$shortcode['content'] = self::get_shortcode_code( $shortcode['content'] );
+				}
+
 				// Prepare shortcode content
-				$shortcode['content'] = ( isset( $shortcode['content'] ) ) ? $shortcode['content'] : '';
 				$return .= '<div class="su-generator-attr-container"><h5>' . __( 'Content', 'shortcodes-ultimate' ) . '</h5><textarea name="su-generator-content" id="su-generator-content" rows="5">' . esc_attr( str_replace( array( '%prefix_', '__' ), su_cmpt(), $shortcode['content'] ) ) . '</textarea></div>';
 			}
 			$return .= '<div id="su-generator-preview"></div>';
