@@ -128,6 +128,7 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 * Removed: 'Cheatsheet' admin menu
 * Fixed: [feed] shortcode (now it uses SimplePie)
 * Changed default content for [tabs], [row] and [accordion] shortcodes
+* Fixed: [user] shortcode works when user is not logged in
 * Minor improvements and fixes
 
 = 4.10.2 =
