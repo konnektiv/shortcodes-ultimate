@@ -73,12 +73,12 @@ $prefix    = $this->get_shortcodes_prefix();
 
 							<?php foreach( $table['atts'] as $attr_id => $attr ) : ?>
 								<tr>
-									<td width="360">
+									<td style="max-width:360px">
 										<strong class="wp-ui-text-highlight"><?php echo $attr_id; ?></strong><br>
 										<small class="description"><?php echo $this->get_shortcode_description( $attr['desc'] ); ?></small>
 									</td>
 									<td><?php echo $this->get_possible_values( $attr ); ?></td>
-									<td><nobr><?php echo $this->get_default_value( $attr ); ?></nobr></td>
+									<td><?php echo $this->get_default_value( $attr ); ?></td>
 								</tr>
 							<?php endforeach; ?>
 

@@ -40,7 +40,17 @@ final class Shortcodes_Ultimate_Admin_Settings extends Shortcodes_Ultimate_Admin
 		parent::__construct( $plugin_file, $plugin_version );
 
 		$this->plugin_settings = array();
-		$this->settings_page   = 'shortcodes-ultimate-settings';
+		$this->setting_defaults = array(
+			'id'          => '',
+			'title'       => '',
+			'type'        => 'text',
+			'description' => '',
+			'page'        => 'shortcodes-ultimate-settings',
+			'section'     => 'shortcodes-ultimate-general',
+			'group'       => 'shortcodes-ultimate',
+			'callback'    => array( $this, 'display_settings_field' ),
+			'sanitize'    => 'sanitize_text_field',
+		);
 
 	}
 
@@ -60,7 +70,7 @@ final class Shortcodes_Ultimate_Admin_Settings extends Shortcodes_Ultimate_Admin
 			__( 'Settings', 'shortcodes-ultimate' ),
 			__( 'Settings', 'shortcodes-ultimate' ),
 			$this->get_capability(),
-			$this->settings_page,
+			'shortcodes-ultimate-settings',
 			array( $this, 'the_menu_page' )
 		);
 
@@ -77,10 +87,10 @@ final class Shortcodes_Ultimate_Admin_Settings extends Shortcodes_Ultimate_Admin
 		 * Add default settings section.
 		 */
 		add_settings_section(
-			'shortcodes_ultimate_settings_general',
-			false,
-			array( $this, 'do_settings_section' ),
-			$this->settings_page
+			'shortcodes-ultimate-general',
+			__( 'General settings', 'shortcodes-ultimate' ),
+			array( $this, 'display_settings_section' ),
+			'shortcodes-ultimate-settings'
 		);
 
 		/**
@@ -88,46 +98,48 @@ final class Shortcodes_Ultimate_Admin_Settings extends Shortcodes_Ultimate_Admin
 		 */
 		foreach ( $this->get_plugin_settings() as $setting ) {
 
+			$setting = wp_parse_args( $setting, $this->setting_defaults );
+
 			add_settings_field(
 				$setting['id'],
 				$setting['title'],
-				array( $this, 'do_settings_field' ),
-				$this->settings_page,
-				'shortcodes_ultimate_settings_general',
+				$setting['callback'],
+				$setting['page'],
+				$setting['section'],
 				$setting
 			);
 
-			if ( ! isset( $setting['sanitize'] ) ) {
-				$setting['sanitize'] = false;
-			}
-
-			register_setting( $this->settings_page, $setting['id'], $setting['sanitize'] );
+			register_setting(
+				$setting['group'],
+				$setting['id'],
+				$setting['sanitize']
+			);
 
 		}
 
 	}
 
 	/**
-	 * Display specified settings section.
+	 * Display settings section.
 	 *
 	 * @param mixed   $args Settings section data.
 	 * @since  5.0.0
 	 */
-	public function do_settings_section( $args ) {
+	public function display_settings_section( $args ) {
 
-		$template = str_replace( 'shortcodes_ultimate_settings_', '', $args['id'] );
+		$section = str_replace( 'shortcodes-ultimate-', '', $args['id'] );
 
-		$this->the_template( 'settings/sections/' . $template, $args );
+		$this->the_template( 'settings/sections/' . $section, $args );
 
 	}
 
 	/**
-	 * Display specified settings field.
+	 * Display settings field.
 	 *
 	 * @param mixed   $args The field data.
 	 * @since  5.0.0
 	 */
-	public function do_settings_field( $args ) {
+	public function display_settings_field( $args ) {
 		$this->the_template( 'settings/fields/' . $args['type'], $args );
 	}
 
@@ -144,8 +156,8 @@ final class Shortcodes_Ultimate_Admin_Settings extends Shortcodes_Ultimate_Admin
 		}
 
 		$screen->add_help_tab( array(
-				'id'      => 'shortcodes-ultimate-settings',
-				'title'   => __( 'Plugin settings', 'shortcodes-ultimate' ),
+				'id'      => 'shortcodes-ultimate-general',
+				'title'   => __( 'General settings', 'shortcodes-ultimate' ),
 				'content' => $this->get_template( 'help/settings' ),
 			) );
 
@@ -177,7 +189,7 @@ final class Shortcodes_Ultimate_Admin_Settings extends Shortcodes_Ultimate_Admin
 	 */
 	protected function get_plugin_settings() {
 
-		if ( ! count( $this->plugin_settings ) ) {
+		if ( empty( $this->plugin_settings ) ) {
 
 			$this->plugin_settings[] = array(
 				'id'          => 'su_option_custom-formatting',
@@ -197,7 +209,6 @@ final class Shortcodes_Ultimate_Admin_Settings extends Shortcodes_Ultimate_Admin
 
 			$this->plugin_settings[] = array(
 				'id'          => 'su_option_prefix',
-				'type'        => 'text',
 				'sanitize'    => 'sanitize_html_class',
 				'title'       => __( 'Shortcodes prefix', 'shortcodes-ultimate' ),
 				'description' => __( 'This prefix will be used in shortcode names. For example: set <code>MY_</code> prefix and shortcodes will look like <code>[MY_button]</code>. Please note that this setting does not change shortcodes that have been inserted earlier. Change this setting very carefully.', 'shortcodes-ultimate' ),

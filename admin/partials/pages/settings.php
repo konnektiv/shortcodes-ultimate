@@ -8,7 +8,7 @@
 
 	<form action="options.php" method="post">
 
-		<?php settings_fields( 'shortcodes-ultimate-settings' ); ?>
+		<?php settings_fields( 'shortcodes-ultimate' ); ?>
 		<?php do_settings_sections( 'shortcodes-ultimate-settings' ); ?>
 		<?php submit_button(); ?>
 

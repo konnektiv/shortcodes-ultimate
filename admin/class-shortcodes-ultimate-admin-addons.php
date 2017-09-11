@@ -20,15 +20,6 @@ final class Shortcodes_Ultimate_Admin_Addons extends Shortcodes_Ultimate_Admin {
 	private $plugin_addons;
 
 	/**
-	 * Component tabs collection.
-	 *
-	 * @since    5.0.0
-	 * @access   protected
-	 * @var      array     $component_tabs   Component tabs collection.
-	 */
-	protected $component_tabs;
-
-	/**
 	 * The URL of the add-ons store.
 	 *
 	 * @since    5.0.0
@@ -58,12 +49,8 @@ final class Shortcodes_Ultimate_Admin_Addons extends Shortcodes_Ultimate_Admin {
 
 		parent::__construct( $plugin_file, $plugin_version );
 
-		$this->component_tabs = array(
-			'addons-addons'   => __( 'Add-ons', 'shortcodes-ultimate' ),
-			'addons-licenses' => __( 'Licenses', 'shortcodes-ultimate' ),
-		);
-
-		$this->store_url = 'https://getshortcodes.com/';
+		$this->addons_api_url = 'https://getshortcodes.com/api/v1/add-ons/';
+		$this->plugin_addons = array();
 
 	}
 
@@ -129,61 +116,62 @@ final class Shortcodes_Ultimate_Admin_Addons extends Shortcodes_Ultimate_Admin {
 
 	}
 
-
 	/**
-	 * Retrieve the plugin add-ons collection.
+	 * Retrieve the collection of plugin add-ons.
 	 *
 	 * @since    5.0.0
-	 * @access   protected
+	 * @access   private
 	 * @return  array The plugin add-ons collection.
 	 */
 	protected function get_plugin_addons() {
 
-		if ( !count( $this->plugin_addons ) ) {
-
-			$this->plugin_addons['extra'] = array(
-				'id'          => 'extra',
-				'title'       => __( 'Extra Shortcodes', 'shortcodes-ultimate' ),
-				'url'         => 'https://getshortcodes.com/add-ons/extra/',
-				'remote_name' => 'Extra shortcodes',
-				'installed'   => false,
-				'description' => __( 'Large set of additional shortcodes. Parallax sections, responsive content slider, pricing tables and much more.', 'shortcodes-ultimate' ),
-			);
-
-			$this->plugin_addons['maker'] = array(
-				'id'          => 'maker',
-				'title'       => __( 'Shortcode Creator', 'shortcodes-ultimate' ),
-				'url'         => 'https://getshortcodes.com/add-ons/shortcode-creator/',
-				'remote_name' => 'Shortcode creator',
-				'installed'   => false,
-				'description' => __( 'Easily create powerful shortcodes with settings, in just a few clicks. Use simple HTML or more complex PHP code.', 'shortcodes-ultimate' ),
-			);
-
-			$this->plugin_addons['bundle'] = array(
-				'id'          => 'bundle',
-				'is_bundle'   => true,
-				'title'       => __( 'Bundle: 3-in-1', 'shortcodes-ultimate' ),
-				'url'         => 'https://getshortcodes.com/add-ons/bundle-1/',
-				'remote_name' => 'Add-ons bundle',
-				'installed'   => false,
-				'description' => __( 'This Bundle offers 3 most popular add-ons with serious discount. You can save up to $75.', 'shortcodes-ultimate' ),
-			);
-
-			$this->plugin_addons['skins'] = array(
-				'id'          => 'skins',
-				'title'       => __( 'Additional Skins', 'shortcodes-ultimate' ),
-				'url'         => 'https://getshortcodes.com/add-ons/additional-skins/',
-				'remote_name' => 'Additional skins',
-				'installed'   => false,
-				'description' => __( 'Additional styles for spoiler, tabs, quote and heading shortcodes. Totally available more than 60 new styles.', 'shortcodes-ultimate' ),
-			);
-
+		if ( empty( $this->plugin_addons ) ) {
+			$this->plugin_addons = $this->load_plugin_addons();
 		}
 
 		return apply_filters( 'su/admin/addons', $this->plugin_addons );
 
 	}
 
+	/**
+	 * Load the collection of plugin add-ons from remote API.
+	 *
+	 * @since    5.0.0
+	 * @access   private
+	 * @return  array The plugin add-ons collection.
+	 */
+	private function load_plugin_addons() {
+
+		$cache = get_transient( 'su_transient_addons' );
+
+		if ( ! empty( $cache ) ) {
+			return $cache;
+		}
+
+		$response = wp_remote_get(
+			$this->addons_api_url,
+			array( 'timeout' => 10 )
+		);
+		$response = json_decode( wp_remote_retrieve_body( $response ), true );
+
+		if ( empty( $response[0]['id'] ) ) {
+			return array();
+		}
+
+		$addons = array();
+
+		foreach ( $response as $item ) {
+
+			$addons[ $item['id'] ] = $item;
+			$addons[ $item['id'] ]['is_installed'] = false;
+
+		}
+
+		set_transient( 'su_transient_addons', $addons, 3 * DAY_IN_SECONDS );
+
+		return $addons;
+
+	}
 
 	/**
 	 * Retrieve installed add-ons collection.
