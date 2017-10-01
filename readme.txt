@@ -15,7 +15,7 @@ A comprehensive collection of visual components for your site
 [Shortcodes Ultimate](https://getshortcodes.com/) is a comprehensive collection of various visual and functional elements, which you can use in the post editor, text widgets or even in template files. Using Shortcodes Ultimate you can easily create tabs, buttons, boxes, sliders and carousels, responsive videos and much, much more.
 
 = Feature highlights =
-* <a href="https://getshortcodes.com/shortcodes/" target="_blank">50+ beautiful shortcodes</a>
+* [50+ beautiful shortcodes](https://getshortcodes.com/shortcodes/)
 * 1-click shortcode insertion with live preview
 * Works with any theme
 * Modern responsive design
@@ -29,7 +29,7 @@ A comprehensive collection of visual components for your site
 * [Extra Shortcodes](https://getshortcodes.com/add-ons/extra-shortcodes/) - 15+ additional shortcodes
 * [Additional Skins](https://getshortcodes.com/add-ons/additional-skins/) - 60+ additional skins for plugin shortcodes
 * [Shortcode Creator](https://getshortcodes.com/add-ons/shortcode-creator/) - allows you to create your own custom shortcodes
-* __[Add-ons Bundle](https://getshortcodes.com/add-ons/bundle-1/)__ - All-in-one!
+* __[Add-ons Bundle](https://getshortcodes.com/add-ons/add-ons-bundle/)__ - All-in-one!
 
 = Reviews by professionals =
 * [40+ Reasons Shortcodes Ultimate Is A Must Have Plugin](http://www.the-best-web-hosting-service.com/blog/2014/01/ultimateshortcodesreview/)
@@ -121,6 +121,7 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 == Changelog ==
 
 = 5.0.0 =
+* Read [this blog post](https://vanokhin.com/whats-new-in-shortcodes-ultimate-5/) to learn more about update
 * New project website [getshortcodes.com](https://getshortcodes.com/)
 * New documentation [docs.getshortcodes.com](http://docs.getshortcodes.com/)
 * Added: 'Available shortcodes' admin menu
