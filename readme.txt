@@ -130,6 +130,7 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 * Fixed: [feed] shortcode (now it uses SimplePie)
 * Changed default content for [tabs], [row] and [accordion] shortcodes
 * Fixed: [user] shortcode works when user is not logged in
+* Changed: Security improvement. Plugin will now strip all HTML tags from Custom CSS code
 * Minor improvements and fixes
 
 = 4.10.2 =
