@@ -120,6 +120,10 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 
 == Changelog ==
 
+= 5.0.1 =
+* Fixed: changed admin menu position (it was replacing 'Settings' menu on some installations)
+* Added: new attribute 'ID' for [button] shortcode
+
 = 5.0.0 =
 * Read [this blog post](https://vanokhin.com/whats-new-in-shortcodes-ultimate-5/) to learn more about update
 * New project website [getshortcodes.com](https://getshortcodes.com/)
