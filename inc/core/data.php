@@ -821,6 +821,11 @@ class Su_Data {
 							'name' => __( 'Title attribute', 'shortcodes-ultimate' ),
 							'desc' => __( 'Here you can add value for the title attribute', 'shortcodes-ultimate' )
 						),
+						'id' => array(
+							'default' => '',
+							'name' => __( 'Button ID', 'shortcodes-ultimate' ),
+							'desc' => __( 'Custom value for the ID attribute', 'shortcodes-ultimate' )
+						),
 						'class' => array(
 							'type' => 'extra_css_class',
 							'name' => __( 'Extra CSS class', 'shortcodes-ultimate' ),
