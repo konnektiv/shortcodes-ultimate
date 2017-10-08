@@ -123,6 +123,7 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 = 5.0.1 =
 * Fixed: changed admin menu position (it was replacing 'Settings' menu on some installations)
 * Fixed: shortcodes prefix field now accepts special characters
+* Fixed: old bug when unwanted code parts was added with shortcode
 * Added: new attribute 'ID' for [button] shortcode
 
 = 5.0.0 =
