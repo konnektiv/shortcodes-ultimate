@@ -125,6 +125,8 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 * Fixed: shortcodes prefix field now accepts special characters
 * Fixed: old bug when unwanted code parts was added with shortcode
 * Added: new attribute 'ID' for [button] shortcode
+* Added new filter 'su/slides_query', which can be used to modify posts query for slider, carousel and custom_gallery shortcodes
+* Minor fixes
 
 = 5.0.0 =
 * Read [this blog post](https://vanokhin.com/whats-new-in-shortcodes-ultimate-5/) to learn more about update

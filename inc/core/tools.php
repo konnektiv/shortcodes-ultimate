@@ -720,11 +720,12 @@ class Su_Tools {
 			$query['post_type'] = 'any';
 		}
 		// Query posts
+		$query = apply_filters( 'su/slides_query', $query, $args );
 		$query = new WP_Query( $query );
 		// Loop through posts
 		if ( is_array( $query->posts ) ) foreach ( $query->posts as $post ) {
-				// Get post thumbnail ID
-				$thumb = ( $args['source']['type'] === 'media' ) ? $post->ID : get_post_thumbnail_id( $post->ID );
+				// Get attachment ID
+				$thumb = ( $args['source']['type'] === 'media' || $post->post_type === 'attachment' ) ? $post->ID : get_post_thumbnail_id( $post->ID );
 				// Thumbnail isn't set, go to next post
 				if ( !is_numeric( $thumb ) ) continue;
 				$slide = array(
