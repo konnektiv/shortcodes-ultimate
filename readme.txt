@@ -1,7 +1,7 @@
 === Shortcodes Ultimate ===
 Contributors: gn_themes
 License: GPLv3
-Donate link: https://vanokhin.com/donate/
+Donate link: https://paypal.me/anovladimir
 Tags: shortcode, toggle, columns, button, slider, video, map, visual, responsive, shortcodes, youtube, vimeo, audio, mp3, tabs, jquery, box, accordion, toggle, pullquote, list, image, gallery, navigation, permalink, feed, rss, members, membership, guests, carousel, icons, rtl, multilingual
 Requires at least: 3.5
 Tested up to: 4.8
