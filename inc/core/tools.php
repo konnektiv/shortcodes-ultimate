@@ -586,6 +586,10 @@ class Su_Tools {
 		add_filter( 'attachment_fields_to_save',  array( __CLASS__, 'slide_link_save' ), null, 2 );
 	}
 
+	public static function is_valid_filter( $filter ) {
+		return is_string( $filter ) && strpos( $filter, 'filter' ) !== false;
+	}
+
 	public static function select( $args ) {
 		$args = wp_parse_args( $args, array(
 				'id'       => '',

@@ -121,6 +121,7 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 == Changelog ==
 
 = 5.0.1 =
+* Fixed: serious security vulnerability, which allows attacker to run any code using filter in meta, post, or user shortcodes. Thanks to Robert L Mathews.
 * Fixed: changed admin menu position (it was replacing 'Settings' menu on some installations)
 * Fixed: shortcodes prefix field now accepts special characters
 * Fixed: old bug when unwanted code parts was added with shortcode
