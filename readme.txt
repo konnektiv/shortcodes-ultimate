@@ -120,6 +120,9 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 
 == Changelog ==
 
+= 5.0.2 =
+* Fixed: an issue where RTL stylesheet won't displayed if custom CSS field is empty
+
 = 5.0.1 =
 * Fixed: serious security vulnerability, which allows attacker to run any code using filter in meta, post, or user shortcodes. Thanks to Robert L Mathews.
 * Fixed: changed admin menu position (it was replacing 'Settings' menu on some installations)
