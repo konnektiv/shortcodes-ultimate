@@ -60,11 +60,11 @@ Activate the plugin at "Dashboard – Plugins" administration page.
 
 == Screenshots ==
 
-1. Insert Shortcode button added above the post editor
-2. Insert Shortcode window
-3. Variations of [button] shortcode
-4. Tabs, spoilers, quotes/testimonials, boxes, notes
-5. Image slider, carousel and custom gallery
+1. Insert Shortcode button added above the editor
+2. Shortcode insertion window
+3. Shortcode settings
+4. Shortcodes: button, tabs, box, carousel
+5. Shortcodes: spoiler, service, list, columns, note
 
 
 == Frequently Asked Questions ==
