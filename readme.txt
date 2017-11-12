@@ -4,7 +4,7 @@ License: GPLv3
 Donate link: https://paypal.me/anovladimir
 Tags: shortcode, toggle, columns, button, slider, video, map, visual, responsive, shortcodes, youtube, vimeo, audio, mp3, tabs, jquery, box, accordion, toggle, pullquote, list, image, gallery, navigation, permalink, feed, rss, members, membership, guests, carousel, icons, rtl, multilingual
 Requires at least: 3.5
-Tested up to: 4.8
+Tested up to: 4.9
 Stable tag: trunk
 
 A comprehensive collection of visual components for your site
