@@ -137,7 +137,7 @@ jQuery(document).ready(function($) {
 	});
 
 	// Expand
-	$('.su-expand-link').on('click', function() {
+	$('body:not(.su-other-shortcodes-loaded)').on('click', '.su-expand-link', function() {
 		var $this = $(this),
 			$container = $this.parents('.su-expand'),
 			$content = $container.children('.su-expand-content');
