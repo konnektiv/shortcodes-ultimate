@@ -1826,6 +1826,12 @@ class Su_Data {
 							'name' => __( 'CSV file', 'shortcodes-ultimate' ),
 							'desc' => __( 'Upload CSV file if you want to create HTML-table from file', 'shortcodes-ultimate' )
 						),
+						'responsive' => array(
+							'type' => 'bool',
+							'default' => 'no',
+							'name' => __( 'Responsive', 'shortcodes-ultimate' ),
+							'desc' => __( 'Add horizontal scrollbar if table width larger than page width', 'shortcodes-ultimate' )
+						),
 						'class' => array(
 							'type' => 'extra_css_class',
 							'name' => __( 'Extra CSS class', 'shortcodes-ultimate' ),

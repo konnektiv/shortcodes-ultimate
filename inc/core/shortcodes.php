@@ -828,8 +828,12 @@ class Su_Shortcodes {
 	public static function table( $atts = null, $content = null ) {
 		$atts = shortcode_atts( array(
 				'url'   => false,
+				'responsive' => false,
 				'class' => ''
 			), $atts, 'table' );
+		if ( $atts['responsive'] ) {
+			$atts['class'] .= ' su-table-responsive';
+		}
 		$return = '<div class="su-table' . su_ecssc( $atts ) . '">';
 		$return .= ( $atts['url'] ) ? su_parse_csv( $atts['url'] ) : do_shortcode( $content );
 		$return .= '</div>';

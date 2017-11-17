@@ -109,6 +109,7 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 * Fixed: an issue where RTL stylesheet won't displayed if custom CSS field is empty
 * Fixed: icon sizes at 'Dashboard - Available Shortcodes' page
 * Fixed: [expand] shortcode now works when loaded through AJAX
+* Added: new attribute 'responsive' for table shortcode: [su_table responsive="no|yes"]
 
 = 5.0.1 =
 * Fixed: serious security vulnerability, which allows attacker to run any code using filter in meta, post, or user shortcodes. Thanks to Robert L Mathews.
