@@ -660,6 +660,7 @@ class Su_Shortcodes {
 				'theme'          => 'dark',
 				'https'          => 'no',
 				'wmode'          => '',
+				'playsinline'    => 'no',
 				'class'          => ''
 			), $atts, 'youtube_advanced' );
 		if ( !$atts['url'] ) return Su_Tools::error( __FUNCTION__, __( 'please specify correct url', 'shortcodes-ultimate' ) );
@@ -668,7 +669,7 @@ class Su_Shortcodes {
 		// Check that url is specified
 		if ( !$id ) return Su_Tools::error( __FUNCTION__, __( 'please specify correct url', 'shortcodes-ultimate' ) );
 		// Prepare params
-		foreach ( array( 'autohide', 'autoplay', 'controls', 'fs', 'loop', 'modestbranding', 'playlist', 'rel', 'showinfo', 'theme', 'wmode' ) as $param ) $params[$param] = str_replace( array( 'no', 'yes', 'alt' ), array( '0', '1', '2' ), $atts[$param] );
+		foreach ( array( 'autohide', 'autoplay', 'controls', 'fs', 'loop', 'modestbranding', 'playlist', 'rel', 'showinfo', 'theme', 'wmode', 'playsinline' ) as $param ) $params[$param] = str_replace( array( 'no', 'yes', 'alt' ), array( '0', '1', '2' ), $atts[$param] );
 		// Correct loop
 		if ( $params['loop'] === '1' && $params['playlist'] === '' ) $params['playlist'] = $id;
 		// Prepare protocol
