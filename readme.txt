@@ -109,6 +109,7 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 * Fixed: an issue where RTL stylesheet won't displayed if custom CSS field is empty
 * Fixed: icon sizes at 'Dashboard - Available Shortcodes' page
 * Fixed: [expand] shortcode now works when loaded through AJAX
+* Fixed: border-radius on [box] shortcode
 * Added: new attribute 'responsive' for table shortcode: [su_table responsive="no|yes"]
 * Added: new attribute 'playsinline' for youtube_advanced shortcode: [su_youtube_advanced playsinline="no|yes"]
 

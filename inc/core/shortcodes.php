@@ -468,6 +468,7 @@ class Su_Shortcodes {
 	}
 
 	public static function box( $atts = null, $content = null ) {
+
 		$atts = shortcode_atts( array(
 				'title'       => __( 'This is box title', 'shortcodes-ultimate' ),
 				'style'       => 'default',
@@ -477,14 +478,30 @@ class Su_Shortcodes {
 				'radius'      => '3',
 				'class'       => ''
 			), $atts, 'box' );
-		if ( $atts['color'] !== null ) $atts['box_color'] = $atts['color'];
-		// Prepare border-radius
-		$radius = ( $atts['radius'] != '0' ) ? 'border-radius:' . $atts['radius'] . 'px;-moz-border-radius:' . $atts['radius'] . 'px;-webkit-border-radius:' . $atts['radius'] . 'px;' : '';
-		$title_radius = ( $atts['radius'] != '0' ) ? $atts['radius'] - 1 : '';
-		$title_radius = ( $title_radius ) ? '-webkit-border-top-left-radius:' . $title_radius . 'px;-webkit-border-top-right-radius:' . $title_radius . 'px;-moz-border-radius-topleft:' . $title_radius . 'px;-moz-border-radius-topright:' . $title_radius . 'px;border-top-left-radius:' . $title_radius . 'px;border-top-right-radius:' . $title_radius . 'px;' : '';
+
+		if ( $atts['color'] !== null ) {
+			$atts['box_color'] = $atts['color'];
+		}
+
+		$atts['radius'] = is_numeric( $atts['radius'] ) ? intval( $atts['radius'] ) : 0;
+		$atts['inner_radius'] = $atts['radius'] > 2 ? $atts['radius'] - 2 : 0;
+
 		su_query_asset( 'css', 'su-box-shortcodes' );
+
 		// Return result
-		return '<div class="su-box su-box-style-' . $atts['style'] . su_ecssc( $atts ) . '" style="border-color:' . su_hex_shift( $atts['box_color'], 'darker', 20 ) . ';' . $radius . '"><div class="su-box-title" style="background-color:' . $atts['box_color'] . ';color:' . $atts['title_color'] . ';' . $title_radius . '">' . su_scattr( $atts['title'] ) . '</div><div class="su-box-content su-clearfix">' . su_do_shortcode( $content, 'b' ) . '</div></div>';
+		return sprintf(
+			'<div class="su-box su-box-style-%1$s%2$s" style="border-color:%3$s;border-radius:%4$spx"><div class="su-box-title" style="background-color:%5$s;color:%6$s;border-top-left-radius:%7$spx;border-top-right-radius:%7$spx">%8$s</div><div class="su-box-content su-clearfix" style="border-bottom-left-radius:%7$spx;border-bottom-right-radius:%7$spx">%9$s</div></div>',
+			esc_attr( $atts['style'] ),
+			su_ecssc( $atts ),
+			su_hex_shift( $atts['box_color'], 'darker', 20 ),
+			$atts['radius'],
+			$atts['box_color'],
+			$atts['title_color'],
+			$atts['inner_radius'],
+			su_scattr( $atts['title'] ),
+			su_do_shortcode( $content, 'b' )
+		);
+
 	}
 
 	public static function note( $atts = null, $content = null ) {
