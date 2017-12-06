@@ -1218,8 +1218,6 @@ class Su_Shortcodes {
 	}
 
 	public static function posts( $atts = null, $content = null ) {
-		// Prepare error var
-		$error = null;
 		// Parse attributes
 		$atts = shortcode_atts( array(
 				'template'            => 'templates/default-loop.php',
