@@ -56,8 +56,17 @@ function run_shortcodes_ultimate() {
 
 	$plugin = new Shortcodes_Ultimate( __FILE__, '5.0.0' );
 
-	do_action( 'su/ready', $plugin );
-
 }
 
 run_shortcodes_ultimate();
+
+/**
+ * Finishes execution of the plugin.
+ *
+ * @since 5.0.2
+ */
+function shutdown_shortcodes_ultimate() {
+	do_action( 'su/ready' );
+}
+
+add_action( 'plugins_loaded', 'shutdown_shortcodes_ultimate' );
