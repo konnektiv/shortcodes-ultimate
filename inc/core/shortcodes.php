@@ -1218,6 +1218,9 @@ class Su_Shortcodes {
 	}
 
 	public static function posts( $atts = null, $content = null ) {
+
+		$original_atts = $atts;
+
 		// Parse attributes
 		$atts = shortcode_atts( array(
 				'template'            => 'templates/default-loop.php',
@@ -1237,8 +1240,6 @@ class Su_Shortcodes {
 				'post_status'         => 'publish',
 				'ignore_sticky_posts' => 'no'
 			), $atts, 'posts' );
-
-		$original_atts = $atts;
 
 		$author = sanitize_text_field( $atts['author'] );
 		$id = $atts['id']; // Sanitized later as an array of integers
@@ -1300,9 +1301,12 @@ class Su_Shortcodes {
 			// Check for multiple taxonomy queries
 			$count = 2;
 			$more_tax_queries = false;
-			while ( isset( $original_atts['taxonomy_' . $count] ) && !empty( $original_atts['taxonomy_' . $count] ) &&
+			while (
+				isset( $original_atts['taxonomy_' . $count] ) &&
+				! empty( $original_atts['taxonomy_' . $count] ) &&
 				isset( $original_atts['tax_' . $count . '_term'] ) &&
-				!empty( $original_atts['tax_' . $count . '_term'] ) ) {
+				! empty( $original_atts['tax_' . $count . '_term'] )
+			) {
 				// Sanitize values
 				$more_tax_queries = true;
 				$taxonomy = sanitize_key( $original_atts['taxonomy_' . $count] );
@@ -1316,14 +1320,23 @@ class Su_Shortcodes {
 					'operator' => $tax_operator );
 				$count++;
 			}
-			if ( $more_tax_queries ):
+			if ( $more_tax_queries ) {
+
 				$tax_relation = 'AND';
-			if ( isset( $original_atts['tax_relation'] ) &&
-				in_array( $original_atts['tax_relation'], array( 'AND', 'OR' ) )
-			) $tax_relation = $original_atts['tax_relation'];
-			$args['tax_query']['relation'] = $tax_relation;
-			endif;
+
+				if (
+					isset( $original_atts['tax_relation'] ) &&
+					in_array( $original_atts['tax_relation'], array( 'AND', 'OR' ) )
+				) {
+					$tax_relation = $original_atts['tax_relation'];
+				}
+
+				$args['tax_query']['relation'] = $tax_relation;
+
+			}
+
 			$args = array_merge( $args, $tax_args );
+
 		}
 
 		// If post parent attribute, set up parent
@@ -1570,7 +1583,7 @@ class Su_Shortcodes {
 			// Sanitize
 			$atts['time'] = preg_replace( "/[^0-9-,:]/", '', $atts['time'] );
 			// Loop time ranges
-			foreach( explode( ',', $atts['time'] ) as $range ) {
+			foreach ( explode( ',', $atts['time'] ) as $range ) {
 				// Check for range symbol
 				if ( strpos( $range, '-' ) === false ) return Su_Tools::error( __FUNCTION__, sprintf( __( 'Incorrect time range (%s). Please use - (minus) symbol to specify time range. Example: 14:00 - 18:00', 'shortcodes-ultimate' ), $range ) );
 				// Split begin/end time
