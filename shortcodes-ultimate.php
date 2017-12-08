@@ -54,7 +54,7 @@ function run_shortcodes_ultimate() {
 
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-shortcodes-ultimate.php';
 
-	$plugin = new Shortcodes_Ultimate( __FILE__, '5.0.0' );
+	$plugin = new Shortcodes_Ultimate( __FILE__, '5.0.2' );
 
 }
 
