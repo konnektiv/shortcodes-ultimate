@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Shortcodes Ultimate
- * Plugin URI: http://getshortcodes.com/
+ * Plugin URI: https://getshortcodes.com/
  * Version: 5.0.2
  * Author: Vladimir Anokhin
  * Author URI: https://vanokhin.com/
