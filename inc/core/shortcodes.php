@@ -1415,7 +1415,7 @@ class Su_Shortcodes {
 		$return = '<' . $tag . ' class="su-animate' . su_ecssc( $atts ) . '" style="visibility:hidden;' . $time . '" data-animation="' . $atts['type'] . '" data-duration="' . $atts['duration'] . '" data-delay="' . $atts['delay'] . '">' . do_shortcode( $content ) . '</' . $tag . '>';
 		su_query_asset( 'css', 'animate' );
 		su_query_asset( 'js', 'jquery' );
-		su_query_asset( 'js', 'inview' );
+		su_query_asset( 'js', 'jquery-inview' );
 		su_query_asset( 'js', 'su-other-shortcodes' );
 		return $return;
 	}

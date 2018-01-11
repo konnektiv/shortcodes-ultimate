@@ -55,7 +55,7 @@ class Su_Assets {
 		// Animate.css
 		wp_register_style( 'animate', plugins_url( 'assets/css/animate.css', SU_PLUGIN_FILE ), false, '3.1.1', 'all' );
 		// InView
-		wp_register_script( 'inview', plugins_url( 'assets/js/inview.js', SU_PLUGIN_FILE ), array( 'jquery' ), '2.1.1', true );
+		wp_register_script( 'jquery-inview', plugins_url( 'assets/js/jquery.inview.js', SU_PLUGIN_FILE ), array( 'jquery' ), '1.1.2', true );
 		// qTip
 		wp_register_style( 'qtip', plugins_url( 'assets/css/qtip.css', SU_PLUGIN_FILE ), false, '2.1.1', 'all' );
 		wp_register_script( 'qtip', plugins_url( 'assets/js/qtip.js', SU_PLUGIN_FILE ), array( 'jquery' ), '2.1.1', true );

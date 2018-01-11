@@ -105,6 +105,9 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 
 == Changelog ==
 
+= 5.0.3 =
+* Changed: Inview.js library replaced with [jQuery.Inview](https://github.com/protonet/jquery.inview)
+
 = 5.0.2 =
 * Fixed: an issue where RTL stylesheet won't displayed if custom CSS field is empty
 * Fixed: icon sizes at 'Dashboard - Available Shortcodes' page
