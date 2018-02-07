@@ -1381,7 +1381,7 @@ class Su_Shortcodes {
 			), $atts, 'dummy_text' );
 		$transient = 'su/cache/dummy_text/' . sanitize_text_field( $atts['what'] ) . '/' . intval( $atts['amount'] );
 		$return = get_transient( $transient );
-		if ( $return && $atts['cache'] === 'yes' && SU_ENABLE_CACHE ) return $return;
+		if ( $return && $atts['cache'] === 'yes' ) return $return;
 		else {
 			$xml = simplexml_load_file( 'http://www.lipsum.com/feed/xml?amount=' . $atts['amount'] . '&what=' . $atts['what'] . '&start=0' );
 			$return = '<div class="su-dummy-text' . su_ecssc( $atts ) . '">' . wpautop( str_replace( "\n", "\n\n", $xml->lipsum ) ) . '</div>';

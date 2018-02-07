@@ -107,6 +107,7 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 
 = 5.0.3 =
 * Changed: Inview.js library replaced with [jQuery.Inview](https://github.com/protonet/jquery.inview)
+* Fixed: caching issue with [su_dummy_text]
 
 = 5.0.2 =
 * Fixed: an issue where RTL stylesheet won't displayed if custom CSS field is empty
