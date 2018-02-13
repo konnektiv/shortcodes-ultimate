@@ -1359,7 +1359,7 @@ class Su_Shortcodes {
 		// Search for template in theme directory
 		elseif ( file_exists( TEMPLATEPATH . '/' . $atts['template'] ) ) load_template( TEMPLATEPATH . '/' . $atts['template'], false );
 		// Search for template in plugin directory
-		elseif ( path_join( dirname( SU_PLUGIN_FILE ), $atts['template'] ) ) load_template( path_join( dirname( SU_PLUGIN_FILE ), $atts['template'] ), false );
+		elseif ( file_exists( path_join( dirname( SU_PLUGIN_FILE ), $atts['template'] ) ) ) load_template( path_join( dirname( SU_PLUGIN_FILE ), $atts['template'] ), false );
 		// Template not found
 		else echo Su_Tools::error( __FUNCTION__, __( 'template not found', 'shortcodes-ultimate' ) );
 		$output = ob_get_contents();
