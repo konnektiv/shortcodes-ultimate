@@ -105,6 +105,9 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 
 == Changelog ==
 
+= 5.0.4 =
+* Fixed: added missing FontAwesome icons
+
 = 5.0.3 =
 * Changed: Inview.js library replaced with [jQuery.Inview](https://github.com/protonet/jquery.inview)
 * Fixed: caching issue with [su_dummy_text]
