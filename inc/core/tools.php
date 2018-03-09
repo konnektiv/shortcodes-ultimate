@@ -159,6 +159,30 @@ function su_hex2rgb( $colour, $delimiter = '-' ) {
 }
 
 /**
+ * Tries to convert an attachment URL into a post ID.
+ *
+ *
+ * @global wpdb $wpdb WordPress database abstraction object.
+ *
+ * @param string $url The URL to resolve.
+ * @return int The found post ID, or 0 on failure.
+ */
+function su_attachment_url_to_postid( $url ) {
+	global $wpdb;
+
+	$attachment_id = false;
+
+	if ( function_exists( 'attachment_url_to_postid' ) )
+		$attachment_id = attachment_url_to_postid( $url );
+	else {
+		$query = $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE guid='%s'", $url );
+		$attachment_id = $wpdb->get_var( $query );
+	}
+
+	return $attachment_id;
+}
+
+/**
  *  Resizes an image and returns an array containing the resized URL, width, height and file type. Uses native Wordpress functionality.
  *
  *  @author Matthew Ruddy (http://easinglider.com)
@@ -203,9 +227,10 @@ function su_image_resize( $url, $width = NULL, $height = NULL, $crop = true, $re
 		// Get the destination file name
 		$dest_file_name = "{$dir}/{$name}-{$suffix}.{$ext}";
 		if ( !file_exists( $dest_file_name ) ) {
-			$query = $wpdb->prepare( "SELECT * FROM $wpdb->posts WHERE guid='%s'", $url );
-			$get_attachment = $wpdb->get_results( $query );
-			if ( !$get_attachment )
+
+			$attachment_id = su_attachment_url_to_postid( $url );
+
+			if ( !$attachment_id )
 				return array( 'url' => $url, 'width' => $width, 'height' => $height );
 			// Load Wordpress Image Editor
 			$editor = wp_get_image_editor( $file_path );
@@ -244,10 +269,10 @@ function su_image_resize( $url, $width = NULL, $height = NULL, $crop = true, $re
 			$resized_height = $saved['height'];
 			$resized_type = $saved['mime-type'];
 			// Add the resized dimensions to original image metadata (so we can delete our resized images when the original image is delete from the Media Library)
-			$metadata = wp_get_attachment_metadata( $get_attachment[0]->ID );
+			$metadata = wp_get_attachment_metadata( $attachment_id );
 			if ( isset( $metadata['image_meta'] ) ) {
 				$metadata['image_meta']['resized_images'][] = $resized_width . 'x' . $resized_height;
-				wp_update_attachment_metadata( $get_attachment[0]->ID, $metadata );
+				wp_update_attachment_metadata( $attachment_id, $metadata );
 			}
 			// Create the image array
 			$image_array = array(
@@ -323,9 +348,8 @@ function su_image_resize( $url, $width = NULL, $height = NULL, $crop = true, $re
 				 *  Bail if this image isn't in the Media Library either.
 				 *  We only want to resize Media Library images, so we can be sure they get deleted correctly when appropriate.
 				 */
-			$query = $wpdb->prepare( "SELECT * FROM $wpdb->posts WHERE guid='%s'", $url );
-			$get_attachment = $wpdb->get_results( $query );
-			if ( !$get_attachment )
+			$attachment_id = su_attachment_url_to_postid( $url );
+			if ( !$attachment_id )
 				return array( 'url' => $url, 'width' => $width, 'height' => $height );
 
 			$image = wp_load_image( $file_path );
@@ -410,10 +434,10 @@ function su_image_resize( $url, $width = NULL, $height = NULL, $crop = true, $re
 			$resized_url = str_replace( basename( $url ), basename( $dest_file_name ), $url );
 
 			// Add the resized dimensions to original image metadata (so we can delete our resized images when the original image is delete from the Media Library)
-			$metadata = wp_get_attachment_metadata( $get_attachment[0]->ID );
+			$metadata = wp_get_attachment_metadata( $attachment_id );
 			if ( isset( $metadata['image_meta'] ) ) {
 				$metadata['image_meta']['resized_images'][] = $resized_width . 'x' . $resized_height;
-				wp_update_attachment_metadata( $get_attachment[0]->ID, $metadata );
+				wp_update_attachment_metadata( $attachment_id, $metadata );
 			}
 
 			// Return array with resized image information
