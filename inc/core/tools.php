@@ -197,13 +197,22 @@ function su_clean_shortcodes( $content ) {
  * Custom do_shortcode function for nested shortcodes
  *
  * @param string  $content Shortcode content
- * @param string  $pre     First shortcode letter
+ * @param string  $first_letter     First shortcode letter
  *
  * @return string Formatted content
  */
-function su_do_shortcode( $content, $pre ) {
-	if ( strpos( $content, '[_' ) !== false ) $content = preg_replace( '@(\[_*)_(' . $pre . '|/)@', "$1$2", $content );
+function su_do_shortcode( $content, $first_letter ) {
+
+	$prefix = su_cmpt();
+
+	if ( strpos( $content, '[_' ) !== false ) {
+		// TODO: fix regex (1)
+		// preg_replace( '/(\[_*)_(' . $pre . '|/)/', "$1$2", $content )
+		$content = preg_replace( '@(\[_*)_(' . $first_letter . '|/)@', "$1$2", $content );
+	}
+
 	return do_shortcode( $content );
+
 }
 
 /**
@@ -239,6 +248,12 @@ function su_ecssc( $atts ) {
  * @return bool
  */
 function su_addon_active( $addons ) {
+
+	// TODO: remove is_plugin_active call or make it available on site front
+	if ( ! function_exists( 'is_plugin_active' ) ) {
+		return true;
+	}
+
 	// Prepare add-ons paths
 	$paths = array(
 		'maker' => 'shortcodes-ultimate-maker/shortcodes-ultimate-maker.php',
