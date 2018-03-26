@@ -56,17 +56,17 @@ function run_shortcodes_ultimate() {
 
 	$plugin = new Shortcodes_Ultimate( __FILE__, '5.0.4' );
 
+	do_action( 'su/ready' );
+
 }
 
 run_shortcodes_ultimate();
 
 /**
- * Finishes execution of the plugin.
+ * Retrieves instance of the main plugin class.
  *
- * @since 5.0.2
+ * @since  5.0.4
  */
-function shutdown_shortcodes_ultimate() {
-	do_action( 'su/ready' );
+function shortcodes_ultimate() {
+	return Shortcodes_Ultimate::get_instance();
 }
-
-add_action( 'plugins_loaded', 'shutdown_shortcodes_ultimate' );
