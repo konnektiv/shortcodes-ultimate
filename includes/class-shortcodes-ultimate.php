@@ -97,6 +97,7 @@ class Shortcodes_Ultimate {
 
 		$this->load_dependencies();
 		$this->define_admin_hooks();
+		$this->define_common_hooks();
 
 		self::$instance = $this;
 
@@ -109,6 +110,11 @@ class Shortcodes_Ultimate {
 	 * @access   private
 	 */
 	private function load_dependencies() {
+
+		/**
+		 * Various filters.
+		 */
+		require_once $this->plugin_path . 'includes/filters.php';
 
 		/**
 		 * The class responsible for plugin upgrades.
@@ -199,6 +205,35 @@ class Shortcodes_Ultimate {
 		add_action( 'load-plugins.php',             array( $this->rate_notice, 'defer_first_time' ) );
 		add_action( 'admin_notices',                array( $this->rate_notice, 'display_notice' )   );
 		add_action( 'admin_post_su_dismiss_notice', array( $this->rate_notice, 'dismiss_notice' )   );
+
+	}
+
+	/**
+	 * Register all of the hooks related to both admin area and public part
+	 * functionality of the plugin.
+	 *
+	 * @since    5.0.4
+	 * @access   private
+	 */
+	private function define_common_hooks() {
+
+		/**
+		 * Disable wptexturize filter for nestable shortcodes.
+		 */
+		add_filter( 'no_texturize_shortcodes', 'su_filter_disable_wptexturize', 10 );
+
+		/**
+		 * Enable shortcodes in text widgets and category descriptions.
+		 */
+		add_filter( 'widget_text', 'do_shortcode' );
+		add_filter( 'category_description', 'do_shortcode' );
+
+		/**
+		 * Enable custom formatting.
+		 */
+		if ( get_option( 'su_option_custom-formatting' ) === 'on' ) {
+			add_filter( 'the_content', 'su_filter_custom_formatting' );
+		}
 
 	}
 
