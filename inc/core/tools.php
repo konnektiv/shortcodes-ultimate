@@ -159,21 +159,17 @@ function su_hex2rgb( $colour, $delimiter = '-' ) {
 }
 
 /**
- * Deprecated since 5.0.4. Replaced with su_do_nested_shortcodes()
+ * Custom do_shortcode function for nested shortcodes
  *
- * Custom do_shortcode function for nested shortcodes.
- *
- * @param string  $content      Shortcode content
- * @param string  $first_letter First shortcode letter
+ * @param string  $content Shortcode content
+ * @param string  $pre     First shortcode letter
  *
  * @return string Formatted content
  */
-function su_do_shortcode( $content, $first_letter ) {
-
-	$prefix = su_cmpt();
+function su_do_nested_shortcodes_alt( $content, $pre ) {
 
 	if ( strpos( $content, '[_' ) !== false ) {
-		$content = preg_replace( '@(\[_*)_(' . $first_letter . '|/)@', "$1$2", $content );
+		$content = preg_replace( '@(\[_*)_(' . $pre . '|/)@', "$1$2", $content );
 	}
 
 	return do_shortcode( $content );
@@ -185,10 +181,14 @@ function su_do_shortcode( $content, $first_letter ) {
  *
  * @since  5.0.4
  * @param string  $content   String with nested shortcodes.
- * @param string  $shortcode Shortcodes name (with prefix).
+ * @param string  $shortcode Shortcode tag name (without prefix).
  * @return string            Parsed string.
  */
 function su_do_nested_shortcodes( $content, $shortcode ) {
+
+	if ( get_option( 'su_option_do_nested_shortcodes_alt' ) ) {
+		return su_do_nested_shortcodes_alt( $content, substr( $shortcode, 0, 1 ) );
+	}
 
 	$prefix = su_cmpt();
 
