@@ -17,7 +17,16 @@
  */
 function su_filter_disable_wptexturize( $shortcodes ) {
 
-	$exclude = array( 'spoiler', 'row', 'column', 'list', 'note', 'box', );
+	$prefix = su_cmpt();
+
+	$exclude = array(
+		$prefix . 'spoiler',
+		$prefix . 'row',
+		$prefix . 'column',
+		$prefix . 'list',
+		$prefix . 'note',
+		$prefix . 'box',
+	);
 
 	return array_merge( $shortcodes, $exclude );
 
