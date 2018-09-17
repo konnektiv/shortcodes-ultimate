@@ -483,11 +483,10 @@
 .su-expand-link a:focus {
 	display: inline;
 	text-decoration: none;
+	box-shadow: none;
 	background: transparent;
 	border: none;
 }
-.su-expand-link-style-default .su-expand-link a,
-.su-expand-link-style-default .su-expand-link a:hover { text-decoration: none; }
 .su-expand-link-style-underlined .su-expand-link span { text-decoration: underline; }
 .su-expand-link-style-dotted .su-expand-link span { border-bottom: 1px dotted #333; }
 .su-expand-link-style-dashed .su-expand-link span { border-bottom: 1px dashed #333; }
