@@ -78,16 +78,6 @@ class Su_Assets {
 		wp_register_script( 'swiper', plugins_url( 'assets/js/swiper.js', SU_PLUGIN_FILE ), array( 'jquery' ), '2.6.1', true );
 		// jPlayer
 		wp_register_script( 'jplayer', plugins_url( 'assets/js/jplayer.js', SU_PLUGIN_FILE ), array( 'jquery' ), '2.4.0', true );
-		// Options page
-		wp_register_style( 'su-options-page', plugins_url( 'assets/css/options-page.css', SU_PLUGIN_FILE ), false, SU_PLUGIN_VERSION, 'all' );
-		wp_register_script( 'su-options-page', plugins_url( 'assets/js/options-page.js', SU_PLUGIN_FILE ), array( 'magnific-popup', 'jquery-ui-sortable', 'ace', 'jsrender' ), SU_PLUGIN_VERSION, true );
-		wp_localize_script( 'su-options-page', 'su_options_page', array(
-				'upload_title'  => __( 'Choose files', 'shortcodes-ultimate' ),
-				'upload_insert' => __( 'Add selected files', 'shortcodes-ultimate' ),
-				'not_clickable' => __( 'This button is not clickable', 'shortcodes-ultimate' )
-			) );
-		// Cheatsheet
-		wp_register_style( 'su-cheatsheet', plugins_url( 'assets/css/cheatsheet.css', SU_PLUGIN_FILE ), false, SU_PLUGIN_VERSION, 'all' );
 		// Generator
 		wp_register_style( 'su-generator', plugins_url( 'assets/css/generator.css', SU_PLUGIN_FILE ), array( 'farbtastic', 'magnific-popup' ), SU_PLUGIN_VERSION, 'all' );
 		wp_register_script( 'su-generator', plugins_url( 'assets/js/generator.js', SU_PLUGIN_FILE ), array( 'farbtastic', 'magnific-popup', 'qtip' ), SU_PLUGIN_VERSION, true );
