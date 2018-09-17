@@ -20,11 +20,8 @@ define( 'SU_PLUGIN_VERSION', '5.0.5'  );
 /**
  * Load dependencies.
  */
-require_once 'inc/core/load.php';
 require_once 'inc/core/assets.php';
-require_once 'inc/core/shortcodes.php';
 require_once 'inc/core/tools.php';
-require_once 'inc/core/data.php';
 require_once 'inc/core/generator-views.php';
 require_once 'inc/core/generator.php';
 require_once 'inc/core/widget.php';
