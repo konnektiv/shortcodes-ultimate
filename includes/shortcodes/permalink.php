@@ -9,7 +9,7 @@ su_add_shortcode( array(
 		'group' => 'content other',
 		'atts' => array(
 			'id' => array(
-				'values' => array( ), 'default' => 1,
+				'default' => 1,
 				'name' => __( 'ID', 'shortcodes-ultimate' ),
 				'desc' => __( 'Post or page ID', 'shortcodes-ultimate' )
 			),
@@ -22,6 +22,16 @@ su_add_shortcode( array(
 				'default' => 'self',
 				'name' => __( 'Target', 'shortcodes-ultimate' ),
 				'desc' => __( 'Link target', 'shortcodes-ultimate' )
+			),
+			'title' => array(
+				'default' => '',
+				'name' => __( 'Title', 'shortcodes-ultimate' ),
+				'desc' => __( 'A value for the title attribute of the link', 'shortcodes-ultimate' )
+			),
+			'rel' => array(
+				'default' => '',
+				'name' => __( 'Rel', 'shortcodes-ultimate' ),
+				'desc' => __( 'A value for the rel attribute of the link', 'shortcodes-ultimate' )
 			),
 			'class' => array(
 				'type' => 'extra_css_class',
@@ -38,10 +48,12 @@ su_add_shortcode( array(
 function su_shortcode_permalink( $atts = null, $content = null ) {
 
 	$atts = shortcode_atts( array(
-			'id' => 1,
-			'p' => null, // 3.x
+			'id'     => 1,
+			'p'      => null, // 3.x
 			'target' => 'self',
-			'class' => ''
+			'title'  => '',
+			'rel'    => '',
+			'class'  => '',
 		), $atts, 'permalink' );
 
 	if ( $atts['p'] !== null ) {
@@ -50,10 +62,18 @@ function su_shortcode_permalink( $atts = null, $content = null ) {
 
 	$atts['id'] = su_do_attribute( $atts['id'] );
 
-	$text = $content
-		? $content
-		: get_the_title( $atts['id'] );
+	if ( ! $content ) {
+		$content = get_the_title( $atts['id'] );
+	}
 
-	return '<a href="' . get_permalink( $atts['id'] ) . '" class="' . su_get_css_class( $atts ) . '" title="' . $text . '" target="_' . $atts['target'] . '">' . $text . '</a>';
+	return sprintf(
+		'<a href="%s" title="%s" target="_%s" rel="%s" class="%s">%s</a>',
+		get_permalink( $atts['id'] ),
+		esc_attr( $atts['title'] ),
+		esc_attr( $atts['target'] ),
+		esc_attr( $atts['rel'] ),
+		su_get_css_class( $atts ),
+		do_shortcode( $content )
+	);
 
 }
