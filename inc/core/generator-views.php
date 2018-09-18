@@ -29,7 +29,7 @@ class Su_Generator_Views {
 	public static function select( $id, $field ) {
 
 		// Multiple selects
-		$multiple = ( isset( $field['multiple'] ) ) ? ' multiple' : '';
+		$multiple = isset( $field['multiple'] ) && $field['multiple'] ? ' multiple' : '';
 		$return = '<select name="' . $id . '" id="su-generator-attr-' . $id . '" class="su-generator-attr"' . $multiple . '>';
 		// Create options
 		foreach ( $field['values'] as $option_value => $option_title ) {
