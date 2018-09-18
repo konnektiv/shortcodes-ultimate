@@ -107,13 +107,13 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 == Changelog ==
 
 = 5.0.5 =
-* Added: new option 'mute' for 'su_youtube' and 'su_youtube_advanced' shortcodes
-* Added: support for 'youtube-nocookie.com' domain in 'su_youtube' and 'su_youtube_advanced' shortcodes
-* Added: support for nested shortcodes in the 'title' attribute of the 'su_button' shortcode
-* Added: new option 'dnt' (do not track) for 'su_vimeo' shortcode, [learn more](https://help.vimeo.com/hc/en-us/articles/360001494447-Using-Player-Parameters)
-* Added: new option 'mute' for 'su_vimeo' shortcode
+* Added: new option `mute` for `su_youtube` and `su_youtube_advanced` shortcodes
+* Added: support for `youtube-nocookie.com` domain in `su_youtube` and `su_youtube_advanced` shortcodes
+* Added: support for nested shortcodes in the `title` attribute of the `su_button` shortcode
+* Added: new option `dnt` (do not track) for `su_vimeo` shortcode, [learn more](https://help.vimeo.com/hc/en-us/articles/360001494447-Using-Player-Parameters)
+* Added: new option `mute` for `su_vimeo` shortcode
 * Added: compatibility with fitvid.js
-* Improved: appearance of the 'Show more' and 'Show less' links of the 'su_expand' shortcode
+* Improved: appearance of the `Show more` and `Show less` links of the `su_expand` shortcode
 * Changed: shortcodes styles merged into a single stylesheet
 
 = 5.0.4 =
