@@ -1,12 +1,14 @@
 <?php
 
 su_add_shortcode( array(
-		'id' => 'post',
+		'id'       => 'post',
+		'type'     => 'single',
+		'group'    => 'data',
 		'callback' => 'su_shortcode_post',
-		'image' => su_get_plugin_url() . 'admin/images/shortcodes/post.svg',
-		'name' => __( 'Post data', 'shortcodes-ultimate' ),
-		'type' => 'single',
-		'group' => 'data',
+		'icon'     => 'info-circle',
+		'image'    => su_get_plugin_url() . 'admin/images/shortcodes/post.svg',
+		'name'     => __( 'Post data', 'shortcodes-ultimate' ),
+		'desc'     => __( 'The utility shortcode to display various post data, like post title, status or excerpt', 'shortcodes-ultimate' ),
 		'atts' => array(
 			'field' => array(
 				'type' => 'select',
@@ -54,7 +56,13 @@ su_add_shortcode( array(
 			'post_id' => array(
 				'default' => '',
 				'name' => __( 'Post ID', 'shortcodes-ultimate' ),
-				'desc' => __( 'You can specify custom post ID. Leave this field empty to use an ID of the current post. Current post ID may not work in Live Preview mode', 'shortcodes-ultimate' )
+				'desc' => __( 'You can specify custom post ID. Post slug is also allowed. Leave this field empty to use ID of the current post. Current post ID may not work in Live Preview mode', 'shortcodes-ultimate' )
+			),
+			'post_type' => array(
+				'type' => 'post_type',
+				'default' => 'post',
+				'name' => __( 'Post type', 'shortcodes-ultimate' ),
+				'desc' => __( 'Post type of the post you want to display the data from', 'shortcodes-ultimate' )
 			),
 			'filter' => array(
 				'default' => '',
@@ -62,35 +70,44 @@ su_add_shortcode( array(
 				'desc' => __( 'You can apply custom filter to the retrieved value. Enter here function name. Your function must accept one argument and return modified value. Name of your function must include word <b>filter</b>. Example function: ', 'shortcodes-ultimate' ) . "<br /><pre><code style='display:block;padding:5px'>function my_custom_filter( \$value ) {\n\treturn 'Value is: ' . \$value;\n}</code></pre>"
 			)
 		),
-		'desc' => __( 'Post data', 'shortcodes-ultimate' ),
-		'icon' => 'info-circle',
 	) );
 
 function su_shortcode_post( $atts = null, $content = null ) {
+
 	$atts = shortcode_atts( array(
-			'field'   => 'post_title',
-			'default' => '',
-			'before'  => '',
-			'after'   => '',
-			'post_id' => '',
-			'filter'  => ''
+			'field'     => 'post_title',
+			'default'   => '',
+			'before'    => '',
+			'after'     => '',
+			'post_id'   => '',
+			'post_type' => 'post',
+			'filter'    => ''
 		), $atts, 'post' );
-	// Define current post ID
-	if ( !$atts['post_id'] ) $atts['post_id'] = get_the_ID();
-	// Check post ID
-	if ( !is_numeric( $atts['post_id'] ) || $atts['post_id'] < 1 ) return sprintf( '<p class="su-error">Post: %s</p>', __( 'post ID is incorrect', 'shortcodes-ultimate' ) );
-	// Get the post
-	$post = get_post( $atts['post_id'] );
-	// Set default value if meta is empty
-	$post = ( empty( $post ) || empty( $post->{$atts['field']} ) ) ? $atts['default'] : $post->{$atts['field']};
-	// Apply cutom filter
+
+	if ( ! $atts['post_id'] ) {
+		$atts['post_id'] = get_the_ID();
+	}
+
+	if ( ! $atts['post_id'] ) {
+		return su_error_message( 'Post', __( 'invalid post ID', 'shortcodes-ultimate' ) );
+	}
+
+	$post = is_numeric( $atts['post_id'] )
+		? get_post( $atts['post_id'] )
+		: get_page_by_path( $atts['post_id'], OBJECT, $atts['post_type'] );
+
+	$data = empty( $post ) || empty( $post->{$atts['field']} )
+		? $atts['default']
+		: $post->{$atts['field']};
+
 	if (
 		$atts['filter'] &&
 		su_is_filter_safe( $atts['filter'] ) &&
 		function_exists( $atts['filter'] )
 	) {
-		$post = call_user_func( $atts['filter'], $post );
+		$data = call_user_func( $atts['filter'], $data );
 	}
-	// Return result
-	return ( $post ) ? $atts['before'] . $post . $atts['after'] : '';
+
+	return $data ? $atts['before'] . $data . $atts['after'] : '';
+
 }

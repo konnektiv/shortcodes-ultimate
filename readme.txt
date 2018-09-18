@@ -108,18 +108,17 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 
 = 5.0.5 =
 
-New features:
+Improvements:
+* Improved compatibility with fitvid.js;
+* Improved appearance of the `Show more` and `Show less` links of the `su_expand` shortcode;
 * The new option `mute` for `su_youtube` and `su_youtube_advanced` shortcodes;
 * Support for the `youtube-nocookie.com` domain in `su_youtube` and `su_youtube_advanced` shortcodes;
 * Support for nested shortcodes in the `title` attribute of the `su_button` shortcode;
 * The new option `dnt` (do not track) for the `su_vimeo` shortcode, [learn more](https://help.vimeo.com/hc/en-us/articles/360001494447-Using-Player-Parameters);
 * The new option `mute` for the `su_vimeo` shortcode;
 * https support for the `su_dailymotion` shortcode;
-* New options `title` and `rel` for the `su_permalink` shortcode.
-
-Improvements:
-* Improved compatibility with fitvid.js;
-* Appearance of the `Show more` and `Show less` links of the `su_expand` shortcode.
+* New options `title` and `rel` for the `su_permalink` shortcode;
+* The `su_post` shortcode now support slugs in the `post_id` attribute.
 
 Changes:
 * Shortcodes styles merged into a single stylesheet.
