@@ -153,6 +153,7 @@ class Shortcodes_Ultimate {
 		 * Deprecated stuff.
 		 */
 		require_once $this->plugin_path . 'includes/deprecated/class-su-data.php';
+		require_once $this->plugin_path . 'includes/deprecated/class-su-tools.php';
 		require_once $this->plugin_path . 'includes/deprecated/functions.php';
 
 		/**
