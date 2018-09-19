@@ -106,26 +106,36 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 
 == Changelog ==
 
+= 5.0.6 =
+
+**Fixes**
+
+- Added missing images for `su_audio`, `su_video`, `su_slider` and `su_carousel`
+
+
 = 5.0.5 =
 
-Improvements:
-* Improved compatibility with fitvid.js;
-* Improved appearance of the `Show more` and `Show less` links of the `su_expand` shortcode;
-* The new option `mute` for `su_youtube` and `su_youtube_advanced` shortcodes;
-* Support for the `youtube-nocookie.com` domain in `su_youtube` and `su_youtube_advanced` shortcodes;
-* Support for nested shortcodes in the `title` attribute of the `su_button` shortcode;
-* The new option `dnt` (do not track) for the `su_vimeo` shortcode, [learn more](https://help.vimeo.com/hc/en-us/articles/360001494447-Using-Player-Parameters);
-* The new option `mute` for the `su_vimeo` shortcode;
-* https support for the `su_dailymotion` shortcode;
-* New options `title` and `rel` for the `su_permalink` shortcode;
-* The `su_post` shortcode now support slugs in the `post_id` attribute;
-* The new option `zoom` for `su_gmap`.
+**Improvements**
 
-Changes:
-* Shortcodes styles merged into a single stylesheet.
+- Improved compatibility with fitvid.js;
+- Improved appearance of the `Show more` and `Show less` links of the `su_expand` shortcode;
+- The new option `mute` for `su_youtube` and `su_youtube_advanced` shortcodes;
+- Support for the `youtube-nocookie.com` domain in `su_youtube` and `su_youtube_advanced` shortcodes;
+- Support for nested shortcodes in the `title` attribute of the `su_button` shortcode;
+- The new option `dnt` (do not track) for the `su_vimeo` shortcode, [learn more](https://help.vimeo.com/hc/en-us/articles/360001494447-Using-Player-Parameters);
+- The new option `mute` for the `su_vimeo` shortcode;
+- https support for the `su_dailymotion` shortcode;
+- New options `title` and `rel` for the `su_permalink` shortcode;
+- The `su_post` shortcode now support slugs in the `post_id` attribute;
+- The new option `zoom` for `su_gmap`.
 
-Fixes:
-* Fixed warning in `su_siblings` shortcode.
+**Changes**
+
+- Shortcodes styles merged into a single stylesheet.
+
+**Fixes**
+
+- Fixed warning in `su_siblings` shortcode.
 
 
 = 5.0.4 =
