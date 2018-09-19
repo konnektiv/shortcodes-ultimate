@@ -92,7 +92,7 @@ class Su_Assets {
 				'hotkey'               => get_option( 'su_option_hotkey' )
 			) );
 		// Shortcodes stylesheets
-		wp_register_style( 'su-shortcodes', su_get_plugin_url() . 'includes/css/shortcodes.css', false, SU_PLUGIN_VERSION, 'all' );
+		wp_register_style( 'su-shortcodes', plugins_url( 'includes/css/shortcodes.css', SU_PLUGIN_FILE ), false, SU_PLUGIN_VERSION, 'all' );
 		// DEPRECATED - Shortcodes stylesheets
 		wp_register_style( 'su-content-shortcodes', '', false, SU_PLUGIN_VERSION, 'all' );
 		wp_register_style( 'su-box-shortcodes', '', false, SU_PLUGIN_VERSION, 'all' );
