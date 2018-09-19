@@ -26,12 +26,27 @@ su_add_shortcode( array(
 	) );
 
 function su_shortcode_siblings( $atts = null, $content = null ) {
-	$atts = shortcode_atts( array( 'depth' => 1, 'class' => '' ), $atts, 'siblings' );
+
+	$atts = shortcode_atts( array(
+			'depth' => 1,
+			'class' => ''
+		), $atts, 'siblings' );
+
 	global $post;
-	$return = wp_list_pages( array( 'title_li' => '',
-			'echo' => 0,
+
+	if ( empty( $post ) || empty( $post->post_parent ) ) {
+		return;
+	}
+
+	$return = wp_list_pages( array(
+			'title_li' => '',
+			'echo'     => 0,
 			'child_of' => $post->post_parent,
-			'depth' => $atts['depth'],
-			'exclude' => $post->ID ) );
-	return ( $return ) ? '<ul class="su-siblings' . su_get_css_class( $atts ) . '">' . $return . '</ul>' : false;
+			'depth'    => $atts['depth'],
+			'exclude'  => $post->ID
+		) );
+
+	return $return
+		? '<ul class="su-siblings' . su_get_css_class( $atts ) . '">' . $return . '</ul>'
+		: '';
 }
