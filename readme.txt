@@ -118,10 +118,14 @@ Improvements:
 * The new option `mute` for the `su_vimeo` shortcode;
 * https support for the `su_dailymotion` shortcode;
 * New options `title` and `rel` for the `su_permalink` shortcode;
-* The `su_post` shortcode now support slugs in the `post_id` attribute.
+* The `su_post` shortcode now support slugs in the `post_id` attribute;
+* The new option `zoom` for `su_gmap`.
 
 Changes:
 * Shortcodes styles merged into a single stylesheet.
+
+Fixes:
+* Fixed warning in `su_siblings` shortcode.
 
 
 = 5.0.4 =
