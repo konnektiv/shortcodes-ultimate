@@ -22,7 +22,7 @@ su_add_shortcode( array(
 				'name' => __( 'Login link text', 'shortcodes-ultimate' ), 'desc' => __( 'Text for the login link', 'shortcodes-ultimate' )
 			),
 			'login_url' => array(
-				'default' => wp_login_url(),
+				'default' => did_action( 'plugins_loaded' ) ? wp_login_url() : '',
 				'name' => __( 'Login link url', 'shortcodes-ultimate' ), 'desc' => __( 'Login link url', 'shortcodes-ultimate' )
 			),
 			'class' => array(
