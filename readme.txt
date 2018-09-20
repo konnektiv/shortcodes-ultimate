@@ -111,6 +111,7 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 **Fixes**
 
 - Added missing images for `su_audio`, `su_video`, `su_slider` and `su_carousel`
+- Fixed Fatal error: Call to a member function get_page_permastruct() on null in link-template.php:357
 
 
 = 5.0.5 =
