@@ -67,6 +67,15 @@ if ( ! class_exists( 'Su_Tools' ) ) {
 
 		}
 
+		/**
+		 *
+		 *
+		 * @deprecated 5.0.5
+		 */
+		public static function do_attr( $value ) {
+			return do_shortcode( str_replace( array( '{', '}' ), array( '[', ']' ), $value ) );
+		}
+
 	}
 
 }
