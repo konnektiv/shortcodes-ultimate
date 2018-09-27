@@ -183,8 +183,7 @@ class Su_Generator {
 		// Output results
 		do_action( 'su/generator/preview/before' );
 		echo '<h5>' . __( 'Preview', 'shortcodes-ultimate' ) . '</h5>';
-		// echo '<hr />' . stripslashes( $_POST['shortcode'] ) . '<hr />'; // Uncomment for debug
-		echo do_shortcode( str_replace( '\"', '"', $_POST['shortcode'] ) );
+		echo do_shortcode( wp_kses_post( $_POST['shortcode'] ) );
 		echo '<div style="clear:both"></div>';
 		do_action( 'su/generator/preview/after' );
 		die();
