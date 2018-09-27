@@ -194,8 +194,14 @@ class Su_Generator {
 	}
 
 	public static function access_check() {
-		$by_role = ( get_option( 'su_generator_access' ) ) ? current_user_can( get_option( 'su_generator_access' ) ) : true;
-		return current_user_can( 'edit_posts' ) && $by_role;
+
+		$required_capability = (string) get_option(
+			'su_option_generator_access',
+			'manage_options'
+		);
+
+		return current_user_can( $required_capability );
+
 	}
 
 	public static function ajax_get_icons() {
