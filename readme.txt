@@ -106,6 +106,13 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 
 == Changelog ==
 
+= 5.0.8 =
+
+**Improvements**
+
+- Various code improvements
+
+
 = 5.0.7 =
 
 **Security update**
