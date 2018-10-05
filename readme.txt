@@ -112,9 +112,11 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 
 - Fixed Live Preview
 
-**Improvements**
+**Other**
 
 - Various code improvements
+- New filters for gallery, slider, and carousel
+- Returned `su_cmpt()` and `su_compatibility_mode_prefix()` utils
 
 
 = 5.0.7 =
