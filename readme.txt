@@ -108,6 +108,10 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 
 = 5.0.8 =
 
+**Fixes**
+
+- Fixed Live Preview
+
 **Improvements**
 
 - Various code improvements
