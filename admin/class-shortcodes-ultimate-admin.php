@@ -358,6 +358,29 @@ abstract class Shortcodes_Ultimate_Admin {
 	}
 
 	/**
+	 * Callback function to sanitize checkbox value.
+	 *
+	 * @since  5.0.0
+	 * @param mixed   $value String 'on' or null.
+	 * @return string        Sanitized checkbox value ('on' or empty string '').
+	 */
+	public function sanitize_checkbox( $value ) {
+		return ! empty( $value ) && 'on' === $value ? 'on' : '';
+	}
+
+	/**
+	 * Callback function to sanitize prefix value.
+	 *
+	 * @since  5.0.1
+	 * @param string  $prefix Prefix value.
+	 * @return string          Sanitized string.
+	 * @see  https://developer.wordpress.org/reference/functions/add_shortcode/ Source of the RegExp.
+	 */
+	public function sanitize_prefix( $prefix ) {
+		return preg_replace( '@[<>&/\[\]\x00-\x20="\']@', '', $prefix );
+	}
+
+	/**
 	 * Utility function to get specified template by it's name.
 	 *
 	 * @since 5.0.0
