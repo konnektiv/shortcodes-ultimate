@@ -17,10 +17,9 @@ final class Shortcodes_Ultimate_Admin_Top_Level extends Shortcodes_Ultimate_Admi
 	 * @param string  $plugin_file    The path of the main plugin file
 	 * @param string  $plugin_version The current version of the plugin
 	 */
-	public function __construct( $plugin_file, $plugin_version ) {
-		parent::__construct( $plugin_file, $plugin_version );
+	public function __construct( $plugin_file, $plugin_version, $plugin_prefix ) {
+		parent::__construct( $plugin_file, $plugin_version, $plugin_prefix );
 	}
-
 
 	/**
 	 * Add menu page
@@ -40,12 +39,22 @@ final class Shortcodes_Ultimate_Admin_Top_Level extends Shortcodes_Ultimate_Admi
 			__( 'Shortcodes Ultimate', 'shortcodes-ultimate' ),
 			__( 'Shortcodes', 'shortcodes-ultimate' ),
 			$this->get_capability(),
-			'shortcodes-ultimate',
+			rtrim( $this->plugin_prefix, '-_' ),
 			'__return_false',
 			$icon,
 			'80.11'
 		);
 
+	}
+
+	/**
+	 * Display menu page.
+	 *
+	 * @since    5.0.8
+	 * @return   string   Menu page markup.
+	 */
+	public function the_menu_page() {
+		$this->the_template( 'admin/partials/pages/shortcodes' );
 	}
 
 }

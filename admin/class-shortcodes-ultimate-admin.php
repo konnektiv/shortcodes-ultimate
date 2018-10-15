@@ -29,6 +29,15 @@ abstract class Shortcodes_Ultimate_Admin {
 	protected $plugin_version;
 
 	/**
+	 * The prefix of the plugin.
+	 *
+	 * @since    5.0.8
+	 * @access   protected
+	 * @var      string      $plugin_prefix   The prefix of the plugin.
+	 */
+	protected $plugin_prefix;
+
+	/**
 	 * The URL of the plugin folder.
 	 *
 	 * @since    5.0.0
@@ -98,11 +107,13 @@ abstract class Shortcodes_Ultimate_Admin {
 	 * @access protected
 	 * @param string  $plugin_file    The path of the main plugin file.
 	 * @param string  $plugin_version The current version of the plugin.
+	 * @param string  $plugin_prefix  The prefix of the plugin.
 	 */
-	protected function __construct( $plugin_file, $plugin_version ) {
+	protected function __construct( $plugin_file, $plugin_version, $plugin_prefix ) {
 
 		$this->plugin_file           = $plugin_file;
 		$this->plugin_version        = $plugin_version;
+		$this->plugin_prefix         = $plugin_prefix;
 		$this->plugin_url            = plugin_dir_url( $plugin_file );
 		$this->plugin_path           = plugin_dir_path( $plugin_file );
 		$this->capability            = 'manage_options';
@@ -191,12 +202,7 @@ abstract class Shortcodes_Ultimate_Admin {
 		$page = sanitize_title( $_GET['page'], false );
 
 		// Replace plugin slug with template prefix
-		$page = str_replace( 'shortcodes-ultimate-', '', $page );
-
-		// Load "Available shortcodes" page
-		if ( $page === 'shortcodes-ultimate' ) {
-			$page = 'shortcodes';
-		}
+		$page = str_replace( $this->plugin_prefix, '', $page );
 
 		$this->the_template( 'admin/partials/pages/' . $page );
 

@@ -35,9 +35,9 @@ final class Shortcodes_Ultimate_Admin_Settings extends Shortcodes_Ultimate_Admin
 	 * @param string  $plugin_file    The path of the main plugin file
 	 * @param string  $plugin_version The current version of the plugin
 	 */
-	public function __construct( $plugin_file, $plugin_version ) {
+	public function __construct( $plugin_file, $plugin_version, $plugin_prefix ) {
 
-		parent::__construct( $plugin_file, $plugin_version );
+		parent::__construct( $plugin_file, $plugin_version, $plugin_prefix );
 
 		$this->plugin_settings = array();
 		$this->setting_defaults = array(
@@ -45,9 +45,9 @@ final class Shortcodes_Ultimate_Admin_Settings extends Shortcodes_Ultimate_Admin
 			'title'       => '',
 			'type'        => 'text',
 			'description' => '',
-			'page'        => 'shortcodes-ultimate-settings',
-			'section'     => 'shortcodes-ultimate-general',
-			'group'       => 'shortcodes-ultimate',
+			'page'        => $this->plugin_prefix . 'settings',
+			'section'     => $this->plugin_prefix . 'general',
+			'group'       => rtrim( $this->plugin_prefix, '-_' ),
 			'callback'    => array( $this, 'display_settings_field' ),
 			'sanitize'    => 'sanitize_text_field',
 		);
@@ -66,11 +66,11 @@ final class Shortcodes_Ultimate_Admin_Settings extends Shortcodes_Ultimate_Admin
 		 * admin.php?page=shortcodes-ultimate-settings
 		 */
 		$this->add_submenu_page(
-			'shortcodes-ultimate',
+			rtrim( $this->plugin_prefix, '-_' ),
 			__( 'Settings', 'shortcodes-ultimate' ),
 			__( 'Settings', 'shortcodes-ultimate' ),
 			$this->get_capability(),
-			'shortcodes-ultimate-settings',
+			$this->plugin_prefix . 'settings',
 			array( $this, 'the_menu_page' )
 		);
 
@@ -87,10 +87,10 @@ final class Shortcodes_Ultimate_Admin_Settings extends Shortcodes_Ultimate_Admin
 		 * Add default settings section.
 		 */
 		add_settings_section(
-			'shortcodes-ultimate-general',
+			$this->plugin_prefix . 'general',
 			__( 'General settings', 'shortcodes-ultimate' ),
 			array( $this, 'display_settings_section' ),
-			'shortcodes-ultimate-settings'
+			$this->plugin_prefix . 'settings'
 		);
 
 		/**
@@ -127,7 +127,7 @@ final class Shortcodes_Ultimate_Admin_Settings extends Shortcodes_Ultimate_Admin
 	 */
 	public function display_settings_section( $args ) {
 
-		$section = str_replace( 'shortcodes-ultimate-', '', $args['id'] );
+		$section = str_replace( $this->plugin_prefix, '', $args['id'] );
 
 		$this->the_template( 'admin/partials/settings/sections/' . $section, $args );
 

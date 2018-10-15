@@ -39,6 +39,15 @@ class Shortcodes_Ultimate {
 	private $plugin_path;
 
 	/**
+	 * The prefix of the plugin.
+	 *
+	 * @since    5.0.8
+	 * @access   private
+	 * @var      string      $plugin_prefix   The prefix of the plugin.
+	 */
+	private $plugin_prefix;
+
+	/**
 	 * Class instance.
 	 *
 	 * @since  5.1.0
@@ -88,12 +97,14 @@ class Shortcodes_Ultimate {
 	 * @since   5.0.0
 	 * @param string  $plugin_file    The path to the main plugin file.
 	 * @param string  $plugin_version The current version of the plugin.
+	 * @param string  $plugin_prefix  The prefix of the plugin.
 	 */
-	public function __construct( $plugin_file, $plugin_version ) {
+	public function __construct( $plugin_file, $plugin_version, $plugin_prefix ) {
 
 		$this->plugin_file    = $plugin_file;
 		$this->plugin_version = $plugin_version;
 		$this->plugin_path    = plugin_dir_path( $plugin_file );
+		$this->plugin_prefix  = $plugin_prefix;
 
 		$this->load_dependencies();
 		$this->define_admin_hooks();

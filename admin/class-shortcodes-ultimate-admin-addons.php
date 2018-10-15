@@ -22,9 +22,9 @@ final class Shortcodes_Ultimate_Admin_Addons extends Shortcodes_Ultimate_Admin {
 	 * @param string  $plugin_file    The path of the main plugin file
 	 * @param string  $plugin_version The current version of the plugin
 	 */
-	public function __construct( $plugin_file, $plugin_version ) {
+	public function __construct( $plugin_file, $plugin_version, $plugin_prefix ) {
 
-		parent::__construct( $plugin_file, $plugin_version );
+		parent::__construct( $plugin_file, $plugin_version, $plugin_prefix );
 
 		$this->api_url           = 'https://getshortcodes.com/api/v1/add-ons/';
 		$this->addons            = array();
@@ -46,11 +46,11 @@ final class Shortcodes_Ultimate_Admin_Addons extends Shortcodes_Ultimate_Admin {
 		 * admin.php?page=shortcodes-ultimate-addons
 		 */
 		$this->add_submenu_page(
-			'shortcodes-ultimate',
+			rtrim( $this->plugin_prefix, '-_' ),
 			__( 'Add-ons', 'shortcodes-ultimate' ),
 			__( 'Add-ons', 'shortcodes-ultimate' ),
 			$this->get_capability(),
-			'shortcodes-ultimate-addons',
+			$this->plugin_prefix . 'addons',
 			array( $this, 'the_menu_page' )
 		);
 
