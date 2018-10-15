@@ -499,6 +499,26 @@ final class Shortcodes_Ultimate_Admin_Shortcodes extends Shortcodes_Ultimate_Adm
 	}
 
 	/**
+	 * Filter to add action links at plugins screen.
+	 *
+	 * @since 5.0.8
+	 * @param array $links Default links.
+	 */
+	public function add_action_links( $links ) {
+
+		$plugin_links = array(
+			sprintf(
+				'<a href="%s">%s</a>',
+				esc_attr( $this->get_component_url() ),
+				esc_html( __( 'Shortcodes', 'shortcodes-ultimate' ) )
+			),
+		);
+
+		return array_merge( $plugin_links, $links );
+
+	}
+
+	/**
 	 * Helper to format output of implode function.
 	 *
 	 * Applies custom format to the every item of the array.

@@ -166,17 +166,22 @@ final class Shortcodes_Ultimate_Admin_Settings extends Shortcodes_Ultimate_Admin
 	}
 
 	/**
-	 * Callback function to sanitize checkbox value.
+	 * Filter to add action links at plugins screen.
 	 *
-	 * @since  5.0.0
-	 * @param mixed   $value String 'on' or null.
-	 * @return string        Sanitized checkbox value ('on' or empty string '').
+	 * @since 5.0.8
+	 * @param array $links Default links.
 	 */
-	public function sanitize_checkbox( $value ) {
+	public function add_action_links( $links ) {
 
-		$value = ( ! empty( $value ) && $value === 'on' ) ? 'on' : '';
+		$plugin_links = array(
+			sprintf(
+				'<a href="%s">%s</a>',
+				esc_attr( $this->get_component_url() ),
+				esc_html( __( 'Settings', 'shortcodes-ultimate' ) )
+			),
+		);
 
-		return $value;
+		return array_merge( $plugin_links, $links );
 
 	}
 

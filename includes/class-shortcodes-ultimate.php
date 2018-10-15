@@ -212,6 +212,12 @@ class Shortcodes_Ultimate {
 		add_action( 'admin_menu',            array( $this->shortcodes_menu, 'admin_menu' ), 5   );
 		add_action( 'current_screen',        array( $this->shortcodes_menu, 'add_help_tab' )    );
 		add_action( 'admin_enqueue_scripts', array( $this->shortcodes_menu, 'enqueue_scripts' ) );
+		add_filter(
+			'plugin_action_links_' . plugin_basename( $this->plugin_file ),
+			array( $this->shortcodes_menu, 'add_action_links' ),
+			20,
+			1
+		);
 
 
 		/**
@@ -227,6 +233,12 @@ class Shortcodes_Ultimate {
 		add_action( 'admin_menu',     array( $this->settings_menu, 'admin_menu' ), 20    );
 		add_action( 'admin_init',     array( $this->settings_menu, 'register_settings' ) );
 		add_action( 'current_screen', array( $this->settings_menu, 'add_help_tab' )      );
+		add_filter(
+			'plugin_action_links_' . plugin_basename( $this->plugin_file ),
+			array( $this->settings_menu, 'add_action_links' ),
+			10,
+			1
+		);
 
 
 		/**
