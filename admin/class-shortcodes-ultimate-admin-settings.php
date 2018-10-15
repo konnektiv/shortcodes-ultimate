@@ -20,13 +20,13 @@ final class Shortcodes_Ultimate_Admin_Settings extends Shortcodes_Ultimate_Admin
 	private $plugin_settings;
 
 	/**
-	 * The slug of the settings page.
+	 * Default values for a single setting.
 	 *
 	 * @since    5.0.0
 	 * @access   private
-	 * @var      array     $settings_page   The slug of the settings page.
+	 * @var      array     $setting_defaults   Default values for a single setting.
 	 */
-	private $settings_page;
+	private $setting_defaults;
 
 	/**
 	 * Initialize the class and set its properties.
