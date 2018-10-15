@@ -59,7 +59,7 @@ final class Shortcodes_Ultimate_Admin_Settings extends Shortcodes_Ultimate_Admin
 	 *
 	 * @since   5.0.0
 	 */
-	public function admin_menu() {
+	public function add_menu_pages() {
 
 		/**
 		 * Submenu: Settings
@@ -81,7 +81,7 @@ final class Shortcodes_Ultimate_Admin_Settings extends Shortcodes_Ultimate_Admin
 	 *
 	 * @since  5.0.0
 	 */
-	public function register_settings() {
+	public function add_settings() {
 
 		/**
 		 * Add default settings section.
@@ -144,12 +144,12 @@ final class Shortcodes_Ultimate_Admin_Settings extends Shortcodes_Ultimate_Admin
 	}
 
 	/**
-	 * Add help tab and set help sidebar at Add-ons page.
+	 * Add help tabs and set help sidebar at Add-ons page.
 	 *
 	 * @since  5.0.0
 	 * @param WP_Screen $screen WP_Screen instance.
 	 */
-	public function add_help_tab( $screen ) {
+	public function add_help_tabs( $screen ) {
 
 		if ( ! $this->is_component_page() ) {
 			return;

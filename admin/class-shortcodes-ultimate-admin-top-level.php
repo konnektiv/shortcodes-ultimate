@@ -26,7 +26,7 @@ final class Shortcodes_Ultimate_Admin_Top_Level extends Shortcodes_Ultimate_Admi
 	 *
 	 * @since   5.0.0
 	 */
-	public function admin_menu() {
+	public function add_menu_pages() {
 
 		// SVG icon (base64-encoded)
 		$icon = apply_filters( 'su/admin/icon', 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlLW1pdGVybGltaXQ9IjEuNDEiIHZpZXdCb3g9IjAgMCAyMCAyMCIgY2xpcC1ydWxlPSJldmVub2RkIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBmaWxsPSIjZjBmNWZhIiBmaWxsLXJ1bGU9Im5vbnplcm8iIGQ9Ik04LjQ4IDIuNzV2Mi41SDUuMjV2OS41aDMuMjN2Mi41SDIuNzVWMi43NWg1Ljczem05LjI3IDE0LjVoLTUuNzN2LTIuNWgzLjIzdi05LjVoLTMuMjN2LTIuNWg1LjczdjE0LjV6Ii8+PC9zdmc+' );

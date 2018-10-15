@@ -125,11 +125,18 @@ abstract class Shortcodes_Ultimate_Admin {
 	}
 
 	/**
-	 * Add menu page
+	 * Register menu pages.
 	 *
 	 * @since   5.0.0
 	 */
-	public function admin_menu() {}
+	public function add_menu_pages() {}
+
+	/**
+	 * Register settings.
+	 *
+	 * @since   5.0.8
+	 */
+	public function add_settings() {}
 
 	/**
 	 * Enqueue JavaScript(s) and Stylesheet(s) for the component.

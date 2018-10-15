@@ -207,7 +207,7 @@ class Shortcodes_Ultimate {
 			$this->plugin_prefix
 		);
 
-		add_action( 'admin_menu', array( $this->top_level_menu, 'admin_menu' ), 5 );
+		add_action( 'admin_menu', array( $this->top_level_menu, 'add_menu_pages' ), 5 );
 
 
 		/**
@@ -220,9 +220,9 @@ class Shortcodes_Ultimate {
 			$this->plugin_prefix
 		);
 
-		add_action( 'admin_menu',            array( $this->shortcodes_menu, 'admin_menu' ), 5   );
-		add_action( 'current_screen',        array( $this->shortcodes_menu, 'add_help_tab' )    );
-		add_action( 'admin_enqueue_scripts', array( $this->shortcodes_menu, 'enqueue_scripts' ) );
+		add_action( 'admin_menu',            array( $this->shortcodes_menu, 'add_menu_pages' ), 5 );
+		add_action( 'current_screen',        array( $this->shortcodes_menu, 'add_help_tabs' )     );
+		add_action( 'admin_enqueue_scripts', array( $this->shortcodes_menu, 'enqueue_scripts' )   );
 		add_filter(
 			'plugin_action_links_' . plugin_basename( $this->plugin_file ),
 			array( $this->shortcodes_menu, 'add_action_links' ),
@@ -241,9 +241,9 @@ class Shortcodes_Ultimate {
 			$this->plugin_prefix
 		);
 
-		add_action( 'admin_menu',     array( $this->settings_menu, 'admin_menu' ), 20    );
-		add_action( 'admin_init',     array( $this->settings_menu, 'register_settings' ) );
-		add_action( 'current_screen', array( $this->settings_menu, 'add_help_tab' )      );
+		add_action( 'admin_menu',     array( $this->settings_menu, 'add_menu_pages' ), 20 );
+		add_action( 'admin_init',     array( $this->settings_menu, 'add_settings' )       );
+		add_action( 'current_screen', array( $this->settings_menu, 'add_help_tabs' )      );
 		add_filter(
 			'plugin_action_links_' . plugin_basename( $this->plugin_file ),
 			array( $this->settings_menu, 'add_action_links' ),
@@ -262,9 +262,9 @@ class Shortcodes_Ultimate {
 			$this->plugin_prefix
 		);
 
-		add_action( 'admin_menu',            array( $this->addons_menu, 'admin_menu' ), 30  );
-		add_action( 'admin_enqueue_scripts', array( $this->addons_menu, 'enqueue_scripts' ) );
-		add_action( 'current_screen',        array( $this->addons_menu, 'add_help_tab' )    );
+		add_action( 'admin_menu',            array( $this->addons_menu, 'add_menu_pages' ), 30 );
+		add_action( 'admin_enqueue_scripts', array( $this->addons_menu, 'enqueue_scripts' )    );
+		add_action( 'current_screen',        array( $this->addons_menu, 'add_help_tabs' )      );
 
 
 		/**

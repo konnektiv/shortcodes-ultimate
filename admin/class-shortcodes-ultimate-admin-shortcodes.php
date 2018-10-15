@@ -26,7 +26,7 @@ final class Shortcodes_Ultimate_Admin_Shortcodes extends Shortcodes_Ultimate_Adm
 	 *
 	 * @since   5.0.0
 	 */
-	public function admin_menu() {
+	public function add_menu_pages() {
 
 		/**
 		 * Submenu: Available shortcodes
@@ -59,7 +59,7 @@ final class Shortcodes_Ultimate_Admin_Shortcodes extends Shortcodes_Ultimate_Adm
 	 * @since  5.0.0
 	 * @param WP_Screen $screen WP_Screen instance.
 	 */
-	public function add_help_tab( $screen ) {
+	public function add_help_tabs( $screen ) {
 
 		if ( ! $this->is_component_page() ) {
 			return;
