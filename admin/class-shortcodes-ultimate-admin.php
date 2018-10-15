@@ -216,6 +216,30 @@ abstract class Shortcodes_Ultimate_Admin {
 	}
 
 	/**
+	 * Display settings section.
+	 *
+	 * @param mixed   $args Settings section data.
+	 * @since  5.0.8
+	 */
+	public function the_settings_section( $args ) {
+
+		$section = str_replace( $this->plugin_prefix, '', $args['id'] );
+
+		$this->the_template( 'admin/partials/settings/sections/' . $section, $args );
+
+	}
+
+	/**
+	 * Display settings field.
+	 *
+	 * @param mixed   $args The field data.
+	 * @since  5.0.8
+	 */
+	public function the_settings_field( $args ) {
+		$this->the_template( 'admin/partials/settings/fields/' . $args['type'], $args );
+	}
+
+	/**
 	 * Helper function to check component's menu page hook_suffix
 	 *
 	 * @since  5.0.0

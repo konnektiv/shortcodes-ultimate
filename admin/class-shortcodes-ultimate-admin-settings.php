@@ -48,7 +48,7 @@ final class Shortcodes_Ultimate_Admin_Settings extends Shortcodes_Ultimate_Admin
 			'page'        => $this->plugin_prefix . 'settings',
 			'section'     => $this->plugin_prefix . 'general',
 			'group'       => rtrim( $this->plugin_prefix, '-_' ),
-			'callback'    => array( $this, 'display_settings_field' ),
+			'callback'    => array( $this, 'the_settings_field' ),
 			'sanitize'    => 'sanitize_text_field',
 		);
 
@@ -89,7 +89,7 @@ final class Shortcodes_Ultimate_Admin_Settings extends Shortcodes_Ultimate_Admin
 		add_settings_section(
 			$this->plugin_prefix . 'general',
 			__( 'General settings', 'shortcodes-ultimate' ),
-			array( $this, 'display_settings_section' ),
+			array( $this, 'the_settings_section' ),
 			$this->plugin_prefix . 'settings'
 		);
 
@@ -117,30 +117,6 @@ final class Shortcodes_Ultimate_Admin_Settings extends Shortcodes_Ultimate_Admin
 
 		}
 
-	}
-
-	/**
-	 * Display settings section.
-	 *
-	 * @param mixed   $args Settings section data.
-	 * @since  5.0.0
-	 */
-	public function display_settings_section( $args ) {
-
-		$section = str_replace( $this->plugin_prefix, '', $args['id'] );
-
-		$this->the_template( 'admin/partials/settings/sections/' . $section, $args );
-
-	}
-
-	/**
-	 * Display settings field.
-	 *
-	 * @param mixed   $args The field data.
-	 * @since  5.0.0
-	 */
-	public function display_settings_field( $args ) {
-		$this->the_template( 'admin/partials/settings/fields/' . $args['type'], $args );
 	}
 
 	/**
