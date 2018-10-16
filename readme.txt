@@ -110,7 +110,8 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 
 **Fixes**
 
-- Fixed Live Preview
+- Fixed Live Preview, wasn't representing changed settings
+- Fixed `[su_siblings]`, now it works again at top-level pages
 
 **Other**
 
