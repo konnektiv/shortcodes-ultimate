@@ -5,4 +5,4 @@
 .editorconfig export-ignore
 readme.md export-ignore
 /graphics/ export-ignore
-/wporg_assets/ export-ignore
+/.wordpress.org/ export-ignore
