@@ -106,6 +106,13 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 
 == Changelog ==
 
+= trunk =
+
+**Fixes**
+
+- Fixed `<img>` icon appearance of the `[su_service]` shortcode
+
+
 = 5.0.8 =
 
 **Fixes**
