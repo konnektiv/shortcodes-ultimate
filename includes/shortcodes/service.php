@@ -81,7 +81,7 @@ function su_shortcode_service( $atts = null, $content = null ) {
 
 	} else {
 		$atts['icon'] = sprintf(
-			'<img src="%1$s" width="%2$s" height="%2$s" alt="%3$s" />',
+			'<img src="%1$s" width="%2$s" height="%2$s" alt="%3$s" style="width:%2$spx;height:%2$spx" />',
 			esc_attr( $atts['icon'] ),
 			intval( $atts['size'] ),
 			esc_attr( $atts['title'] )
