@@ -68,6 +68,27 @@ Activate the plugin at "Dashboard – Plugins" administration page.
 5. Shortcodes: spoiler, service, list, columns, note
 
 
+== Available Shortcodes ==
+
+[The complete list with demos &rarr;](https://getshortcodes.com/shortcodes/)
+
+`
+Heading       Tabs          Spoiler     Accordion
+Divider       Spacer        Highlight   Label
+Quote         Pullquote     Dropcap     Columns
+List          Button        Service     Box
+Note          Expand        Lightbox    Tooltip
+Private       YouTube       Vimeo       Dailymotion
+Audio         Video         Table       Permalink
+Members       Guests        RSS         Menu
+Sub pages     Siblings      Document    Google map
+Slider        Carousel      Gallery     Posts
+Dummy text    Dummy image   Animation   Meta data
+User data     Post data     Template    QR code
+Scheduler
+`
+
+
 == Frequently Asked Questions ==
 
 = How this plugin works =
