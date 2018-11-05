@@ -20,6 +20,7 @@ A comprehensive collection of visual components for your site
 
 * 50+ beautiful shortcodes
 * 1-click shortcode insertion with live preview
+* Gutenberg-ready
 * Works with any theme
 * Modern responsive design
 * Documentation
@@ -153,7 +154,7 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 
 **What's new**
 
-- Added compatibility with the Gutenberg editor
+- Added compatibility with the Gutenberg editor. [Learn more](https://vanokhin.com/su-now-supports-gutenberg/).
 
 **Fixes**
 
