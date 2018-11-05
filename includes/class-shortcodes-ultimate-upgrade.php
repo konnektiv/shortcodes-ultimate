@@ -80,7 +80,7 @@ final class Shortcodes_Ultimate_Upgrade {
 			$this->upgrade_to_5_0_7();
 		}
 
-		if ( $this->is_previous_version_less_than( '5.1.0' ) ) {
+		if ( $this->is_previous_version_less_than( '5.1.1' ) ) {
 			$this->upgrade_to_5_1_1();
 		}
 
