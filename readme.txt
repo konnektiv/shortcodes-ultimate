@@ -149,7 +149,11 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 
 == Changelog ==
 
-= trunk =
+= 5.1.0 =
+
+**What's new**
+
+- Added compatibility with the Gutenberg editor
 
 **Fixes**
 
