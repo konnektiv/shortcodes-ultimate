@@ -230,3 +230,16 @@ function su_do_nested_shortcodes( $content, $shortcode ) {
 	return do_shortcode( $content );
 
 }
+
+/**
+ * Helper function to force enqueuing of the shortcode generator
+ * assets and templates.
+ *
+ * Usage example:
+ * `add_action( 'admin_init', 'su_enqueue_generator' );`
+ *
+ * @since 5.1.0
+ */
+function su_enqueue_generator() {
+	Su_Generator::enqueue_generator();
+}
