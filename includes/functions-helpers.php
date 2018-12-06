@@ -41,7 +41,7 @@ function su_get_config( $key = null ) {
 
 	if (
 		empty( $key ) ||
-		preg_match( "/^(?!-)[a-z0-9-_]+(?<!-)(\/(?!-)[a-z0-9-_]+(?<!-))*$/", $key ) !== 1
+		preg_match( '/^(?!-)[a-z0-9-_]+(?<!-)(\/(?!-)[a-z0-9-_]+(?<!-))*$/', $key ) !== 1
 	) {
 		return false;
 	}
@@ -56,7 +56,9 @@ function su_get_config( $key = null ) {
 		return false;
 	}
 
-	return $config[ $key ] = include $config_file;
+	$config[ $key ] = include $config_file;
+
+	return $config[ $key ];
 
 }
 
@@ -190,7 +192,7 @@ function su_do_attribute( $value ) {
 function su_do_nested_shortcodes_alt( $content, $pre ) {
 
 	if ( strpos( $content, '[_' ) !== false ) {
-		$content = preg_replace( '@(\[_*)_(' . $pre . '|/)@', "$1$2", $content );
+		$content = preg_replace( '@(\[_*)_(' . $pre . '|/)@', '$1$2', $content );
 	}
 
 	return do_shortcode( $content );
@@ -216,18 +218,16 @@ function su_do_nested_shortcodes( $content, $shortcode ) {
 	if ( strpos( $content, '[_' . $prefix . $shortcode ) !== false ) {
 
 		$content = str_replace(
-			array( '[_' . $prefix . $shortcode, '[_/' . $prefix . $shortcode, ),
-			array( '[' . $prefix . $shortcode,  '[/' . $prefix . $shortcode, ),
+			array( '[_' . $prefix . $shortcode, '[_/' . $prefix . $shortcode ),
+			array( '[' . $prefix . $shortcode, '[/' . $prefix . $shortcode ),
 			$content
 		);
 
+		return do_shortcode( $content );
+
 	}
 
-	else {
-		$content = wptexturize( $content );
-	}
-
-	return do_shortcode( $content );
+	return do_shortcode( wptexturize( $content ) );
 
 }
 
