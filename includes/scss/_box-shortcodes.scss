@@ -60,6 +60,13 @@
 	background: #fff;
 	color: #333;
 }
+.su-tabs-pane:not(.su-tabs-pane-open) {
+	height: 0 !important;
+	overflow: hidden !important;
+	padding: 0 !important;
+	min-height: 0 !important;
+	border: none !important;
+}
 .su-tabs-vertical:before,
 .su-tabs-vertical:after {
 	content: " ";

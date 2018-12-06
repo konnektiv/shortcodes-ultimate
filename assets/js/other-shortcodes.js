@@ -25,7 +25,7 @@ jQuery(document).ready(function($) {
 		// Check tab is not disabled
 		if (is_disabled) return false;
 		// Hide all panes, show selected pane
-		$panes.hide().eq(index).show();
+		$panes.removeClass('su-tabs-pane-open').eq(index).addClass('su-tabs-pane-open');
 		// Disable all tabs, enable selected tab
 		$tabs.removeClass('su-tabs-current').eq(index).addClass('su-tabs-current');
 		// Reload gmaps
