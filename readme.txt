@@ -150,6 +150,13 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 
 == Changelog ==
 
+= 5.2.0 =
+
+**Improvements**
+
+- Tabs are now work better with nested sliders/carousels
+
+
 = 5.1.1 =
 
 - Gutenberg compatibility enabled by default
