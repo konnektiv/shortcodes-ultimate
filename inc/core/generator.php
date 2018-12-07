@@ -523,7 +523,7 @@ class Su_Generator {
 			else if ( is_array( $shortcode['content'] ) && $args['id'] !== $shortcode['content']['id'] ) {
 
 					$shortcode['content']['nested'] = true;
-					$output .= $this->get_shortcode_code( $shortcode['content'] );
+					$output .= self::get_shortcode_code( $shortcode['content'] );
 
 				}
 
