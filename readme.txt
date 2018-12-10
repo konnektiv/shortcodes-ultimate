@@ -154,10 +154,14 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 
 **Improvements**
 
+- Tabs and accordions/spoilers are now keyboard accessible
 - Tabs are now working better with nested sliders/carousels
 - Improved stability of some responsive elements, such as Google Maps
-- YouTube Advanced parameter descriptions are now more clear
+- YouTube and YouTube Advanced settings descriptions are now more clear
 
+**Added**
+
+- New setting `Required user capability` which allows enabling the `Insert Shortcode` button for non-admin users
 
 **Removed**
 
