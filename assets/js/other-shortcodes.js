@@ -1,7 +1,7 @@
 jQuery(document).ready(function($) {
 
 	// Spoiler
-	$('body:not(.su-other-shortcodes-loaded)').on('click', '.su-spoiler-title', function(e) {
+	$('body:not(.su-other-shortcodes-loaded)').on('click keypress', '.su-spoiler-title', function(e) {
 		var $title = $(this),
 			$spoiler = $title.parent(),
 			bar = ($('#wpadminbar').length > 0) ? 28 : 0;
@@ -14,7 +14,7 @@ jQuery(document).ready(function($) {
 		e.preventDefault();
 	});
 	// Tabs
-	$('body:not(.su-other-shortcodes-loaded)').on('click', '.su-tabs-nav span', function(e) {
+	$('body:not(.su-other-shortcodes-loaded)').on('click keypress', '.su-tabs-nav span', function(e) {
 		var $tab = $(this),
 			data = $tab.data(),
 			index = $tab.index(),
