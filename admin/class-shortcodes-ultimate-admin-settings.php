@@ -226,6 +226,21 @@ final class Shortcodes_Ultimate_Admin_Settings extends Shortcodes_Ultimate_Admin
 				'description' => __( 'A user must have this capability to be able to use the "Insert Shortcode" button. Do not change this value if you do not understand its meaning as this may lower the plugin security.', 'shortcodes-ultimate' ),
 			);
 
+			/**
+			 * @since 5.2.0
+			 */
+			$this->plugin_settings[] = array(
+				'id'          => 'su_option_enable_shortcodes_in',
+				'type'        => 'checkbox-group',
+				'sanitize'    => array( $this, 'sanitize_checkbox_group' ),
+				'title'       => __( 'Enable shortcodes in', 'shortcodes-ultimate' ),
+				'description' => __( 'This option allows you to enable shortcodes in places where they are disabled by default', 'shortcodes-ultimate' ),
+				'options'     => array(
+					'category_description' => __( 'Category descriptions', 'shortcodes-ultimate' ),
+					'widget_text'          => __( 'Text widgets', 'shortcodes-ultimate' ),
+				),
+			);
+
 		}
 
 		return apply_filters( 'su/admin/settings', $this->plugin_settings );

@@ -229,6 +229,7 @@ final class Shortcodes_Ultimate_Upgrade {
 	 * Upgrade the plugin to version 5.2.0
 	 *
 	 * 1. Add `su_option_generator_access` option.
+	 * 2. Add `su_option_enable_shortcodes_in` option.
 	 *
 	 * @since   5.2.0
 	 * @access  private
@@ -238,10 +239,19 @@ final class Shortcodes_Ultimate_Upgrade {
 		/**
 		 * 1. Add `su_option_generator_access` option.
 		 */
-		$option = 'su_option_generator_access';
+		$generator_access = 'su_option_generator_access';
 
-		if ( false === get_option( $option ) ) {
-			add_option( $option, 'manage_options' );
+		if ( false === get_option( $generator_access ) ) {
+			add_option( $generator_access, 'manage_options' );
+		}
+
+		/**
+		 * 2. Add `su_option_enable_shortcodes_in` option.
+		 */
+		$enable_shortcodes_in = 'su_option_enable_shortcodes_in';
+
+		if ( false === get_option( $enable_shortcodes_in ) ) {
+			add_option( $enable_shortcodes_in, array( 'category_description', 'widget_text' ) );
 		}
 
 	}

@@ -85,6 +85,7 @@ class Shortcodes_Ultimate_Activator {
 				'core/freeform',
 			),
 			'su_option_generator_access'  => 'manage_options',
+			'su_option_enable_shortcodes_in' => array( 'category_description' ),
 		);
 
 		foreach ( $defaults as $option => $value ) {
