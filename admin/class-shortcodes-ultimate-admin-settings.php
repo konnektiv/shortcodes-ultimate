@@ -175,6 +175,21 @@ final class Shortcodes_Ultimate_Admin_Settings extends Shortcodes_Ultimate_Admin
 		if ( empty( $this->plugin_settings ) ) {
 
 			$this->plugin_settings[] = array(
+				'id'          => 'su_option_custom-css',
+				'type'        => 'css',
+				'sanitize'    => 'wp_strip_all_tags',
+				'title'       => __( 'Custom CSS code', 'shortcodes-ultimate' ),
+				'description' => __( 'In this field you can write your custom CSS code for shortcodes. These styles will have higher priority compared to original styles of shortcodes. You can use variables in your CSS code. These variables will be replaced by respective values.', 'shortcodes-ultimate' ),
+			);
+
+			$this->plugin_settings[] = array(
+				'id'          => 'su_option_prefix',
+				'sanitize'    => array( $this, 'sanitize_prefix' ),
+				'title'       => __( 'Shortcodes prefix', 'shortcodes-ultimate' ),
+				'description' => __( 'This prefix will be used in shortcode names. For example: set <code>MY_</code> prefix and shortcodes will look like <code>[MY_button]</code>. Please note that this setting does not change shortcodes that have been inserted earlier. Change this setting very carefully.', 'shortcodes-ultimate' ),
+			);
+
+			$this->plugin_settings[] = array(
 				'id'          => 'su_option_custom-formatting',
 				'type'        => 'checkbox',
 				'sanitize'    => array( $this, 'sanitize_checkbox' ),
@@ -188,21 +203,6 @@ final class Shortcodes_Ultimate_Admin_Settings extends Shortcodes_Ultimate_Admin
 				'sanitize'    => array( $this, 'sanitize_checkbox' ),
 				'title'       => __( 'Skip default settings', 'shortcodes-ultimate' ),
 				'description' => __( 'Enable this option if you don\'t want the inserted shortcode to contain any settings that were not changed by you. As a result, inserted shortcodes will be much shorter.', 'shortcodes-ultimate' ),
-			);
-
-			$this->plugin_settings[] = array(
-				'id'          => 'su_option_prefix',
-				'sanitize'    => array( $this, 'sanitize_prefix' ),
-				'title'       => __( 'Shortcodes prefix', 'shortcodes-ultimate' ),
-				'description' => __( 'This prefix will be used in shortcode names. For example: set <code>MY_</code> prefix and shortcodes will look like <code>[MY_button]</code>. Please note that this setting does not change shortcodes that have been inserted earlier. Change this setting very carefully.', 'shortcodes-ultimate' ),
-			);
-
-			$this->plugin_settings[] = array(
-				'id'          => 'su_option_custom-css',
-				'type'        => 'css',
-				'sanitize'    => 'wp_strip_all_tags',
-				'title'       => __( 'Custom CSS code', 'shortcodes-ultimate' ),
-				'description' => __( 'In this field you can write your custom CSS code for shortcodes. These styles will have higher priority compared to original styles of shortcodes. You can use variables in your CSS code. These variables will be replaced by respective values.', 'shortcodes-ultimate' ),
 			);
 
 			/**
