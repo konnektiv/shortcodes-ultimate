@@ -159,6 +159,11 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 - YouTube Advanced parameter descriptions are now more clear
 
 
+**Removed**
+
+- youtube_advanced showinfo parameter is deprecated and removed from the plugin. [Why?](https://developers.google.com/youtube/player_parameters#release_notes_08_23_2018)
+
+
 = 5.1.1 =
 
 - Gutenberg compatibility enabled by default
