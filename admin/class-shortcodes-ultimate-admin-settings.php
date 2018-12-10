@@ -39,7 +39,7 @@ final class Shortcodes_Ultimate_Admin_Settings extends Shortcodes_Ultimate_Admin
 
 		parent::__construct( $plugin_file, $plugin_version, $plugin_prefix );
 
-		$this->plugin_settings = array();
+		$this->plugin_settings  = array();
 		$this->setting_defaults = array(
 			'id'          => '',
 			'title'       => '',
@@ -131,11 +131,13 @@ final class Shortcodes_Ultimate_Admin_Settings extends Shortcodes_Ultimate_Admin
 			return;
 		}
 
-		$screen->add_help_tab( array(
+		$screen->add_help_tab(
+			array(
 				'id'      => 'shortcodes-ultimate-general',
 				'title'   => __( 'General settings', 'shortcodes-ultimate' ),
 				'content' => $this->get_template( 'admin/partials/help/settings' ),
-			) );
+			)
+		);
 
 		$screen->set_help_sidebar( $this->get_template( 'admin/partials/help/sidebar' ) );
 
