@@ -170,7 +170,7 @@ class Shortcodes_Ultimate {
 		/**
 		 * Shortcodes.
 		 */
-		require_once $this->plugin_path . 'includes/shortcodes/_all.php';
+		require_once $this->plugin_path . 'includes/shortcodes/0-all.php';
 
 		// phpcs:disable
 		// foreach ( glob( $this->plugin_path . 'includes/shortcodes/*.php' ) as $shortcode_file ) {
