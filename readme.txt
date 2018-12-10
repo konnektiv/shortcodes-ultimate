@@ -162,6 +162,7 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 **Added**
 
 - New setting `Required user capability` which allows enabling the `Insert Shortcode` button for non-admin users
+- New setting `Enable shortcodes in` which allows enabling shortcodes in text widgets and category descriptions
 
 **Removed**
 
