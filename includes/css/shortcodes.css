@@ -1825,6 +1825,11 @@
   overflow: hidden;
 }
 
+.su-responsive-media-yes .fluid-width-video-wrapper,
+.su-responsive-media-yes .video-holder {
+  position: static !important;
+}
+
 .su-responsive-media-yes iframe,
 .su-responsive-media-yes object,
 .su-responsive-media-yes embed {
@@ -1833,11 +1838,6 @@
   left: 0;
   width: 100%;
   height: 100%;
-}
-
-/* Disable fitvid.js */
-.su-responsive-media-yes .fluid-width-video-wrapper {
-  position: static;
 }
 
 /*		YouTube
