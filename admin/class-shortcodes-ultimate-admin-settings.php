@@ -217,6 +217,15 @@ final class Shortcodes_Ultimate_Admin_Settings extends Shortcodes_Ultimate_Admin
 				'options'     => su_get_config( 'supported-blocks' ),
 			);
 
+			/**
+			 * @since 5.2.0
+			 */
+			$this->plugin_settings[] = array(
+				'id'          => 'su_option_generator_access',
+				'title'       => __( 'Required user capability', 'shortcodes-ultimate' ),
+				'description' => __( 'A user must have this capability to be able to use the "Insert Shortcode" button. Do not change this value if you do not understand its meaning as this may lower the plugin security.', 'shortcodes-ultimate' ),
+			);
+
 		}
 
 		return apply_filters( 'su/admin/settings', $this->plugin_settings );
