@@ -66,12 +66,6 @@ su_add_shortcode(
 				'name'    => __( 'Autohide', 'shortcodes-ultimate' ),
 				'desc'    => __( 'This parameter indicates whether the video controls will automatically hide after a video begins playing', 'shortcodes-ultimate' ),
 			),
-			'showinfo'       => array(
-				'type'    => 'bool',
-				'default' => 'yes',
-				'name'    => __( 'Show title bar', 'shortcodes-ultimate' ),
-				'desc'    => __( 'If you set the parameter value to NO, then the player will not display information like the video title and uploader before the video starts playing.', 'shortcodes-ultimate' ),
-			),
 			'autoplay'       => array(
 				'type'    => 'bool',
 				'default' => 'no',
@@ -142,6 +136,21 @@ su_add_shortcode(
 				'desc'    => __( 'Additional CSS class name(s) separated by space(s)', 'shortcodes-ultimate' ),
 				'default' => '',
 			),
+
+			/**
+			 * @deprecated 5.2.0
+			 *
+			 * @see https://developers.google.com/youtube/player_parameters#showinfo
+			 */
+			/*
+			'showinfo'       => array(
+				'type'    => 'bool',
+				'default' => 'yes',
+				'name'    => __( 'Show title bar', 'shortcodes-ultimate' ),
+				'desc'    => __( 'If you set the parameter value to NO, then the player will not display information like the video title and uploader before the video starts playing.', 'shortcodes-ultimate' ),
+			),
+			*/
+
 		),
 		'desc'     => __( 'YouTube video player with advanced settings', 'shortcodes-ultimate' ),
 		'example'  => 'media',
