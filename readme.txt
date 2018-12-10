@@ -154,7 +154,9 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 
 **Improvements**
 
-- Tabs are now work better with nested sliders/carousels
+- Tabs are now working better with nested sliders/carousels
+- Improved stability of some responsive elements, such as Google Maps
+- YouTube Advanced parameter descriptions are now more clear
 
 
 = 5.1.1 =
