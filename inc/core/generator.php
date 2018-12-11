@@ -34,7 +34,7 @@ class Su_Generator {
 	 * @deprecated 5.1.0 Replaced with Su_Generator::classic_editor_button()
 	 */
 	public static function button( $args = array() ) {
-		self::classic_editor_button( $args );
+		return self::classic_editor_button( $args );
 	}
 
 	public static function classic_editor_button( $args = array() ) {
@@ -53,20 +53,20 @@ class Su_Generator {
 				'target'    => $target,
 				'text'      => __( 'Insert shortcode', 'shortcodes-ultimate' ),
 				'class'     => 'button',
-				'icon'      => plugins_url( 'assets/images/icon.png', SU_PLUGIN_FILE ),
+				'icon'      => false,
 				'echo'      => true,
 				'shortcode' => '',
 			)
 		);
 
-		$svg_icon = '<svg style="vertical-align:middle;position:relative;top:-2px;opacity:.8;width:18px;height:18px" viewBox="0 0 20 20" width="18" height="18"><path fill="currentcolor" d="M8.48 2.75v2.5H5.25v9.5h3.23v2.5H2.75V2.75h5.73zm9.27 14.5h-5.73v-2.5h3.23v-9.5h-3.23v-2.5h5.73v14.5z"/></svg>';
+		if ( $args['icon'] ) {
 
-		$icon = ( $args['icon'] )
-			? $svg_icon
-			: '';
+			$args['icon'] = '<svg style="vertical-align:middle;position:relative;top:-2px;opacity:.8;width:18px;height:18px" viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path fill="currentcolor" d="M8.48 2.75v2.5H5.25v9.5h3.23v2.5H2.75V2.75h5.73zm9.27 14.5h-5.73v-2.5h3.23v-9.5h-3.23v-2.5h5.73v14.5z"/></svg>';
 
-		$js_args = sprintf(
-			"'classic', { editorID: '%s', shortcode: '%s' }",
+		}
+
+		$onclick = sprintf(
+			"SUG.App.insert( 'classic', { editorID: '%s', shortcode: '%s' } );",
 			esc_attr( $args['target'] ),
 			esc_attr( $args['shortcode'] )
 		);
@@ -76,14 +76,14 @@ class Su_Generator {
 				type="button"
 				class="su-generator-button %1$s"
 				title="%2$s"
-				onclick="SUG.App.insert(%3$s);"
+				onclick="%3$s"
 			>
 				%4$s %5$s
 			</button>',
 			esc_attr( $args['class'] ),
 			esc_attr( $args['text'] ),
-			$js_args,
-			$icon,
+			$onclick,
+			$args['icon'],
 			esc_html( $args['text'] )
 		);
 
