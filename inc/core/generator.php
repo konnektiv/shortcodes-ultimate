@@ -53,7 +53,7 @@ class Su_Generator {
 				'target'    => $target,
 				'text'      => __( 'Insert shortcode', 'shortcodes-ultimate' ),
 				'class'     => 'button',
-				'icon'      => false,
+				'icon'      => true,
 				'echo'      => true,
 				'shortcode' => '',
 			)
