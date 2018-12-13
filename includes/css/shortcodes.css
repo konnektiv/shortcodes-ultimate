@@ -219,11 +219,11 @@
 }
 
 .su-spoiler-icon-plus-square-2 .su-spoiler-icon:before {
-  content: "\f117";
+  content: "\f147";
 }
 
 .su-spoiler-icon-plus-square-2.su-spoiler-closed .su-spoiler-icon:before {
-  content: "\f116";
+  content: "\f196";
 }
 
 .su-spoiler-icon-arrow .su-spoiler-icon:before {
