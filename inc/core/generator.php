@@ -176,7 +176,6 @@ class Su_Generator {
 		$tools = apply_filters( 'su/generator/tools', array(
 				'<a href="' . admin_url( 'admin.php?page=shortcodes-ultimate' ) . '#tab-1" target="_blank" title="' . __( 'Settings', 'shortcodes-ultimate' ) . '">' . __( 'Plugin settings', 'shortcodes-ultimate' ) . '</a>',
 				'<a href="http://gndev.info/shortcodes-ultimate/" target="_blank" title="' . __( 'Plugin homepage', 'shortcodes-ultimate' ) . '">' . __( 'Plugin homepage', 'shortcodes-ultimate' ) . '</a>',
-				'<a href="http://wordpress.org/support/plugin/shortcodes-ultimate/" target="_blank" title="' . __( 'Support forums', 'shortcodes-ultimate' ) . '">' . __( 'Support forums', 'shortcodes-ultimate' ) . '</a>'
 			) );
 
 		// Add add-ons links
