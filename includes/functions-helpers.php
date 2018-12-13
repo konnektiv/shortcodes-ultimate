@@ -15,7 +15,7 @@
  * @return string The URL of the plugin directory (with trailing slash).
  */
 function su_get_plugin_url() {
-	return plugin_dir_url( SU_PLUGIN_FILE );
+	return plugins_url( '/', dirname( __FILE__ ) );
 }
 
 /**
@@ -25,7 +25,17 @@ function su_get_plugin_url() {
  * @return string The filesystem path of the plugin directory (with trailing slash).
  */
 function su_get_plugin_path() {
-	return plugin_dir_path( SU_PLUGIN_FILE );
+	return plugin_dir_path( dirname( __FILE__ ) );
+}
+
+/**
+ * Retrieve the current version of the plugin.
+ *
+ * @since  5.2.0
+ * @return string The current verion of the plugin.
+ */
+function su_get_plugin_version() {
+	return get_option( 'su_option_version', '0' );
 }
 
 /**
