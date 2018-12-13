@@ -90,7 +90,7 @@ function su_shortcode_spoiler( $atts = null, $content = null ) {
 	if ( 'yes' !== $atts['open'] ) {
 		$atts['class'] .= ' su-spoiler-closed';
 	}
-	su_query_asset( 'css', 'font-awesome' );
+	su_query_asset( 'css', 'su-icons' );
 	su_query_asset( 'css', 'su-shortcodes' );
 	su_query_asset( 'js', 'jquery' );
 	su_query_asset( 'js', 'su-other-shortcodes' );
