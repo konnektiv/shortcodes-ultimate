@@ -45,10 +45,10 @@ function su_html_icon( $args ) {
 		}
 
 		if ( $args['enqueue-fa'] ) {
-			su_query_asset( 'css', 'font-awesome' );
+			su_query_asset( 'css', 'su-icons' );
 		}
 
-		return '<i class="fa fa-' . trim( str_replace( 'icon:', '', $args['icon'] ) ) . '" style="' . $args['style'] . '" aria-label="' . $args['alt'] . '"></i>';
+		return '<i class="sui sui-' . trim( str_replace( 'icon:', '', $args['icon'] ) ) . '" style="' . $args['style'] . '" aria-label="' . $args['alt'] . '"></i>';
 
 	}
 
