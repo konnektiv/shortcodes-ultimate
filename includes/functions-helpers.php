@@ -15,7 +15,7 @@
  * @return string The URL of the plugin directory (with trailing slash).
  */
 function su_get_plugin_url() {
-	return plugins_url( '/', dirname( __FILE__ ) );
+	return plugin_dir_url( dirname( __FILE__ ) );
 }
 
 /**
