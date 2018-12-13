@@ -376,7 +376,7 @@ SUG.App = ( ( $ ) => {
 													$.each(
 														files,
 														function(i) {
-															$images.append( '<span data-id="' + this.id + '" title="' + this.title + '"><img src="' + this.url + '" alt="" /><i class="fa fa-times"></i></span>' );
+															$images.append( '<span data-id="' + this.id + '" title="' + this.title + '"><img src="' + this.url + '" alt="" /><i class="sui sui-times"></i></span>' );
 														}
 													);
 													update();

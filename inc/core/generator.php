@@ -142,7 +142,7 @@ class Su_Generator {
 				'simpleslider',
 				'farbtastic',
 				'magnific-popup',
-				'font-awesome',
+				'su-icons',
 				'su-generator',
 			)
 		);
@@ -232,8 +232,8 @@ class Su_Generator {
 		$skip = ( get_option( 'su_option_skip' ) === 'on' ) ? ' su-generator-skip' : '';
 		// Prepare actions
 		$actions = apply_filters( 'su/generator/actions', array(
-				'insert' => '<a href="javascript:void(0);" class="button button-primary button-large su-generator-insert"><i class="fa fa-check"></i> ' . __( 'Insert shortcode', 'shortcodes-ultimate' ) . '</a>',
-				'preview' => '<a href="javascript:void(0);" class="button button-large su-generator-toggle-preview"><i class="fa fa-eye"></i> ' . __( 'Live preview', 'shortcodes-ultimate' ) . '</a>'
+				'insert' => '<a href="javascript:void(0);" class="button button-primary button-large su-generator-insert"><i class="sui sui-check"></i> ' . __( 'Insert shortcode', 'shortcodes-ultimate' ) . '</a>',
+				'preview' => '<a href="javascript:void(0);" class="button button-large su-generator-toggle-preview"><i class="sui sui-eye"></i> ' . __( 'Live preview', 'shortcodes-ultimate' ) . '</a>'
 			) );
 		// Shortcode header
 		$return = '<div id="su-generator-breadcrumbs">';
@@ -241,7 +241,7 @@ class Su_Generator {
 		$return .= '</div>';
 		// Shortcode note
 		if ( isset( $shortcode['note'] ) ) {
-			$return .= '<div class="su-generator-note"><i class="fa fa-info-circle"></i><div class="su-generator-note-content">' . wpautop( $shortcode['note'] ) . '</div></div>';
+			$return .= '<div class="su-generator-note"><i class="sui sui-info-circle"></i><div class="su-generator-note-content">' . wpautop( $shortcode['note'] ) . '</div></div>';
 		}
 		// Shortcode has atts
 		if ( isset( $shortcode['atts'] ) && count( $shortcode['atts'] ) ) {
@@ -319,7 +319,7 @@ class Su_Generator {
 		self::access();
 		$icons = array();
 		foreach ( su_get_config( 'icons' ) as $icon ) {
-			$icons[] = '<i class="fa fa-' . $icon . '" title="' . $icon . '"></i>';
+			$icons[] = '<i class="sui sui-' . $icon . '" title="' . $icon . '"></i>';
 		}
 		die( implode( '', $icons ) );
 	}
@@ -346,7 +346,7 @@ class Su_Generator {
 		ob_start();
 ?>
 <div class="su-generator-presets alignright" data-shortcode="<?php echo sanitize_key( $_REQUEST['shortcode'] ); ?>">
-	<a href="javascript:void(0);" class="button button-large su-gp-button"><i class="fa fa-bars"></i> <?php _e( 'Presets', 'shortcodes-ultimate' ); ?></a>
+	<a href="javascript:void(0);" class="button button-large su-gp-button"><i class="sui sui-bars"></i> <?php _e( 'Presets', 'shortcodes-ultimate' ); ?></a>
 	<div class="su-gp-popup">
 		<div class="su-gp-head">
 			<a href="javascript:void(0);" class="button button-small button-primary su-gp-new"><?php _e( 'Save current settings as preset', 'shortcodes-ultimate' ); ?></a>
@@ -375,7 +375,7 @@ class Su_Generator {
 		if ( is_array( $presets ) && count( $presets ) ) {
 			// Print the presets
 			foreach ( $presets as $preset ) {
-				echo '<span data-id="' . $preset['id'] . '"><em>' . stripslashes( $preset['name'] ) . '</em> <i class="fa fa-times"></i></span>';
+				echo '<span data-id="' . $preset['id'] . '"><em>' . stripslashes( $preset['name'] ) . '</em> <i class="sui sui-times"></i></span>';
 			}
 			// Hide default text
 			echo sprintf( '<b style="display:none">%s</b>', __( 'Presets not found', 'shortcodes-ultimate' ) );
