@@ -96,9 +96,9 @@ Scheduler
 
 = Manual installation =
 
-1. Download a .zip file with plugin;
+1. Download the plugin as a .zip file;
 2. Unzip downloaded archive and upload `shortcodes-ultimate` folder under your `/wp-content/plugins/` directory (resulted plugin path should be `/wp-content/plugins/shortcodes-ultimate/**`);
-1. Navigate to `Dashboard` ▸ `Plugins` and active the plugin.
+1. Navigate to `Dashboard` ▸ `Plugins` and activate the plugin.
 
 [Detailed installation guide](http://docs.getshortcodes.com/article/13-plugin-installation).
 
