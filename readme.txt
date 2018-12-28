@@ -150,6 +150,13 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 
 == Changelog ==
 
+= 5.2.1 =
+
+**Fixes**
+
+- Fixed inaccessible fields in media modal (while inserting Gallery/Slider/Carousel shortcodes)
+
+
 = 5.2.0 =
 
 **Improvements**
