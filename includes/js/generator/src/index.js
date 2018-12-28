@@ -368,6 +368,12 @@ SUG.App = ( ( $ ) => {
 													multiple: true
 												}
 											);
+											frame.on('open', function() {
+												$('.mfp-wrap').addClass('hidden');
+											});
+											frame.on('close', function() {
+												$('.mfp-wrap').removeClass('hidden');
+											});
 											frame.on(
 												'select',
 												function() {
