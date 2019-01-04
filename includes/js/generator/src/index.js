@@ -860,7 +860,7 @@ SUG.App = ( ( $ ) => {
 					// Hide default text
 					$list.find( 'b' ).hide();
 					// Add new option
-					$list.append( '<span data-id="' + id + '"><em>' + name + '</em><i class="fa fa-times"></i></span>' );
+					$list.append( '<span data-id="' + id + '"><em>' + name + '</em><i class="sui sui-times"></i></span>' );
 					// Perform AJAX request
 					self.addPreset( id, name );
 				}
