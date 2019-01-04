@@ -155,6 +155,8 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 **Fixes**
 
 - Fixed inaccessible fields in media modal (while inserting Gallery/Slider/Carousel shortcodes)
+- Fixed close icon class name in the presets menu
+- Fixed issue with unwanted content inside single shortcodes
 
 
 = 5.2.0 =
