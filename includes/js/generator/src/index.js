@@ -485,6 +485,12 @@ SUG.App = ( ( $ ) => {
 													$val.val( attachment.url ).trigger( 'change' );
 												}
 											);
+											file.on('open', function() {
+												$('.mfp-wrap').addClass('hidden');
+											});
+											file.on('close', function() {
+												$('.mfp-wrap').removeClass('hidden');
+											});
 											// Open modal
 											file.open();
 										}
