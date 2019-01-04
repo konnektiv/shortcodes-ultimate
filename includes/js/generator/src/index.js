@@ -980,7 +980,8 @@ SUG.App = ( ( $ ) => {
 		var query = $selected.val(),
 		prefix    = $prefix.val(),
 		$settings = $( '#su-generator-settings .su-generator-attr-container:not(.su-generator-skip) .su-generator-attr' ),
-		content   = $( '#su-generator-content' ).val(),
+		$content  = $( 'textarea#su-generator-content' ),
+		content   = $content.length ? $content.val() : 'false',
 		result    = new String( '' );
 		// Open shortcode
 		result += '[' + prefix + query;
@@ -1024,7 +1025,8 @@ SUG.App = ( ( $ ) => {
 		// Prepare data
 		var query = $selected.val(),
 		$settings = $( '#su-generator-settings .su-generator-attr' ),
-		content   = $( '#su-generator-content' ).val(),
+		$content  = $( 'textarea#su-generator-content' ),
+		content   = $content.length ? $content.val() : 'false',
 		data      = {};
 		// Add shortcode attributes
 		$settings.each(
