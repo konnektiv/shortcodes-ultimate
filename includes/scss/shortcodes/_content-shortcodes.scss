@@ -334,35 +334,47 @@
 .su-table {
 	width: 100%;
 	margin-bottom: 1.5em;
+
+	table {
+		min-width: 100% !important;
+		margin: 0 !important;
+		border-collapse: collapse !important;
+		font-size: 1em !important;
+		border: 1px solid #ccc !important;
+
+		th {
+			text-align: center !important;
+			padding: 1em !important;
+			font-size: 1em !important;
+			font-weight: bold !important;
+			color: #333 !important;
+			border: 1px solid #ccc !important;
+			background: #f0f0f0 !important;
+		}
+
+		td {
+			padding: .5em 1em !important;
+			border: 1px solid #ccc !important;
+			background: #fff !important;
+		}
+	}
+
+	&-responsive {
+		overflow-x: auto;
+
+		table th,
+		table td {
+			word-break: initial !important;
+		}
+	}
+	&-alternate table tr:nth-child(even) td {
+		background-color: #f7f7f7 !important;
+	}
+	&-fixed table {
+		table-layout: fixed !important;
+	}
 }
-.su-table table {
-	width: 100% !important;
-	margin: 0 !important;
-	border-collapse: collapse !important;
-	font-size: 1em !important;
-	border: 1px solid #ccc !important;
-}
-.su-table.su-table-responsive {
-	overflow-x: auto;
-}
-.su-table.su-table-responsive table {
-	width: auto !important;
-}
-.su-table th {
-	text-align: center !important;
-	padding: 1em !important;
-	font-size: 1em !important;
-	font-weight: normal !important;
-	color: #333 !important;
-	border: 1px solid #ccc !important;
-	background: #f0f0f0 !important;
-}
-.su-table td {
-	padding: .5em 1em !important;
-	border: 1px solid #ccc !important;
-	background: #fff !important;
-}
-.su-table .su-even td { background: #f7f7f7 !important; }
+
 
 /*		QR code
 ---------------------------------------------------------------*/
