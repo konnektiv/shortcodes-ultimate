@@ -150,7 +150,12 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 
 == Changelog ==
 
-= 5.2.1 =
+= 5.3.0 =
+
+**What's new**
+
+- New shortcode `[su_csv_table]` for displaying CSV tables
+- New option `indent` for the `[su_list]` shortcode, which allows adjusting of list indentation
 
 **Fixes**
 
@@ -158,6 +163,7 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 - Fixed close icon class name in the presets menu
 - Fixed issue with unwanted content inside single shortcodes
 - Fixed warning when non-numeric value is used for the button size attribute
+- Min-width for responsive tables is set to 100%
 
 
 = 5.2.0 =
