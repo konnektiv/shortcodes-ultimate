@@ -1,10 +1,6 @@
 // Mixins
 // --------------------------
 
-@function backslash-it($value) {
-  @return #{'"\\' + $value + '"'};
-}
-
 @mixin fa-icon() {
   display: inline-block;
   font: normal normal normal #{$fa-font-size-base}/#{$fa-line-height-base} #{$fa-font-family}; // shortening font declaration
