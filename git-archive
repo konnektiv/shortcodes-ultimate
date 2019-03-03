@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# cd to the script directory
+cd $(cd "$(dirname "$0")"; pwd)
+
+# get repository folder name
+REPO_NAME=${PWD##*/}
+
+# create an archive
+git archive --format zip --output ~/Desktop/$REPO_NAME.zip --prefix $REPO_NAME/ master
