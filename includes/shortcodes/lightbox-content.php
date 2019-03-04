@@ -8,7 +8,7 @@ su_add_shortcode( array(
 		'type' => 'wrap',
 		'group' => 'gallery',
 		'required_sibling' => 'lightbox',
-		'article' => 'http://docs.getshortcodes.com/article/76-how-to-use-lightbox-shortcode',
+		'article' => 'https://getshortcodes.com/docs/lightbox/',
 		'atts' => array(
 			'id' => array(
 				'default' => '',

@@ -7,7 +7,7 @@ su_add_shortcode( array(
 		'name' => __( 'Posts', 'shortcodes-ultimate' ),
 		'type' => 'single',
 		'group' => 'other',
-		'article' => 'http://docs.getshortcodes.com/article/43-posts',
+		'article' => 'https://getshortcodes.com/docs/posts/',
 		'atts' => array(
 			'template' => array(
 				'default' => 'templates/default-loop.php', 'name' => __( 'Template', 'shortcodes-ultimate' ),

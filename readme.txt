@@ -35,7 +35,7 @@ A comprehensive collection of visual components for your site
 
 * [Available shortcodes](https://getshortcodes.com/shortcodes/)
 * [Add-ons](https://getshortcodes.com/add-ons/)
-* [Documentation](https://docs.getshortcodes.com)
+* [Documentation](https://getshortcodes.com/docs/)
 * [Support forum](https://wordpress.org/support/plugin/shortcodes-ultimate)
 * [Premium support](https://getshortcodes.com/support/)
 * [GitHub](https://github.com/vanokhin/shortcodes-ultimate)
@@ -70,7 +70,7 @@ Scheduler
 
 = Thanks to these great guys for contribution =
 
-* [Reviews by advanced users](http://docs.getshortcodes.com/article/84-external-resources)
+* [Reviews by advanced users](https://getshortcodes.com/docs/external-resources/)
 * Dmitry Semenov - [Magnific Popup jQuery plugin](http://dimsemenov.com/plugins/magnific-popup/)
 * Craig Thompson - [qTip jQuery plugin](http://qtip2.com/)
 * Vladimir Kharlampidi - [Swiper jQuery plugin](http://www.idangero.us/sliders/swiper/)
@@ -100,7 +100,7 @@ Scheduler
 2. Unzip downloaded archive and upload `shortcodes-ultimate` folder under your `/wp-content/plugins/` directory (resulted plugin path should be `/wp-content/plugins/shortcodes-ultimate/**`);
 1. Navigate to `Dashboard` ▸ `Plugins` and activate the plugin.
 
-[Detailed installation guide](http://docs.getshortcodes.com/article/13-plugin-installation).
+[Detailed installation guide](https://getshortcodes.com/docs/plugin-installation/).
 
 
 == Screenshots ==
@@ -115,23 +115,23 @@ Scheduler
 == Frequently Asked Questions ==
 
 = How this plugin works =
-[How Shortcodes Ultimate plugin works](http://docs.getshortcodes.com/article/36-shortcodes-ultimate).
+[How Shortcodes Ultimate plugin works](https://getshortcodes.com/docs/how-shortcodes-ultimate-plugin-works/).
 
 = Shortcodes do not work. Why? =
-The most common reasons of this issue are listed [here](http://docs.getshortcodes.com/article/41-shortcodes-do-not-work).
+The most common reasons of this issue are listed [here](https://getshortcodes.com/docs/shortcodes-do-not-work/).
 
 = Insert shortcode button do not work. Why? =
-The most common reasons of this issue are listed [here](http://docs.getshortcodes.com/article/42-insert-shortcode-button-do-not-work).
+The most common reasons of this issue are listed [here](https://getshortcodes.com/docs/insert-shortcode-button-do-not-work/).
 
 = Can I remove default shortcodes? =
-Yes, you can remove default shortcodes using 'su/data/shortcodes' filter. Tutorial: [How to remove default shortcodes](http://docs.getshortcodes.com/article/51-how-to-remove-default-shortcodes).
+Yes, you can remove default shortcodes using 'su/data/shortcodes' filter. Tutorial: [How to remove default shortcodes](https://getshortcodes.com/docs/disabling-built-in-shortcodes/).
 
 = Can I create custom shortcodes? =
-Yes, you can create custom shortcodes using 'su/data/shortcodes' filter. Tutorial: [How to add custom shortcodes](http://docs.getshortcodes.com/article/45-how-to-add-custom-shortcodes).
+Yes, you can create custom shortcodes using 'su/data/shortcodes' filter. Tutorial: [How to add custom shortcodes](https://getshortcodes.com/docs/registering-custom-shortcodes/).
 Alternatively, you can use [Shortcode Creator add-on](https://getshortcodes.com/add-ons/shortcode-creator/).
 
 = Can I use shortcodes in template files? =
-Yes! [How to use shortcodes in template files](http://docs.getshortcodes.com/article/52-using-of-shortcodes-in-template-files).
+Yes! [How to use shortcodes in template files](https://getshortcodes.com/docs/using-shortcodes-in-template-files/).
 
 = Will this plugin work with my theme? =
 Yes! Shortcodes Ultimate is designed to work with any theme, but your theme must include very basic things: 'wp_head' and 'wp_footer' template tags. Sometimes, the plugin may not work properly because of javascript errors caused by third-party plugins/themes.
@@ -140,7 +140,7 @@ Yes! Shortcodes Ultimate is designed to work with any theme, but your theme must
 You should [create an issue at GitHub](https://github.com/gndev/shortcodes-ultimate/) or [open new support ticket](https://getshortcodes.com/contact/) (for premium add-ons only).
 
 = Where to find additional information? =
-Plugin has comprehensive [documentation](http://docs.getshortcodes.com/).
+Plugin has comprehensive [documentation](http://getshortcodes.com/docs/).
 Also, you can find more answers at [support page](https://getshortcodes.com/support/).
 
 = Where can I get support or talk to other users? =
@@ -293,7 +293,7 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 = 5.0.0 =
 * Read [this blog post](https://vanokhin.com/whats-new-in-shortcodes-ultimate-5/) to learn more about update
 * New project website [getshortcodes.com](https://getshortcodes.com/)
-* New documentation [docs.getshortcodes.com](http://docs.getshortcodes.com/)
+* New documentation [getshortcodes.com/docs](https://getshortcodes.com/docs/)
 * Added: 'Available shortcodes' admin menu
 * Removed: 'Examples' admin menu
 * Removed: 'Cheatsheet' admin menu

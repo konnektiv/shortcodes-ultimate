@@ -33,5 +33,5 @@
 <ul class="ul-disc">
 	<?php // Translators: %s - link to the shortcodes.css file ?>
 	<li><?php printf( __( 'Open %s file to see default styles', 'shortcodes-ultimate' ), '<a href="' . $this->plugin_url . 'includes/css/shortcodes.css" target="_blank">shortcodes.css</a>' ); ?></li>
-	<li><?php esc_html_e( 'Help article', 'shortcodes-ultimate' ); ?>: <a href="http://docs.getshortcodes.com/article/33-custom-css-editor" target="_blank"><?php esc_html_e( 'How to use Custom CSS editor', 'shortcodes-ultimate' ); ?></a></li>
+	<li><?php esc_html_e( 'Help article', 'shortcodes-ultimate' ); ?>: <a href="https://getshortcodes.com/docs/how-to-use-custom-css-editor/" target="_blank"><?php esc_html_e( 'How to use Custom CSS editor', 'shortcodes-ultimate' ); ?></a></li>
 </ul>
