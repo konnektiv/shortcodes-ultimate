@@ -150,6 +150,13 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 
 == Changelog ==
 
+= 5.4.0 =
+
+**Improvements**
+
+- Error messages are now displayed only to the users with required capability
+
+
 = 5.3.0 =
 
 **What's new**
