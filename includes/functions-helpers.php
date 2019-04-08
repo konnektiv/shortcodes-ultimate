@@ -43,7 +43,7 @@ function su_get_plugin_version() {
  *
  * @since  5.0.5
  * @param string  $key
- * @return mixed      Config data if found, Flase otherwise.
+ * @return mixed      Config data if found, False otherwise.
  */
 function su_get_config( $key = null ) {
 
