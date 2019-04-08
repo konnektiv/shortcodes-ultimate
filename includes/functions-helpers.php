@@ -82,6 +82,10 @@ function su_get_config( $key = null ) {
  */
 function su_error_message( $title = '', $message = '' ) {
 
+	if ( ! su_check_required_cap() ) {
+		return;
+	}
+
 	if ( $title ) {
 		$title = "<strong>${title}:</strong> ";
 	}
