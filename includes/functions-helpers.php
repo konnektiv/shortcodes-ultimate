@@ -82,7 +82,7 @@ function su_get_config( $key = null ) {
  */
 function su_error_message( $title = '', $message = '' ) {
 
-	if ( ! su_check_required_cap() ) {
+	if ( ! su_current_user_can_insert() ) {
 		return;
 	}
 
@@ -104,7 +104,7 @@ function su_error_message( $title = '', $message = '' ) {
  * @since 5.4.0
  * @return bool True if user is allowed to use the plugin, False otherwise.
  */
-function su_check_required_cap() {
+function su_current_user_can_insert() {
 
 	$required_capability = (string) get_option(
 		'su_option_generator_access',
