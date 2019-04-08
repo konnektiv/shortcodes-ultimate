@@ -95,6 +95,23 @@ function su_error_message( $title = '', $message = '' ) {
 }
 
 /**
+ * Conditional check if current user can use the plugin.
+ *
+ * @since 5.4.0
+ * @return bool True if user is allowed to use the plugin, False otherwise.
+ */
+function su_check_required_cap() {
+
+	$required_capability = (string) get_option(
+		'su_option_generator_access',
+		'manage_options'
+	);
+
+	return current_user_can( $required_capability );
+
+}
+
+/**
  * Validate filter callback name.
  *
  * @since  5.0.5
