@@ -33,9 +33,6 @@ class Su_Assets {
 		add_action( 'su/examples/preview/after',   array( __CLASS__, 'custom_css' ), 99 );
 		// RTL support
 		add_action( 'su/assets/custom_css/after',        array( __CLASS__, 'rtl_shortcodes' ) );
-		// Custom TinyMCE CSS and JS
-		// add_filter( 'mce_css',                     array( __CLASS__, 'mce_css' ) );
-		// add_filter( 'mce_external_plugins',        array( __CLASS__, 'mce_js' ) );
 	}
 
 	/**
@@ -179,23 +176,6 @@ class Su_Assets {
 		// Hook
 		do_action( 'su/assets/custom_css/after' );
 
-	}
-
-	/**
-	 * Styles for visualised shortcodes
-	 */
-	public static function mce_css( $mce_css ) {
-		if ( ! empty( $mce_css ) ) $mce_css .= ',';
-		$mce_css .= plugins_url( 'assets/css/tinymce.css', SU_PLUGIN_FILE );
-		return $mce_css;
-	}
-
-	/**
-	 * TinyMCE plugin for visualised shortcodes
-	 */
-	public static function mce_js( $plugins ) {
-		$plugins['shortcodesultimate'] = plugins_url( 'assets/js/tinymce.js', SU_PLUGIN_FILE );
-		return $plugins;
 	}
 
 	/**
