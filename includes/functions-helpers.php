@@ -276,7 +276,7 @@ function su_do_nested_shortcodes( $content, $shortcode ) {
  * @return bool          True if a given color mathes accepted pattern, False otherwise.
  */
 function su_is_valid_hex( $color ) {
-	return preg_match( '/^#?([a-f0-9]{3}|[a-f0-9]{6})$/i', $color ) === 1;
+	return preg_match( '/^#([a-f0-9]{3}){1,2}\b$/i', $color ) === 1;
 }
 
 /**
