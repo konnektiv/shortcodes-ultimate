@@ -1,0 +1,39 @@
+.su-list {
+	margin-bottom: 1.5em;
+
+	ul {
+		margin: 0 !important;
+		padding: 0 !important;
+		list-style: none !important;
+
+		li {
+			position: relative;
+			display: block !important;
+			margin: 0 !important;
+			padding: 4px 0 4px 2em !important;
+			list-style-type: none !important;
+			line-height: 1.3em;
+
+			> img {
+				position: absolute;
+				left: 0;
+				top: 4px;
+				width: 1.3em;
+				height: 1.3em;
+				padding: 0;
+				margin: 0;
+				border: none;
+			}
+
+			> i {
+				position: absolute;
+				left: 0;
+				top: 4px;
+				width: 1.3em;
+				height: 1.3em;
+				line-height: 1.3em;
+				text-align: center;
+			}
+		}
+	}
+}

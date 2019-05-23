@@ -1,0 +1,36 @@
+.su-quote-style-default {
+	position: relative;
+	margin-bottom: 1.5em;
+	padding: 0.5em 3em;
+	font-style: italic;
+}
+.su-quote-style-default:before,
+.su-quote-style-default:after {
+	position: absolute;
+	display: block;
+	width: 20px;
+	height: 20px;
+	background-image: url('../images/quote.png');
+	content: '';
+}
+.su-quote-style-default:before {
+	top: 0;
+	left: 0;
+	background-position: 0 0;
+}
+.su-quote-style-default:after {
+	right: 0;
+	bottom: 0;
+	background-position: -20px 0;
+}
+.su-quote-style-default .su-quote-cite {
+	display: block;
+	text-align: right;
+	font-style: normal;
+}
+.su-quote-style-default .su-quote-cite:before {
+	content: '\2014\0000a0';
+}
+.su-quote-style-default .su-quote-cite a {
+	text-decoration: underline;
+}

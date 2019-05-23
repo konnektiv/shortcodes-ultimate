@@ -1,0 +1,80 @@
+.su-audio {
+	position: relative;
+	width: 100%;
+	height: 30px;
+	margin-bottom: 1.5em;
+	background: #7c8781;
+	background: linear-gradient(to bottom, #7c8781 0%, #0a0809 100%);
+	border-radius: 3px;
+}
+.su-audio .jp-play,
+.su-audio .jp-pause {
+	position: absolute;
+	left: 0;
+	top: 0;
+	display: block;
+	width: 30px;
+	height: 30px;
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+	cursor: pointer;
+	border-right: 1px solid #454947;
+	background-image: url('../images/player/default.png');
+	background-repeat: no-repeat;
+}
+.su-audio .jp-play {
+	background-position: 0 0;
+}
+.su-audio .jp-pause {
+	background-position: -30px 0;
+}
+.su-audio .jp-current-time,
+.su-audio .jp-duration {
+	position: absolute;
+	top: 0;
+	display: block;
+	height: 30px;
+	line-height: 30px;
+	font-size: 10px;
+	color: #eee;
+	text-shadow: 0 -1px 0 #000;
+}
+.su-audio .jp-current-time {
+	left: 45px;
+}
+.su-audio .jp-duration {
+	right: 10px;
+}
+.su-audio .jp-seek-bar,
+.su-audio .jp-play-bar {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 10px;
+	border-radius: 3px;
+	cursor: pointer;
+}
+.su-audio .jp-progress {
+	position: absolute;
+	top: 10px;
+	left: 85px;
+	right: 50px;
+	height: 10px;
+	background: #333;
+	box-shadow: 0 0 5px #000 inset;
+	border-radius: 3px;
+}
+.su-audio .jp-seek-bar {
+	background: #0b0b0b;
+	background: linear-gradient(to bottom, #0b0b0b 0%, #666 100%);
+}
+.su-audio .jp-play-bar {
+	background: #6db3f2;
+	background: linear-gradient(
+		to bottom,
+		#6db3f2 0%,
+		#54a3ee 50%,
+		#3690f0 51%,
+		#1e69de 100%
+	);
+}

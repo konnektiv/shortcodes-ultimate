@@ -1,0 +1,64 @@
+.su-expand {
+	margin: 0 0 1.5em;
+}
+.su-expand-content {
+	overflow: hidden;
+}
+.su-expand-link {
+	margin-top: 0.5em;
+	cursor: pointer;
+}
+.su-expand-link:hover {
+	opacity: 0.7;
+}
+.su-expand-link a,
+.su-expand-link a:hover,
+.su-expand-link a:active,
+.su-expand-link a:visited,
+.su-expand-link a:focus {
+	display: inline;
+	text-decoration: none;
+	box-shadow: none;
+	background: transparent;
+	border: none;
+}
+.su-expand-link-style-underlined .su-expand-link span {
+	text-decoration: underline;
+}
+.su-expand-link-style-dotted .su-expand-link span {
+	border-bottom: 1px dotted #333;
+}
+.su-expand-link-style-dashed .su-expand-link span {
+	border-bottom: 1px dashed #333;
+}
+.su-expand-link-style-button .su-expand-link a {
+	display: inline-block;
+	margin-top: 0.2em;
+	padding: 0.2em 0.4em;
+	border: 2px solid #333;
+}
+.su-expand-link-more {
+	display: none;
+}
+.su-expand-link-less {
+	display: block;
+}
+.su-expand-collapsed .su-expand-link-more {
+	display: block;
+}
+.su-expand-collapsed .su-expand-link-less {
+	display: none;
+}
+.su-expand-link i {
+	display: inline-block;
+	margin: 0 0.3em 0 0;
+	vertical-align: middle;
+	color: inherit;
+}
+.su-expand-link img {
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	margin: 0 0.3em 0 0;
+	vertical-align: middle;
+}

@@ -1,0 +1,28 @@
+.su-label {
+	display: inline;
+	margin-right: 0.3em;
+	padding: 0.1em 0.3em;
+	font-size: 0.8em;
+	height: 0.8em;
+	line-height: 0.8em;
+	color: #fff;
+	border-radius: 3px;
+}
+.su-label-type-default {
+	background: #999;
+}
+.su-label-type-success {
+	background: #090;
+}
+.su-label-type-warning {
+	background: #f90;
+}
+.su-label-type-important {
+	background: #f03;
+}
+.su-label-type-black {
+	background: #111;
+}
+.su-label-type-info {
+	background: #09c;
+}

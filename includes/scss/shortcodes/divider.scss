@@ -1,0 +1,25 @@
+.su-divider {
+	clear: both;
+	border: none;
+	text-align: right;
+	line-height: 1;
+}
+.su-divider a {
+	display: inline-block;
+	font-size: 0.8em;
+	text-decoration: none;
+	outline: none;
+	padding-bottom: 5px;
+}
+.su-divider-style-default {
+	border-bottom-style: solid;
+}
+.su-divider-style-dotted {
+	border-bottom-style: dotted;
+}
+.su-divider-style-dashed {
+	border-bottom-style: dashed;
+}
+.su-divider-style-double {
+	border-bottom-style: double;
+}
