@@ -99,6 +99,6 @@ function su_shortcode_vimeo( $atts = null, $content = null ) {
 
 	su_query_asset( 'css', 'su-shortcodes' );
 
-	return '<div class="su-vimeo su-responsive-media-' . $atts['responsive'] . su_get_css_class( $atts ) . '"><iframe width="' . $atts['width'] . '" height="' . $atts['height'] . '" src="//player.vimeo.com/video/' . $video_id . '?' . http_build_query( $url_params ) . '" frameborder="0" allowfullscreen="true"></iframe></div>';
+	return '<div class="su-vimeo su-u-responsive-media-' . $atts['responsive'] . su_get_css_class( $atts ) . '"><iframe width="' . $atts['width'] . '" height="' . $atts['height'] . '" src="//player.vimeo.com/video/' . $video_id . '?' . http_build_query( $url_params ) . '" frameborder="0" allowfullscreen="true"></iframe></div>';
 
 }

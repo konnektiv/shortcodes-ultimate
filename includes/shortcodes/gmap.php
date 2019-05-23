@@ -76,7 +76,7 @@ function su_shortcode_gmap( $atts = null, $content = null ) {
 	su_query_asset( 'css', 'su-shortcodes' );
 
 	return sprintf(
-		'<div class="su-gmap su-responsive-media-%s%s"><iframe width="%s" height="%s" src="//maps.google.com/maps?q=%s&amp;output=embed%s"></iframe></div>',
+		'<div class="su-gmap su-u-responsive-media-%s%s"><iframe width="%s" height="%s" src="//maps.google.com/maps?q=%s&amp;output=embed%s"></iframe></div>',
 		esc_attr( $atts['responsive'] ),
 		su_get_css_class( $atts ),
 		intval( $atts['width'] ),

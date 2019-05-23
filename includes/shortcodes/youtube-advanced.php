@@ -237,6 +237,6 @@ function su_shortcode_youtube_advanced( $atts = null, $content = null ) {
 
 	su_query_asset( 'css', 'su-shortcodes' );
 
-	return '<div class="su-youtube su-responsive-media-' . $atts['responsive'] . su_get_css_class( $atts ) . '"><iframe width="' . $atts['width'] . '" height="' . $atts['height'] . '" src="' . $protocol . '://' . $domain . '/embed/' . $video_id . '?' . $url_params . '" frameborder="0" allowfullscreen="true"></iframe></div>';
+	return '<div class="su-youtube su-u-responsive-media-' . $atts['responsive'] . su_get_css_class( $atts ) . '"><iframe width="' . $atts['width'] . '" height="' . $atts['height'] . '" src="' . $protocol . '://' . $domain . '/embed/' . $video_id . '?' . $url_params . '" frameborder="0" allowfullscreen="true"></iframe></div>';
 
 }
