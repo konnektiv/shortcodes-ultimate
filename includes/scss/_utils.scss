@@ -8,13 +8,11 @@
 	clear: both;
 }
 
-
 // =============================================================================
 // Trim
 // =============================================================================
 
 .su-u-trim {
-
 	> :first-child {
 		margin-top: 0;
 	}
@@ -24,3 +22,27 @@
 	}
 }
 
+// =============================================================================
+// Responsive Media
+// =============================================================================
+
+.su-u-responsive-media-yes {
+	position: relative;
+	padding-bottom: 56.25%;
+	height: 0;
+	overflow: hidden;
+
+	.fluid-width-video-wrapper,
+	.video-holder {
+		position: static !important;
+	}
+}
+.su-u-responsive-media-yes iframe,
+.su-u-responsive-media-yes object,
+.su-u-responsive-media-yes embed {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
