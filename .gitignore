@@ -6,7 +6,3 @@ Thumbs.db
 Desktop.ini
 $RECYCLE.BIN/
 .DS_Store
-
-# CodeKit config
-config.codekit3
-.config.codekit3
