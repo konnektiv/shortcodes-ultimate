@@ -114,6 +114,11 @@ su_add_shortcode(
 				'name'    => __( 'Description', 'shortcodes-ultimate' ),
 				'desc'    => __( 'Small description under button text. This option is incompatible with icon.', 'shortcodes-ultimate' ),
 			),
+			'download'    => array(
+				'default' => '',
+				'name'    => __( 'Download', 'shortcodes-ultimate' ),
+				'desc'    => __( 'The download attribute specifies that the button URL will be downloaded when a user clicks on the button. The value of the attribute will be the name of the downloaded file.', 'shortcodes-ultimate' ),
+			),
 			'onclick'     => array(
 				'default' => '',
 				'name'    => __( 'onClick', 'shortcodes-ultimate' ),
@@ -169,6 +174,7 @@ function su_shortcode_button( $atts = null, $content = null ) {
 			'ts_pos'      => null, // Dep. 4.3.2
 			'text_shadow' => 'none',
 			'desc'        => '',
+			'download'    => '',
 			'onclick'     => '',
 			'rel'         => '',
 			'title'       => '',
@@ -359,19 +365,24 @@ function su_shortcode_button( $atts = null, $content = null ) {
 	if ( 'blank' === $atts['target'] ) {
 
 		$atts['rel'] = $atts['rel']
-			? 'noopener ' . $atts['rel']
-			: 'noopener';
+			? 'noopener noreferrer ' . esc_attr( $atts['rel'] )
+			: 'noopener noreferrer';
 
 	}
 
+	// Prepare download attribute
+	$atts['download'] = $atts['download']
+		? ' download="' . esc_attr( $atts['download'] ) . '"'
+		: '';
+
 	// Prepare rel attribute
 	$atts['rel'] = $atts['rel']
-		? ' rel="' . $atts['rel'] . '"'
+		? ' rel="' . esc_attr( $atts['rel'] ) . '"'
 		: '';
 
 	// Prepare title attribute
 	$atts['title'] = $atts['title']
-		? ' title="' . su_do_attribute( $atts['title'] ) . '"'
+		? ' title="' . esc_attr( su_do_attribute( $atts['title'] ) ) . '"'
 		: '';
 
 	// Add ID attribute
