@@ -152,9 +152,14 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 
 = 5.4.0 =
 
+**What's new**
+
+- New attribute `download` for the `[su_button]` shortcode
+
 **Improvements**
 
 - Error messages are now displayed only to the users with required capability
+- `[su_button]` with `target=blank` now have `noopener` and `noreferrer` added automatically
 
 
 = 5.3.0 =
