@@ -75,6 +75,6 @@ function su_shortcode_note( $atts = null, $content = null ) {
 
 	su_query_asset( 'css', 'su-shortcodes' );
 
-	return '<div class="su-note' . su_get_css_class( $atts ) . '" style="border-color:' . su_adjust_brightness( $atts['note_color'], -10 ) . ';' . $radius . '"><div class="su-note-inner su-clearfix" style="background-color:' . $atts['note_color'] . ';border-color:' . su_adjust_brightness( $atts['note_color'], 80 ) . ';color:' . $atts['text_color'] . ';' . $radius . '">' . su_do_nested_shortcodes( $content, 'note' ) . '</div></div>';
+	return '<div class="su-note' . su_get_css_class( $atts ) . '" style="border-color:' . su_adjust_brightness( $atts['note_color'], -10 ) . ';' . $radius . '"><div class="su-note-inner su-u-clearfix su-u-trim" style="background-color:' . $atts['note_color'] . ';border-color:' . su_adjust_brightness( $atts['note_color'], 80 ) . ';color:' . $atts['text_color'] . ';' . $radius . '">' . su_do_nested_shortcodes( $content, 'note' ) . '</div></div>';
 
 }

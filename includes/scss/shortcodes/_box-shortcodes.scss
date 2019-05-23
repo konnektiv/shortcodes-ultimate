@@ -1,15 +1,5 @@
 /*** Shortcodes Ultimate - box elements ***/
 
-/*		Common styles
----------------------------------------------------------------*/
-
-.su-clearfix:before,
-.su-clearfix:after {
-	display: table;
-	content: " ";
-}
-.su-clearfix:after { clear: both; }
-
 /*		Tabs + Tab
 ---------------------------------------------------------------*/
 
@@ -550,23 +540,3 @@
 .su-lightbox-content h5,
 .su-lightbox-content h6 { color: inherit; }
 
-/*		Common margin resets for box elements
----------------------------------------------------------------*/
-
-.su-column-inner > *:first-child,
-.su-accordion > *:first-child,
-.su-spoiler-content > *:first-child,
-.su-service-content > *:first-child,
-.su-box-content > *:first-child,
-.su-note-inner > *:first-child,
-.su-expand-content > *:first-child,
-.su-lightbox-content > *:first-child { margin-top: 0; }
-.su-column-inner > *:last-child,
-.su-tabs-pane > *:last-child,
-.su-accordion > *:last-child,
-.su-spoiler-content > *:last-child,
-.su-service-content > *:last-child,
-.su-box-content > *:last-child,
-.su-note-inner > *:last-child,
-.su-expand-content > *:last-child,
-.su-lightbox-content > *:last-child { margin-bottom: 0; }
