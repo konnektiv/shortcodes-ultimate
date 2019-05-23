@@ -380,6 +380,10 @@
 	&-fixed table {
 		table-layout: fixed !important;
 	}
+
+	&:not(.su-table-responsive) table {
+		width: 100% !important;
+	}
 }
 
 
