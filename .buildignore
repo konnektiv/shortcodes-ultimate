@@ -1,0 +1,8 @@
+./.*
+node_modules/**
+assets/scss/**
+assets/js/*/src/**
+package.json
+package-lock.json
+gulpfile.js
+readme.md
