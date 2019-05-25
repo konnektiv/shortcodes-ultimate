@@ -148,7 +148,7 @@ function su_shortcode_tabs( $atts = null, $content = null ) {
 
 		$tabs[] = '<span class="' . su_get_css_class( $tab ) . $tab['disabled'] . '"' . $tab['anchor'] . $tab['url'] . $tab['target'] . ' tabindex="0" role="button">' . su_do_attribute( $tab['title'] ) . '</span>';
 
-		$panes[] = '<div class="su-tabs-pane su-u-clearfix su-u-trim' . su_get_css_class( $tab ) . '">' . $tab['content'] . '</div>';
+		$panes[] = '<div class="su-tabs-pane su-u-clearfix su-u-trim' . su_get_css_class( $tab ) . '" data-title="' . esc_attr( $tab['title'] ) . '">' . $tab['content'] . '</div>';
 
 	}
 
