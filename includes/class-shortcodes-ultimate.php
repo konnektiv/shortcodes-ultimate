@@ -196,7 +196,6 @@ class Shortcodes_Ultimate {
 
 		add_action( 'admin_init', array( $this->upgrade, 'maybe_upgrade' ) );
 
-
 		/**
 		 * Top-level menu: Shortcodes
 		 * admin.php?page=shortcodes-ultimate
@@ -209,7 +208,6 @@ class Shortcodes_Ultimate {
 
 		add_action( 'admin_menu', array( $this->top_level_menu, 'add_menu_pages' ), 5 );
 
-
 		/**
 		 * Submenu: Available shortcodes
 		 * admin.php?page=shortcodes-ultimate
@@ -220,16 +218,15 @@ class Shortcodes_Ultimate {
 			$this->plugin_prefix
 		);
 
-		add_action( 'admin_menu',            array( $this->shortcodes_menu, 'add_menu_pages' ), 5 );
-		add_action( 'current_screen',        array( $this->shortcodes_menu, 'add_help_tabs' )     );
-		add_action( 'admin_enqueue_scripts', array( $this->shortcodes_menu, 'enqueue_scripts' )   );
+		add_action( 'admin_menu', array( $this->shortcodes_menu, 'add_menu_pages' ), 5 );
+		add_action( 'current_screen', array( $this->shortcodes_menu, 'add_help_tabs' ) );
+		add_action( 'admin_enqueue_scripts', array( $this->shortcodes_menu, 'enqueue_scripts' ) );
 		add_filter(
 			'plugin_action_links_' . plugin_basename( $this->plugin_file ),
 			array( $this->shortcodes_menu, 'add_action_links' ),
 			20,
 			1
 		);
-
 
 		/**
 		 * Submenu: Settings
@@ -241,16 +238,15 @@ class Shortcodes_Ultimate {
 			$this->plugin_prefix
 		);
 
-		add_action( 'admin_menu',     array( $this->settings_menu, 'add_menu_pages' ), 20 );
-		add_action( 'admin_init',     array( $this->settings_menu, 'add_settings' )       );
-		add_action( 'current_screen', array( $this->settings_menu, 'add_help_tabs' )      );
+		add_action( 'admin_menu', array( $this->settings_menu, 'add_menu_pages' ), 20 );
+		add_action( 'admin_init', array( $this->settings_menu, 'add_settings' ) );
+		add_action( 'current_screen', array( $this->settings_menu, 'add_help_tabs' ) );
 		add_filter(
 			'plugin_action_links_' . plugin_basename( $this->plugin_file ),
 			array( $this->settings_menu, 'add_action_links' ),
 			10,
 			1
 		);
-
 
 		/**
 		 * Submenu: Add-ons
@@ -262,10 +258,9 @@ class Shortcodes_Ultimate {
 			$this->plugin_prefix
 		);
 
-		add_action( 'admin_menu',            array( $this->addons_menu, 'add_menu_pages' ), 30 );
-		add_action( 'admin_enqueue_scripts', array( $this->addons_menu, 'enqueue_scripts' )    );
-		add_action( 'current_screen',        array( $this->addons_menu, 'add_help_tabs' )      );
-
+		add_action( 'admin_menu', array( $this->addons_menu, 'add_menu_pages' ), 30 );
+		add_action( 'admin_enqueue_scripts', array( $this->addons_menu, 'enqueue_scripts' ) );
+		add_action( 'current_screen', array( $this->addons_menu, 'add_help_tabs' ) );
 
 		/**
 		 * Notice: Rate plugin
@@ -275,10 +270,9 @@ class Shortcodes_Ultimate {
 			$this->plugin_path . 'admin/partials/notices/rate.php'
 		);
 
-		add_action( 'load-plugins.php',             array( $this->rate_notice, 'defer_first_time' ) );
-		add_action( 'admin_notices',                array( $this->rate_notice, 'display_notice' )   );
-		add_action( 'admin_post_su_dismiss_notice', array( $this->rate_notice, 'dismiss_notice' )   );
-
+		add_action( 'load-plugins.php', array( $this->rate_notice, 'defer_first_time' ) );
+		add_action( 'admin_notices', array( $this->rate_notice, 'display_notice' ) );
+		add_action( 'admin_post_su_dismiss_notice', array( $this->rate_notice, 'dismiss_notice' ) );
 
 		/**
 		 * Add/Save 'Slide link' field on attachment page.
