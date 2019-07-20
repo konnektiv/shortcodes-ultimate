@@ -1,7 +1,7 @@
 ./.*
 node_modules/**
-assets/scss/**
-assets/js/*/src/**
+includes/scss/**
+includes/js/*/src/**
 package.json
 package-lock.json
 gulpfile.js
