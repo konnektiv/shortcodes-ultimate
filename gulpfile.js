@@ -42,7 +42,10 @@ function compileJS() {
 }
 
 function watchFiles() {
-	gulp.watch('./assets/scss/**/*.scss', compileSASS);
+	gulp.watch(
+		['./includes/scss/**/*.scss', './admin/scss/**/*.scss'],
+		compileSASS
+	);
 	gulp.watch('./assets/js/*/src/*.js', compileJS);
 }
 
