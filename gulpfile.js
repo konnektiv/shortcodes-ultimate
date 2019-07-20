@@ -30,7 +30,7 @@ function compileSASS() {
 
 function compileJS() {
 	return gulp
-		.src('./assets/js/*/src/*.js')
+		.src('./includes/js/*/src/*.js')
 		.pipe(babel({ presets: ['@babel/env', '@babel/react'] }))
 		.pipe(
 			rename(function(path) {
@@ -38,15 +38,12 @@ function compileJS() {
 			})
 		)
 		.pipe(uglify())
-		.pipe(gulp.dest('./assets/js/'));
+		.pipe(gulp.dest('./includes/js/'));
 }
 
 function watchFiles() {
-	gulp.watch(
-		['./includes/scss/**/*.scss', './admin/scss/**/*.scss'],
-		compileSASS
-	);
-	gulp.watch('./assets/js/*/src/*.js', compileJS);
+	gulp.watch('./{includes,admin}/scss/*.scss', compileSASS);
+	gulp.watch('./includes/js/*/src/*.js', compileJS);
 }
 
 function createBuild() {
