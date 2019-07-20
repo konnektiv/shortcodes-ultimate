@@ -1,5 +1,8 @@
 {
 	"scripts": {
+		"postinstall": "gulp compile",
+		"js": "gulp js",
+		"sass": "gulp sass",
 		"compile": "gulp compile",
 		"watch": "gulp watch",
 		"build": "gulp build"
