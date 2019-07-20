@@ -1,6 +1,9 @@
 # npm packages directory
 node_modules/
 
+# Build directory
+build/
+
 # OS crap
 Thumbs.db
 Desktop.ini
