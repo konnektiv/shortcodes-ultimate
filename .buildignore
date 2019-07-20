@@ -1,6 +1,8 @@
 ./.*
 node_modules/**
+graphics/**
 includes/scss/**
+admin/scss/**
 includes/js/*/src/**
 package.json
 package-lock.json
