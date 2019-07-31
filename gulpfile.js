@@ -7,6 +7,7 @@ const babel = require('gulp-babel');
 const rename = require('gulp-rename');
 const uglify = require('gulp-uglify');
 const nodeSass = require('node-sass');
+const include = require('gulp-include');
 
 function compileSASS() {
 	sass.compiler = nodeSass;
@@ -30,7 +31,8 @@ function compileSASS() {
 
 function compileJS() {
 	return gulp
-		.src('./includes/js/*/src/*.js')
+		.src(['./includes/js/*/src/*.js', '!./includes/js/*/src/_*.js'])
+		.pipe(include()).on('error', console.log)
 		.pipe(babel({ presets: ['@babel/env', '@babel/react'] }))
 		.pipe(
 			rename(function(path) {
