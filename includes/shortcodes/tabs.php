@@ -160,7 +160,7 @@ function su_shortcode_tabs( $atts = null, $content = null ) {
 
 	su_query_asset( 'css', 'su-shortcodes' );
 	su_query_asset( 'js', 'jquery' );
-	su_query_asset( 'js', 'su-other-shortcodes' );
+	su_query_asset( 'js', 'su-shortcodes' );
 
 	return $output;
 

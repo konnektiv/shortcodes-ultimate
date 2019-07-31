@@ -220,7 +220,7 @@ function su_shortcode_carousel( $atts = null, $content = null ) {
 		su_query_asset( 'css', 'su-shortcodes' );
 		su_query_asset( 'js', 'jquery' );
 		su_query_asset( 'js', 'swiper' );
-		su_query_asset( 'js', 'su-galleries-shortcodes' );
+		su_query_asset( 'js', 'su-shortcodes' );
 	}
 	// Slides not found
 	else $return = su_error_message( 'Carousel', __( 'images not found', 'shortcodes-ultimate' ) );

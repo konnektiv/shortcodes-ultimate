@@ -198,7 +198,7 @@ function su_shortcode_slider( $atts = null, $content = null ) {
 		su_query_asset( 'css', 'su-shortcodes' );
 		su_query_asset( 'js', 'jquery' );
 		su_query_asset( 'js', 'swiper' );
-		su_query_asset( 'js', 'su-galleries-shortcodes' );
+		su_query_asset( 'js', 'su-shortcodes' );
 	}
 	// Slides not found
 	else $return = su_error_message( 'Slider', __( 'images not found', 'shortcodes-ultimate' ) );

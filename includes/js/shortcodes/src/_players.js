@@ -1,6 +1,6 @@
-jQuery(document).ready(function ($) {
+jQuery(document).ready(function($) {
 	// Audio player
-	$('.su-audio').each(function () {
+	$('.su-audio').each(function() {
 		// Prepare data
 		var $this = $(this),
 			id = $this.data('id'),
@@ -10,7 +10,7 @@ jQuery(document).ready(function ($) {
 			swf = $this.data('swf');
 		// Init jPlayer
 		$player.jPlayer({
-			ready: function (e) {
+			ready: function(e) {
 				// Set media
 				$player.jPlayer('setMedia', {
 					mp3: audio
@@ -18,9 +18,10 @@ jQuery(document).ready(function ($) {
 				// Autoplay
 				if ($this.data('autoplay') === 'yes') $player.jPlayer('play');
 				// Loop
-				if ($this.data('loop') === 'yes') $player.bind($.jPlayer.event.ended + '.repeat', function () {
-					$player.jPlayer('play');
-				});
+				if ($this.data('loop') === 'yes')
+					$player.bind($.jPlayer.event.ended + '.repeat', function() {
+						$player.jPlayer('play');
+					});
 			},
 			cssSelectorAncestor: selector + '_container',
 			volume: 1,
@@ -31,7 +32,7 @@ jQuery(document).ready(function ($) {
 		});
 	});
 	// Video player
-	$('.su-video').each(function () {
+	$('.su-video').each(function() {
 		// Prepare data
 		var $video = $(this),
 			id = $video.attr('id'),
@@ -45,7 +46,7 @@ jQuery(document).ready(function ($) {
 			};
 		// Init jPlayer
 		$player.jPlayer({
-			ready: function (e) {
+			ready: function(e) {
 				// Set media
 				$player.jPlayer('setMedia', {
 					mp4: file,
@@ -55,9 +56,10 @@ jQuery(document).ready(function ($) {
 				// Autoplay
 				if ($video.data('autoplay') === 'yes') $player.jPlayer('play');
 				// Loop
-				if ($video.data('loop') === 'yes') $player.bind($.jPlayer.event.ended + '.repeat', function () {
-					$player.jPlayer('play');
-				});
+				if ($video.data('loop') === 'yes')
+					$player.bind($.jPlayer.event.ended + '.repeat', function() {
+						$player.jPlayer('play');
+					});
 			},
 			cssSelector: {
 				gui: '.jp-gui, .jp-title'

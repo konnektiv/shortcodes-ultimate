@@ -134,7 +134,7 @@ function su_shortcode_custom_gallery( $atts = null, $content = null ) {
 			su_query_asset( 'css', 'magnific-popup' );
 			su_query_asset( 'js', 'jquery' );
 			su_query_asset( 'js', 'magnific-popup' );
-			su_query_asset( 'js', 'su-galleries-shortcodes' );
+			su_query_asset( 'js', 'su-shortcodes' );
 		}
 		su_query_asset( 'css', 'su-shortcodes' );
 	}
