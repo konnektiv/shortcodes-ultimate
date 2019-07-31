@@ -69,8 +69,6 @@ class Su_Assets {
 				'counter' => sprintf( __( '%s of %s', 'shortcodes-ultimate' ), '%curr%', '%total%' ),
 				'error'   => sprintf( __( 'Failed to load this link. %sOpen link%s.', 'shortcodes-ultimate' ), '<a href="%url%" target="_blank"><u>', '</u></a>' )
 			) );
-		// Ace
-		wp_register_script( 'ace', plugins_url( 'assets/js/ace/ace.js', SU_PLUGIN_FILE ), false, '1.1.3', true );
 		// Swiper
 		wp_register_script( 'swiper', plugins_url( 'assets/js/swiper.js', SU_PLUGIN_FILE ), array( 'jquery' ), '2.6.1', true );
 		// jPlayer
