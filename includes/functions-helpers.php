@@ -339,3 +339,63 @@ function su_adjust_brightness( $color, $percent ) {
 function su_enqueue_generator() {
 	Su_Generator::enqueue_generator();
 }
+
+/**
+ * Helper function to check that the given path is related to the current theme
+ * or to the plugin directory.
+ *
+ * @since  5.4.0
+ * @param  string $path Relative path to check.
+ * @return bool         True if the given path relates to theme/plugin directory, False otherwise.
+ */
+function su_is_valid_template_name( $path ) {
+
+	$path = su_add_file_extension( $path, 'php' );
+
+	$child  = get_stylesheet_directory();
+	$parent = get_template_directory();
+	$plugin = realpath( plugin_dir_path( __FILE__ ) . '../' );
+
+	foreach ( array( $child, $parent, $plugin ) as $dir ) {
+
+		if ( strpos( realpath( path_join( $dir, $path ) ), $dir ) === 0 ) {
+			return true;
+		}
+
+	}
+
+	return false;
+
+}
+
+/**
+ * Helper function to add file extension to a given path.
+ *
+ * @since  5.4.0
+ * @param  string $path      Path to add file extension to.
+ * @param  string $extension Extension to add.
+ * @return string            Path with extension added.
+ */
+function su_add_file_extension( $path, $extension = 'php' ) {
+
+	$info = pathinfo( $path );
+
+	return $info['extension'] !== $extension ? $path . '.' . $extension : $path;
+
+}
+
+/**
+ * Helper function to remove file extension from a given path.
+ *
+ * @since  5.4.0
+ * @param  string $path Path to remove file extension from.
+ * @return string       Path without file extension.
+ */
+function su_remove_file_extension( $path ) {
+
+	return path_join(
+		pathinfo( $path, PATHINFO_DIRNAME ),
+		pathinfo( $path, PATHINFO_FILENAME )
+	);
+
+}
