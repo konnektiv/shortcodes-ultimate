@@ -421,7 +421,7 @@ final class Shortcodes_Ultimate_Admin_Shortcodes extends Shortcodes_Ultimate_Adm
 			'bool'            => sprintf( __( '%s or %s', 'shortcodes-ultimate' ), 'yes', 'no' ),
 			'number'          => sprintf( __( 'Number from %s to %s', 'shortcodes-ultimate' ), $args['min'], $args['max'] ),
 			'slider'          => sprintf( __( 'Number from %s to %s', 'shortcodes-ultimate' ), $args['min'], $args['max'] ),
-			'icon'            => sprintf( '%s. %s: <em>icon: star</em>, <em>http://example.com/icon.png</em>', __( 'FontAwesome icon name (with "icon:" prefix) or icon image URL', 'shortcodes-ultimate' ), __( 'Examples', 'shortcodes-ultimate' ) ),
+			'icon'            => sprintf( '%s. %s: <em>icon: star</em>, <em>http://example.com/icon.png</em>. <a href="https://forkaweso.me/Fork-Awesome/icons/" target="_blank">%s</a>.', __( 'Fork Awesome icon name (with "icon:" prefix) or image URL', 'shortcodes-ultimate' ), __( 'Examples', 'shortcodes-ultimate' ), __( 'See available Fork Awesome icons', 'shortcodes-ultimate' ) ),
 			'image_source'    => $this->implodef( '<br>', $image_sources, '%1$s (%2$s)' ),
 		);
 
