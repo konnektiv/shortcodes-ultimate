@@ -228,7 +228,7 @@ function su_shortcode_posts( $atts = null, $content = null ) {
 
 	$author              = sanitize_text_field( $atts['author'] );
 	$id                  = $atts['id']; // Sanitized later as an array of integers
-	$ignore_sticky_posts = (bool) ( $atts['ignore_sticky_posts'] === 'yes' )
+	$ignore_sticky_posts = (bool) ( 'yes' === $atts['ignore_sticky_posts'] )
 		? true
 		: false;
 	$meta_key            = sanitize_text_field( $atts['meta_key'] );
@@ -380,12 +380,12 @@ function su_shortcode_posts( $atts = null, $content = null ) {
 	// Buffer output
 	ob_start();
 	// Search for template in stylesheet directory
-	if ( file_exists( STYLESHEETPATH . '/' . $atts['template'] ) ) {
-		load_template( STYLESHEETPATH . '/' . $atts['template'], false );
+	if ( file_exists( get_stylesheet_directory() . '/' . $atts['template'] ) ) {
+		load_template( get_stylesheet_directory() . '/' . $atts['template'], false );
 	}
 	// Search for template in theme directory
-	elseif ( file_exists( TEMPLATEPATH . '/' . $atts['template'] ) ) {
-		load_template( TEMPLATEPATH . '/' . $atts['template'], false );
+	elseif ( file_exists( get_template_directory() . '/' . $atts['template'] ) ) {
+		load_template( get_template_directory() . '/' . $atts['template'], false );
 	}
 	// Search for template in plugin directory
 	elseif ( file_exists( path_join( dirname( SU_PLUGIN_FILE ), $atts['template'] ) ) ) {
@@ -401,8 +401,7 @@ function su_shortcode_posts( $atts = null, $content = null ) {
 			__( 'template not found', 'shortcodes-ultimate' )
 		);
 	}
-	$output = ob_get_contents();
-	ob_end_clean();
+	$output = ob_get_clean();
 	// Return original posts
 	$posts = $original_posts;
 	// Reset the query
