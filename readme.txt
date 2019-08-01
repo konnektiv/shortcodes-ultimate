@@ -162,6 +162,10 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 - Error messages are now displayed only to allowed users (user must have required capability)
 - `[su_button]` with `target=blank` now have `noopener` and `noreferrer` added automatically
 
+**Security**
+
+- `[su_posts]` and `[su_template]` are now allow use of templates only from active theme or plugin folders
+
 
 = 5.3.0 =
 
