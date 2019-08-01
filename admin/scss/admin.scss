@@ -124,6 +124,14 @@ $color-wp-link-hover: #0096dd;
 			padding: 1em;
 		}
 
+		&-options-table > table {
+			table-layout: fixed;
+
+			td {
+				word-break: break-word;
+			}
+		}
+
 		&-options-table + &-options-table {
 			margin-top: 20px;
 		}
