@@ -159,7 +159,7 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 
 **Improvements**
 
-- Error messages are now displayed only to the users with required capability
+- Error messages are now displayed only to allowed users (user must have required capability)
 - `[su_button]` with `target=blank` now have `noopener` and `noreferrer` added automatically
 
 
