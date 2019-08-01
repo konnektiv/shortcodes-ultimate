@@ -56,7 +56,7 @@ $prefix    = $this->get_shortcodes_prefix();
 				<div class="su-admin-shortcodes-single-options-table">
 
 					<?php if ( count( $options ) > 1 ) : ?>
-						<h4>[<?php echo $prefix, $table['id']; ?>]</h4>
+						<h3>[<?php echo $prefix, $table['id']; ?>]</h3>
 					<?php endif; ?>
 
 					<?php if ( !is_array( $table['atts'] ) || !count( $table['atts'] ) ) : ?>
@@ -74,7 +74,7 @@ $prefix    = $this->get_shortcodes_prefix();
 							<?php foreach( $table['atts'] as $attr_id => $attr ) : ?>
 								<tr>
 									<td style="max-width:360px">
-										<strong class="wp-ui-text-highlight"><?php echo $attr_id; ?></strong><br>
+										<strong><?php echo $attr_id; ?></strong><br>
 										<small class="description"><?php echo $this->get_shortcode_description( $attr['desc'] ); ?></small>
 									</td>
 									<td><?php echo $this->get_possible_values( $attr ); ?></td>
