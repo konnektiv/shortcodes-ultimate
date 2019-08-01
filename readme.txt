@@ -161,6 +161,7 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 
 - Error messages are now displayed only to allowed users (user must have required capability)
 - `[su_button]` with `target=blank` now have `noopener` and `noreferrer` added automatically
+- Slightly improved readability of the *Available shortcodes* screen
 
 **Security**
 
