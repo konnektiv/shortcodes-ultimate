@@ -328,8 +328,8 @@ function su_adjust_brightness( $color, $percent ) {
 }
 
 /**
- * Helper function to force enqueuing of the shortcode generator
- * assets and templates.
+ * Helper function to force enqueuing of the shortcode generator assets and
+ * templates.
  *
  * Usage example:
  * `add_action( 'admin_init', 'su_enqueue_generator' );`
