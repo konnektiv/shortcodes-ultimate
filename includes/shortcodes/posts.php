@@ -382,6 +382,8 @@ function su_shortcode_posts( $atts = null, $content = null ) {
 	$original_posts = $posts;
 	// Query posts
 	$posts = new WP_Query( $args );
+	// Add extension to template name
+	$atts['template'] = su_add_file_extension( $atts['template'], 'php' );
 	// Buffer output
 	ob_start();
 	// Search for template in stylesheet directory
