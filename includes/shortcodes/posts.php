@@ -226,6 +226,11 @@ function su_shortcode_posts( $atts = null, $content = null ) {
 		'posts'
 	);
 
+	// Validate template name
+	if ( ! su_is_valid_template_name( $atts['template'] ) ) {
+		return su_error_message( 'Posts', __( 'invalid template name', 'shortcodes-ultimate' ) );
+	}
+
 	$author              = sanitize_text_field( $atts['author'] );
 	$id                  = $atts['id']; // Sanitized later as an array of integers
 	$ignore_sticky_posts = (bool) ( 'yes' === $atts['ignore_sticky_posts'] )
