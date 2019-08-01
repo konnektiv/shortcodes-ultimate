@@ -155,6 +155,7 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 **What's new**
 
 - New attribute `download` for the `[su_button]` shortcode
+- New attribute `id` for the `[su_heading]` shortcode
 
 **Improvements**
 
