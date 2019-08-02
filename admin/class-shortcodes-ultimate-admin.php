@@ -109,7 +109,7 @@ abstract class Shortcodes_Ultimate_Admin {
 	 * @param string  $plugin_version The current version of the plugin.
 	 * @param string  $plugin_prefix  The prefix of the plugin.
 	 */
-	protected function __construct( $plugin_file, $plugin_version, $plugin_prefix ) {
+	public function __construct( $plugin_file, $plugin_version, $plugin_prefix ) {
 
 		$this->plugin_file           = $plugin_file;
 		$this->plugin_version        = $plugin_version;

@@ -11,17 +11,6 @@
 final class Shortcodes_Ultimate_Admin_Shortcodes extends Shortcodes_Ultimate_Admin {
 
 	/**
-	 * Initialize the class and set its properties.
-	 *
-	 * @since  5.0.0
-	 * @param string  $plugin_file    The path of the main plugin file
-	 * @param string  $plugin_version The current version of the plugin
-	 */
-	public function __construct( $plugin_file, $plugin_version, $plugin_prefix ) {
-		parent::__construct( $plugin_file, $plugin_version, $plugin_prefix );
-	}
-
-	/**
 	 * Add menu page.
 	 *
 	 * @since   5.0.0

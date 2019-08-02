@@ -1,4 +1,4 @@
-<?php defined( 'ABSPATH' ) or exit; ?>
+<?php defined( 'ABSPATH' ) || exit; ?>
 
 <textarea name="<?php echo esc_attr( $data['id'] ); ?>" id="<?php echo esc_attr( $data['id'] ); ?>" cols="50" rows="15" class="large-text"><?php echo esc_textarea( get_option( $data['id'] ) ); ?></textarea>
 
