@@ -13,7 +13,7 @@ function compileSASS() {
 	sass.compiler = nodeSass;
 
 	return gulp
-		.src('./{includes,admin}/scss/*.scss')
+		.src('./*/scss/*.scss')
 		.pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
 		.pipe(autoprefixer({ cascade: false }))
 		.pipe(
@@ -31,8 +31,9 @@ function compileSASS() {
 
 function compileJS() {
 	return gulp
-		.src(['./includes/js/*/src/*.js', '!./includes/js/*/src/_*.js'])
-		.pipe(include()).on('error', console.log)
+		.src(['./*/js/*/src/*.js', '!./*/js/*/src/_*.js'], { base: './' })
+		.pipe(include())
+		.on('error', console.log)
 		.pipe(babel({ presets: ['@babel/env', '@babel/react'] }))
 		.pipe(
 			rename(function(path) {
@@ -40,12 +41,12 @@ function compileJS() {
 			})
 		)
 		.pipe(uglify())
-		.pipe(gulp.dest('./includes/js/'));
+		.pipe(gulp.dest('./'));
 }
 
 function watchFiles() {
-	gulp.watch('./{includes,admin}/scss/*.scss', compileSASS);
-	gulp.watch('./includes/js/*/src/*.js', compileJS);
+	gulp.watch('./*/scss/*.scss', compileSASS);
+	gulp.watch('./*/js/*/src/*.js', compileJS);
 }
 
 function createBuild() {
