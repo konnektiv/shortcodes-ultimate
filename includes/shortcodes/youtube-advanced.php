@@ -70,7 +70,7 @@ su_add_shortcode(
 				'type'    => 'bool',
 				'default' => 'no',
 				'name'    => __( 'Autoplay', 'shortcodes-ultimate' ),
-				'desc'    => __( 'Play video automatically when a page is loaded. Please note, in modern browsers autoplay option only works with the mute option enabled', 'shortcodes-ultimate' ),
+				'desc'    => __( 'This parameter specifies whether the video will automatically start to play when the player loads. Please note, in modern browsers autoplay option only works with the mute option enabled', 'shortcodes-ultimate' ),
 			),
 			'mute'           => array(
 				'type'    => 'bool',
@@ -130,27 +130,17 @@ su_add_shortcode(
 				'name'    => __( 'Plays inline', 'shortcodes-ultimate' ),
 				'desc'    => __( 'This parameter controls whether videos play inline or fullscreen in an HTML5 player on iOS', 'shortcodes-ultimate' ),
 			),
+			'title'          => array(
+				'name'    => __( 'Title', 'shortcodes-ultimate' ),
+				'desc'    => __( 'A brief description of the embedded content (used by screenreaders)', 'shortcodes-ultimate' ),
+				'default' => '',
+			),
 			'class'          => array(
 				'type'    => 'extra_css_class',
 				'name'    => __( 'Extra CSS class', 'shortcodes-ultimate' ),
 				'desc'    => __( 'Additional CSS class name(s) separated by space(s)', 'shortcodes-ultimate' ),
 				'default' => '',
 			),
-
-			/**
-			 * @deprecated 5.2.0
-			 *
-			 * @see https://developers.google.com/youtube/player_parameters#showinfo
-			 */
-			/*
-			'showinfo'       => array(
-				'type'    => 'bool',
-				'default' => 'yes',
-				'name'    => __( 'Show title bar', 'shortcodes-ultimate' ),
-				'desc'    => __( 'If you set the parameter value to NO, then the player will not display information like the video title and uploader before the video starts playing.', 'shortcodes-ultimate' ),
-			),
-			*/
-
 		),
 		'desc'     => __( 'YouTube video player with advanced settings', 'shortcodes-ultimate' ),
 		'example'  => 'media',
@@ -180,6 +170,7 @@ function su_shortcode_youtube_advanced( $atts = null, $content = null ) {
 			'https'          => 'no',
 			'wmode'          => '',
 			'playsinline'    => 'no',
+			'title'          => '',
 			'class'          => '',
 		),
 		$atts,
@@ -237,6 +228,6 @@ function su_shortcode_youtube_advanced( $atts = null, $content = null ) {
 
 	su_query_asset( 'css', 'su-shortcodes' );
 
-	return '<div class="su-youtube su-u-responsive-media-' . $atts['responsive'] . su_get_css_class( $atts ) . '"><iframe width="' . $atts['width'] . '" height="' . $atts['height'] . '" src="' . $protocol . '://' . $domain . '/embed/' . $video_id . '?' . $url_params . '" frameborder="0" allowfullscreen="true"></iframe></div>';
+	return '<div class="su-youtube su-u-responsive-media-' . $atts['responsive'] . su_get_css_class( $atts ) . '"><iframe width="' . $atts['width'] . '" height="' . $atts['height'] . '" src="' . $protocol . '://' . $domain . '/embed/' . $video_id . '?' . $url_params . '" frameborder="0" allowfullscreen="true" title="' . esc_attr( $atts['title'] ) . '"></iframe></div>';
 
 }
