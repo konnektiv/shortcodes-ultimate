@@ -1,10 +1,9 @@
 ./.*
+./*/scss/**
+./*/js/*/src/**
 node_modules/**
-graphics/**
-includes/scss/**
-admin/scss/**
-includes/js/*/src/**
 package.json
 package-lock.json
 gulpfile.js
 readme.md
+graphics/**
