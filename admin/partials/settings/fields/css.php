@@ -8,9 +8,17 @@ jQuery(function() {
 		return;
 	}
 
+	var editorSettings = wp.codeEditor.defaultSettings
+		? _.clone(wp.codeEditor.defaultSettings)
+		: {};
+
+	editorSettings.codemirror = _.extend({}, editorSettings.codemirror, {
+		viewportMargin: Infinity
+	});
+
 	wp.codeEditor.initialize(
 		"<?php echo esc_attr( $data['id'] ); ?>",
-		wp.codeEditor.defaultSettings
+		editorSettings
 	);
 });
 </script>

@@ -125,7 +125,21 @@ final class Shortcodes_Ultimate_Admin_Settings extends Shortcodes_Ultimate_Admin
 	 * @since   5.4.0
 	 */
 	public function enqueue_scripts() {
+
+		if ( ! $this->is_component_page() ) {
+			return;
+		}
+
 		wp_enqueue_code_editor( array( 'type' => 'text/css' ) );
+
+		wp_enqueue_style(
+			'shortcodes-ultimate-admin',
+			plugins_url( 'css/admin.css', __FILE__ ),
+			array( 'su-icons' ),
+			filemtime( plugin_dir_path( __FILE__ ) . 'css/admin.css' ),
+			'all'
+		);
+
 	}
 
 	/**
