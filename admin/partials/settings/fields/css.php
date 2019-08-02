@@ -2,9 +2,22 @@
 
 <textarea name="<?php echo esc_attr( $data['id'] ); ?>" id="<?php echo esc_attr( $data['id'] ); ?>" cols="50" rows="15" class="large-text"><?php echo esc_textarea( get_option( $data['id'] ) ); ?></textarea>
 
-<p class="description"><?php echo $data['description']; ?></p>
+<script type="text/javascript">
+jQuery(function() {
+	if (typeof wp === 'undefined' || typeof wp.codeEditor === 'undefined') {
+		return;
+	}
 
-<h4 class="title"><?php _e( 'Available variables', 'shortcodes-ultimate' ); ?></h4>
+	wp.codeEditor.initialize(
+		"<?php echo esc_attr( $data['id'] ); ?>",
+		wp.codeEditor.defaultSettings
+	);
+});
+</script>
+
+<p class="description"><?php echo esc_html( $data['description'] ); ?></p>
+
+<h4 class="title"><?php esc_html_e( 'Available variables', 'shortcodes-ultimate' ); ?></h4>
 <table class="widefat striped" style="width:auto">
 	<thead>
 		<tr>

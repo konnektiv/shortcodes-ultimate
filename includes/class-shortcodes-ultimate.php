@@ -241,6 +241,7 @@ class Shortcodes_Ultimate {
 		add_action( 'admin_menu', array( $this->settings_menu, 'add_menu_pages' ), 20 );
 		add_action( 'admin_init', array( $this->settings_menu, 'add_settings' ) );
 		add_action( 'current_screen', array( $this->settings_menu, 'add_help_tabs' ) );
+		add_action( 'admin_enqueue_scripts', array( $this->settings_menu, 'enqueue_scripts' ) );
 		add_filter(
 			'plugin_action_links_' . plugin_basename( $this->plugin_file ),
 			array( $this->settings_menu, 'add_action_links' ),

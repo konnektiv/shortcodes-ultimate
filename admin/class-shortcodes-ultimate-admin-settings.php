@@ -120,6 +120,15 @@ final class Shortcodes_Ultimate_Admin_Settings extends Shortcodes_Ultimate_Admin
 	}
 
 	/**
+	 * Enqueue JavaScript(s) and Stylesheet(s) for the component.
+	 *
+	 * @since   5.4.0
+	 */
+	public function enqueue_scripts() {
+		wp_enqueue_code_editor( array( 'type' => 'text/css' ) );
+	}
+
+	/**
 	 * Add help tabs and set help sidebar at Add-ons page.
 	 *
 	 * @since  5.0.0
