@@ -154,6 +154,7 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 
 **What's new**
 
+- Custom CSS code field now has syntax highlighting
 - New attribute `download` for the `[su_button]` shortcode
 - New attribute `id` for the `[su_heading]` shortcode
 
