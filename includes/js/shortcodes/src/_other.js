@@ -52,8 +52,6 @@ jQuery(document).ready(function($) {
 					$(this).addClass('su-gmap-reloaded');
 					$iframe.attr('src', $iframe.attr('src'));
 				});
-			// Set height for vertical tabs
-			tabs_height();
 			// Open specified url
 			if (data.url !== '') {
 				if (data.target === 'self') window.location = data.url;
@@ -71,7 +69,6 @@ jQuery(document).ready(function($) {
 			.children('span')
 			.eq(active)
 			.trigger('click');
-		tabs_height();
 	});
 
 	// Activate anchor nav for tabs and spoilers
@@ -215,16 +212,6 @@ jQuery(document).ready(function($) {
 	// Animations isn't supported
 	else {
 		$('.su-animate').css('visibility', 'visible');
-	}
-
-	function tabs_height() {
-		$('.su-tabs-vertical').each(function() {
-			var $tabs = $(this),
-				$nav = $tabs.children('.su-tabs-nav'),
-				$panes = $tabs.find('.su-tabs-pane'),
-				height = 0;
-			$panes.css('min-height', $nav.outerHeight(true));
-		});
 	}
 
 	function anchor_nav() {
