@@ -154,19 +154,21 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 
 **What's new**
 
-- Custom CSS code field now has syntax highlighting
-- New attribute `download` for the `[su_button]` shortcode
-- New attribute `id` for the `[su_heading]` shortcode
+- New attribute `download` for the `[su_button]` shortcode (allows immediate downloading of specified URL in a button)
+- New attribute `id` for the `[su_heading]` shortcode (allows linking to a heading)
+- New attribute `wrapper` for the `[su_dummy_text]` shortcode (allows disabling of the div wrapper)
 
 **Improvements**
 
-- Error messages are now displayed only to allowed users (user must have required capability)
+- *Custom CSS code* field now has syntax highlighting
+- *Error messages* are now displayed only to allowed users (user must have required capability)
 - `[su_button]` with `target=blank` now have `noopener` and `noreferrer` added automatically
-- Slightly improved readability of the *Available shortcodes* screen
+- Slightly improved appearance of the *Available shortcodes* screen
+- *Vertical tabs* are now aligned with CSS flexbox, not JS
 
 **Security**
 
-- `[su_posts]` and `[su_template]` are now allow use of templates only from active theme or plugin folders
+- `[su_posts]` and `[su_template]` are now allow only templates from active theme or plugin folders
 
 
 = 5.3.0 =
