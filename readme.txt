@@ -157,18 +157,23 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 - New attribute `download` for the `[su_button]` shortcode (allows immediate downloading of specified URL in a button)
 - New attribute `id` for the `[su_heading]` shortcode (allows linking to a heading)
 - New attribute `wrapper` for the `[su_dummy_text]` shortcode (allows disabling of the div wrapper)
+- New attribute `mobile` for the `[su_lightbox]` shortcode (allows disabling lightbox on mobile devices)
 
 **Improvements**
 
 - *Custom CSS code* field now has syntax highlighting
-- *Error messages* are now displayed only to allowed users (user must have required capability)
 - `[su_button]` with `target=blank` now have `noopener` and `noreferrer` added automatically
 - Slightly improved appearance of the *Available shortcodes* screen
 - *Vertical tabs* are now aligned with CSS flexbox, not JS
 
+**Fixes**
+
+- Fixed issue with `[su_lightbox]` on iOS
+
 **Security**
 
 - `[su_posts]` and `[su_template]` are now allow only templates from active theme or plugin folders
+- *Error messages* are now displayed only to allowed users (user must have required capability)
 
 
 = 5.3.0 =
