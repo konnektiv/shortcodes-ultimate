@@ -45,7 +45,7 @@ function compileJS() {
 }
 
 function watchFiles() {
-	gulp.watch('./*/scss/*.scss', compileSASS);
+	gulp.watch('./*/scss/**/*.scss', compileSASS);
 	gulp.watch('./*/js/*/src/*.js', compileJS);
 }
 
