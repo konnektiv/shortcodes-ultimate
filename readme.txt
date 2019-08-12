@@ -165,6 +165,7 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 - `[su_button]` with `target=blank` now have `noopener` and `noreferrer` added automatically
 - Slightly improved appearance of the *Available shortcodes* screen
 - *Vertical tabs* are now aligned with CSS flexbox, not JS
+- Added shortcodes.full.css file to reference default shortcode styles
 
 **Fixes**
 
