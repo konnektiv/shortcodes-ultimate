@@ -69,8 +69,19 @@ function createBuild() {
 		.pipe(gulp.dest(buildFolder));
 }
 
+function createShortcodesFull() {
+	sass.compiler = nodeSass;
+
+	return gulp
+		.src('./includes/scss/shortcodes.scss')
+		.pipe(sass().on('error', sass.logError))
+		.pipe(autoprefixer({ cascade: false }))
+		.pipe(rename('shortcodes.full.css'))
+		.pipe(gulp.dest('./includes/css/'));
+}
+
 exports.sass = compileSASS;
 exports.js = compileJS;
 exports.watch = watchFiles;
-exports.compile = gulp.parallel(compileSASS, compileJS);
-exports.build = gulp.series(gulp.parallel(compileSASS, compileJS), createBuild);
+exports.compile = gulp.parallel(compileSASS, compileJS, createShortcodesFull);
+exports.build = gulp.series(gulp.parallel(compileSASS, compileJS, createShortcodesFull), createBuild);
