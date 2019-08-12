@@ -143,11 +143,25 @@ $color-wp-link-hover: #0096dd;
 // =============================================================================
 
 .su-admin-settings {
+
+	&-details {
+		margin: 1.33em 0;
+
+		summary {
+			font-weight: 600;
+		}
+
+		> article {
+			margin-top: 1.33em;
+		}
+	}
+
 	.CodeMirror {
 		height: auto;
 
 		.CodeMirror-scroll {
 			min-height: 100px;
+			max-height: 80vh;
 		}
 	}
 }
