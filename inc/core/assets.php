@@ -67,6 +67,21 @@ class Su_Assets {
 			) );
 		// Swiper
 		wp_register_script( 'swiper', plugins_url( 'includes/js/swiper/swiper.js', SU_PLUGIN_FILE ), array( 'jquery' ), '2.6.1', true );
+		// Flickity
+		wp_register_script(
+			'flickity',
+			plugins_url( 'includes/js/flickity/flickity.pkgd.min.js', SU_PLUGIN_FILE ),
+			array(),
+			'2.2.1',
+			true
+		);
+		wp_register_style(
+			'flickity',
+			plugins_url( 'includes/css/flickity.min.css', SU_PLUGIN_FILE ),
+			array(),
+			'2.2.1',
+			'all'
+		);
 		// jPlayer
 		wp_register_script( 'jplayer', plugins_url( 'includes/js/jplayer/jplayer.js', SU_PLUGIN_FILE ), array( 'jquery' ), '2.4.0', true );
 		// Generator
