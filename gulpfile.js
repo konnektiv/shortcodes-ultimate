@@ -7,6 +7,7 @@ const babel = require('gulp-babel');
 const rename = require('gulp-rename');
 const uglify = require('gulp-uglify');
 const nodeSass = require('node-sass');
+const sassGlob = require('gulp-sass-glob');
 const include = require('gulp-include');
 
 function compileSASS() {
@@ -14,6 +15,7 @@ function compileSASS() {
 
 	return gulp
 		.src('./*/scss/*.scss')
+		.pipe(sassGlob())
 		.pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
 		.pipe(autoprefixer({ cascade: false }))
 		.pipe(
@@ -74,6 +76,7 @@ function createShortcodesFull() {
 
 	return gulp
 		.src('./includes/scss/shortcodes.scss')
+		.pipe(sassGlob())
 		.pipe(sass().on('error', sass.logError))
 		.pipe(autoprefixer({ cascade: false }))
 		.pipe(rename('shortcodes.full.css'))
