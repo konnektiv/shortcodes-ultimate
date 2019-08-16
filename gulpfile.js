@@ -77,7 +77,7 @@ function createShortcodesFull() {
 	return gulp
 		.src('./includes/scss/shortcodes.scss')
 		.pipe(sassGlob())
-		.pipe(sass().on('error', sass.logError))
+		.pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
 		.pipe(autoprefixer({ cascade: false }))
 		.pipe(rename('shortcodes.full.css'))
 		.pipe(gulp.dest('./includes/css/'));
