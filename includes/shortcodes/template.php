@@ -34,7 +34,7 @@ function su_shortcode_template( $atts = null, $content = null ) {
 	}
 
 	ob_start();
-	get_template_part( su_remove_file_extension( $atts['name'] ) );
+	get_template_part( su_set_file_extension( $atts['name'], false ) );
 	$output = ob_get_clean();
 
 	return $output;
