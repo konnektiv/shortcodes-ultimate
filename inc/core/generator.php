@@ -172,7 +172,6 @@ class Su_Generator {
 			return;
 		}
 
-		ob_start();
 		$tools = apply_filters( 'su/generator/tools', array(
 				'<a href="' . admin_url( 'admin.php?page=shortcodes-ultimate' ) . '#tab-1" target="_blank" title="' . __( 'Settings', 'shortcodes-ultimate' ) . '">' . __( 'Plugin settings', 'shortcodes-ultimate' ) . '</a>',
 				'<a href="https://getshortcodes.com/" target="_blank" title="' . __( 'Plugin homepage', 'shortcodes-ultimate' ) . '">' . __( 'Plugin homepage', 'shortcodes-ultimate' ) . '</a>',
@@ -212,10 +211,6 @@ class Su_Generator {
 		</div>
 	</div>
 <?php
-		$output = ob_get_contents();
-		set_transient( 'su/generator/popup', $output, 2 * DAY_IN_SECONDS );
-		ob_end_clean();
-		echo $output;
 	}
 
 	/**
@@ -605,10 +600,18 @@ class Su_Generator {
 	 */
 	public static function get_shortcodes() {
 
-		return array_filter(
-			su_get_all_shortcodes(),
-			array( __CLASS__, 'filter_deprecated_shortcodes' )
-		);
+		$shortcodes = su_get_all_shortcodes();
+
+		if ( get_option( 'su_option_hide_deprecated' ) ) {
+
+			$shortcodes = array_filter(
+				$shortcodes,
+				array( __CLASS__, 'filter_deprecated_shortcodes' )
+			);
+
+		}
+
+		return $shortcodes;
 
 	}
 
