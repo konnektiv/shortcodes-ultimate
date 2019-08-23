@@ -374,3 +374,23 @@ function su_parse_images_source( $source ) {
 	);
 
 }
+
+/**
+ * Helper function to get array with available intermediate image sizes.
+ *
+ * @since 5.4.0
+ * @return array Array with available image sizes.
+ */
+function su_get_image_sizes() {
+
+	$sizes = array(
+		'full' => __( 'Original image size', 'shortcodes-ultimate' ),
+	);
+
+	foreach ( get_intermediate_image_sizes() as $size ) {
+		$sizes[ $size ] = ucfirst( $size );
+	}
+
+	return $sizes;
+
+}
