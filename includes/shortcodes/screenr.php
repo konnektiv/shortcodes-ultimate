@@ -1,9 +1,13 @@
 <?php
 
 su_add_shortcode( array(
+		'deprecated' => true,
 		'id' => 'screenr',
 		'callback' => 'su_shortcode_screenr',
-		'deprecated' => true,
+		'group' => 'media',
+		'atts' => array(),
+		'name' => __( 'Screenr', 'shortcodes-ultimate' ),
+		'type' => 'single',
 	) );
 
 function su_shortcode_screenr( $atts = null, $content = null ) {
