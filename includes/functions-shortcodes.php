@@ -78,12 +78,19 @@ function su_get_shortcode_defaults( $id ) {
  * Parse shortcode attribute values.
  *
  * @since  5.4.0
- * @param  array  $atts Input values.
- * @param  string $id   Shortcode ID.
- * @return array        Parsed values.
+ * @param  string $id    Shortcode ID.
+ * @param  array  $atts  Input values.
+ * @param  array  $extra Additional attributes.
+ * @return array         Parsed values.
  */
-function su_parse_shortcode_atts( $atts, $id ) {
-	return shortcode_atts( su_get_shortcode_defaults( $id ), $atts, $id );
+function su_parse_shortcode_atts( $id, $atts, $extra = array() ) {
+
+	return shortcode_atts(
+		array_merge( su_get_shortcode_defaults( $id ), $extra ),
+		$atts,
+		$id
+	);
+
 }
 
 /**
