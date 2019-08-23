@@ -36,7 +36,11 @@ function compileJS() {
 		.src(['./*/js/*/src/*.js', '!./*/js/*/src/_*.js'], { base: './' })
 		.pipe(include())
 		.on('error', console.log)
-		.pipe(babel({ presets: ['@babel/env', '@babel/react'] }))
+		.pipe(
+			babel({
+				presets: [['@babel/env', { modules: false }], '@babel/react']
+			})
+		)
 		.pipe(
 			rename(function(path) {
 				path.dirname += '/../';
@@ -87,4 +91,7 @@ exports.sass = compileSASS;
 exports.js = compileJS;
 exports.watch = watchFiles;
 exports.compile = gulp.parallel(compileSASS, compileJS, createShortcodesFull);
-exports.build = gulp.series(gulp.parallel(compileSASS, compileJS, createShortcodesFull), createBuild);
+exports.build = gulp.series(
+	gulp.parallel(compileSASS, compileJS, createShortcodesFull),
+	createBuild
+);
