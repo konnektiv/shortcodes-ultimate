@@ -74,6 +74,7 @@ Scheduler
 * Dmitry Semenov - [Magnific Popup jQuery plugin](http://dimsemenov.com/plugins/magnific-popup/)
 * Craig Thompson - [qTip jQuery plugin](http://qtip2.com/)
 * Vladimir Kharlampidi - [Swiper jQuery plugin](http://www.idangero.us/sliders/swiper/)
+* David DeSandro - [Flickity – Touch, responsive, flickable carousels](https://flickity.metafizzy.co/)
 * [Fork Awesome & Dave Gandy](https://github.com/ForkAwesome/Fork-Awesome)
 * James Smith - [Simple Slider jQuery plugin](http://loopj.com/jquery-simple-slider/)
 * pt_br locale: [Ibidem Translations](http://www.ibidem-translations.com/)
@@ -162,14 +163,15 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 **Improvements**
 
 - *Custom CSS code* field now has syntax highlighting
-- `[su_button]` with `target=blank` now have `noopener` and `noreferrer` added automatically
+- `[su_button]` with `target=blank` will now be displayed with `rel='noopener noreferrer`
 - Slightly improved appearance of the *Available shortcodes* screen
 - *Vertical tabs* are now aligned with CSS flexbox, not JS
-- Added shortcodes.full.css file to reference default shortcode styles
+- Added `shortcodes.full.css` file to reference the default shortcode styles
 
 **Fixes**
 
 - Fixed issue with `[su_lightbox]` on iOS
+- Removed `!important` from column styles for mobile devices
 
 **Security**
 
