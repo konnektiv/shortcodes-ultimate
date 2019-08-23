@@ -1,9 +1,8 @@
-<?php defined( 'ABSPATH' ) or exit; ?>
+<?php defined( 'ABSPATH' ) || exit; ?>
 
 <?php
-$shortcode = $this->get_single_shortcode();
+$shortcode = $this->get_current_shortcode();
 $options   = $this->get_single_shortcode_options();
-$prefix    = $this->get_shortcodes_prefix();
 ?>
 
 <h1><?php $this->the_page_title(); ?></h1>
@@ -56,7 +55,7 @@ $prefix    = $this->get_shortcodes_prefix();
 				<div class="su-admin-shortcodes-single-options-table">
 
 					<?php if ( count( $options ) > 1 ) : ?>
-						<h3>[<?php echo $prefix, $table['id']; ?>]</h3>
+						<h3>[<?php echo su_get_shortcode_prefix(), $table['id']; ?>]</h3>
 					<?php endif; ?>
 
 					<?php if ( !is_array( $table['atts'] ) || !count( $table['atts'] ) ) : ?>
