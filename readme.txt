@@ -155,7 +155,7 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 
 **What's new**
 
-- New shortcode `[su_image_carousel]` which will replace `[su_slider]` and `[su_carousel]` in the future
+- New shortcode `[su_image_carousel]` which will take place of `[su_slider]` and `[su_carousel]` in the future
 - New attribute `download` for the `[su_button]` shortcode (allows immediate downloading of specified URL in a button)
 - New attribute `id` for the `[su_heading]` shortcode (allows linking to a heading)
 - New attribute `wrapper` for the `[su_dummy_text]` shortcode (allows disabling of the div wrapper)
