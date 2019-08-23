@@ -192,7 +192,7 @@ class Shortcodes_Ultimate {
 		/**
 		 * Upgrades.
 		 */
-		$this->upgrade = new Shortcodes_Ultimate_Upgrade( $this->plugin_file, $this->plugin_version );
+		$this->upgrade = new Shortcodes_Ultimate_Upgrade( $this->plugin_version );
 
 		add_action( 'admin_init', array( $this->upgrade, 'maybe_upgrade' ) );
 
