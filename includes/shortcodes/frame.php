@@ -1,10 +1,9 @@
 <?php
 
 su_add_shortcode( array(
+		'deprecated' => true,
 		'id' => 'frame',
 		'callback' => 'su_shortcode_frame',
-		'image' => su_get_plugin_url() . 'admin/images/shortcodes/frame.svg',
-		'deprecated' => true,
 		'name' => __( 'Frame', 'shortcodes-ultimate' ),
 		'type' => 'wrap',
 		'group' => 'content',
