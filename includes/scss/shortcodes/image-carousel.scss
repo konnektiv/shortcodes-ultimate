@@ -10,6 +10,8 @@
 // -----------------------------------------------------------------------------
 
 .su-image-carousel {
+	$margin: 1.5em;
+
 	$columns: (
 		2 50% 48.5% 3%,
 		3 33.3333333333% 31.4% 2.9%,
@@ -21,24 +23,29 @@
 	);
 
 	$ratios: (
-		// square
-			1 1,
 		// landscape
-			16 9,
+		16 9,
 		16 10,
 		21 9,
+		5 4,
 		4 3,
 		3 2,
 		2 1,
-		8 5,
+		// square
+		1 1,
 		// portrait
-			1 2,
+		1 2,
 		2 3,
-		3 4
+		3 4,
+		4 5,
+		9 21,
+		10 16,
+		9 16
 	);
 
 	& {
-		margin: 1.5em 0;
+		width: 100%;
+		margin: $margin 0;
 	}
 
 	&:first-child {
@@ -47,6 +54,10 @@
 
 	&:last-child {
 		margin-bottom: 0;
+	}
+
+	&:focus {
+		outline: 1px dotted currentColor;
 	}
 
 	// --------------------------------------------------------------------------
@@ -65,7 +76,14 @@
 		img {
 			display: block;
 			width: 100%;
+			height: auto;
+			margin: 0;
+			padding: 0;
 			box-sizing: border-box;
+			box-shadow: none;
+			text-decoration: none;
+			border: none;
+			border-radius: 0;
 		}
 
 		span {
@@ -98,7 +116,18 @@
 	}
 
 	// --------------------------------------------------------------------------
-	// Crop options
+	// Adaptive
+	// --------------------------------------------------------------------------
+
+	@media screen and (max-width: 768px) {
+		&-adaptive &-item {
+			width: 100% !important;
+			margin-right: 0 !important;
+		}
+	}
+
+	// --------------------------------------------------------------------------
+	// Crop
 	// --------------------------------------------------------------------------
 
 	&-crop &-item-content::before {
@@ -133,10 +162,152 @@
 	}
 
 	// --------------------------------------------------------------------------
-	// Style: Default
+	// Align
 	// --------------------------------------------------------------------------
 
-	&-style-default &-item-content {
+	&-align-left {
+		float: left;
+		margin-right: $margin;
+		margin-top: 0;
+	}
+
+	&-align-right {
+		float: right;
+		margin-left: $margin;
+		margin-top: 0;
+	}
+
+	&-align-center {
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	&-align-full {
+		margin-left: calc(50% - 50vw);
+		margin-right: calc(50% - 50vw);
+		max-width: 100vw !important;
+		width: 100vw !important;
+	}
+
+	// --------------------------------------------------------------------------
+	// Arrows & Dots
+	// --------------------------------------------------------------------------
+
+	button.flickity-prev-next-button {
+		position: absolute;
+		top: 50%;
+		display: block;
+		width: 44px;
+		height: 44px;
+		margin-top: -22px;
+		opacity: 0;
+		outline: none;
+		transform: none;
+		transition: opacity 0.2s ease, transform 0.2s ease;
+	}
+	&:hover button.flickity-prev-next-button {
+		opacity: 0.5;
+	}
+	button.flickity-prev-next-button:hover,
+	button.flickity-prev-next-button:focus {
+		opacity: 1;
+		box-shadow: none;
+	}
+	button.flickity-prev-next-button:focus {
+		transform: scale(1.05);
+	}
+	button.flickity-prev-next-button[disabled] {
+		display: none;
+	}
+	button.flickity-prev-next-button.previous {
+		left: 20px;
+	}
+	button.flickity-prev-next-button.next {
+		right: 20px;
+	}
+
+	ol.flickity-page-dots {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		bottom: auto;
+		width: auto;
+		// height: 20px;
+		transform: translate(-50%, -50%);
+		pointer-events: none;
+		opacity: 0;
+		transition: opacity 0.2s ease;
+
+		li.dot {
+			position: relative;
+			width: 20px;
+			height: 20px;
+			display: inline-block;
+			margin: 5px;
+			pointer-events: all;
+			border-radius: 50%;
+			opacity: 0.5;
+			transition: opacity 0.2s ease;
+		}
+		li.dot:hover {
+			opacity: 1;
+		}
+		li.dot.is-selected::before {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			display: block;
+			width: 10px;
+			height: 10px;
+			content: '';
+			border-radius: 50%;
+			transform: translate(-50%, -50%);
+		}
+	}
+
+	&:hover ol.flickity-page-dots {
+		opacity: 1;
+	}
+
+	// --------------------------------------------------------------------------
+	// Controls style: Dark
+	// --------------------------------------------------------------------------
+
+	&-controls-style-dark {
+		button.flickity-prev-next-button {
+			background: black;
+			color: white;
+		}
+		ol.flickity-page-dots li.dot {
+			background: black;
+		}
+		ol.flickity-page-dots li.dot::before {
+			background: white;
+		}
+	}
+
+	// --------------------------------------------------------------------------
+	// Controls style: Light
+	// --------------------------------------------------------------------------
+
+	&-controls-style-light {
+		button.flickity-prev-next-button {
+			background: white;
+			color: black;
+		}
+		ol.flickity-page-dots li.dot {
+			background: white;
+		}
+		ol.flickity-page-dots li.dot::before {
+			background: black;
+		}
+	}
+
+	// --------------------------------------------------------------------------
+	// Slides style: Default
+	// --------------------------------------------------------------------------
+
+	&-slides-style-default &-item-content {
 		margin: 1px;
 		img {
 			padding: 3px;
@@ -159,10 +330,10 @@
 	}
 
 	// --------------------------------------------------------------------------
-	// Style: Minimal
+	// Slides style: Minimal
 	// --------------------------------------------------------------------------
 
-	&-style-minimal &-item-content {
+	&-slides-style-minimal &-item-content {
 		margin: 1px;
 		span {
 			right: 0;
@@ -176,10 +347,10 @@
 	}
 
 	// --------------------------------------------------------------------------
-	// Style: Photo
+	// Slides style: Photo
 	// --------------------------------------------------------------------------
 
-	&-style-photo &-item-content {
+	&-slides-style-photo &-item-content {
 		padding: 7px;
 
 		img {
@@ -199,7 +370,7 @@
 		}
 	}
 
-	&-style-photo#{&}-crop &-item-content {
+	&-slides-style-photo#{&}-crop &-item-content {
 		img {
 			top: 7px;
 			right: 7px;
@@ -207,6 +378,28 @@
 			bottom: 7px;
 			width: calc(100% - 14px);
 			height: calc(100% - 14px);
+		}
+	}
+
+	// --------------------------------------------------------------------------
+	// Lightbox
+	// --------------------------------------------------------------------------
+
+	&-mfp.mfp-bg {
+		z-index: 102000 !important;
+	}
+	&-mfp.mfp-wrap {
+		z-index: 102001 !important;
+
+		.mfp-preloader {
+			z-index: 102002 !important;
+		}
+		.mfp-content {
+			z-index: 102003 !important;
+		}
+		button.mfp-close,
+		button.mfp-arrow {
+			z-index: 102004 !important;
 		}
 	}
 }
