@@ -1,6 +1,7 @@
 <?php defined( 'ABSPATH' ) or exit; ?>
 
-<?php $shortcodes = $this->get_shortcodes_list(); ?>
+<?php $shortcodes = $this->get_available_shortcodes(); ?>
+
 <h1><?php $this->the_page_title(); ?></h1>
 
 <div class="wp-filter">
