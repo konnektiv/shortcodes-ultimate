@@ -47,7 +47,7 @@ final class Shortcodes_Ultimate_Admin_Settings extends Shortcodes_Ultimate_Admin
 			'description' => '',
 			'page'        => $this->plugin_prefix . 'settings',
 			'section'     => $this->plugin_prefix . 'general',
-			'group'       => rtrim( $this->plugin_prefix, '-_' ),
+			'group'       => $this->plugin_prefix . 'settings',
 			'callback'    => array( $this, 'the_settings_field' ),
 			'sanitize'    => 'sanitize_text_field',
 		);
@@ -83,14 +83,18 @@ final class Shortcodes_Ultimate_Admin_Settings extends Shortcodes_Ultimate_Admin
 	 */
 	public function add_settings() {
 
-		/**
-		 * Add default settings section.
-		 */
 		add_settings_section(
 			$this->plugin_prefix . 'general',
 			__( 'General settings', 'shortcodes-ultimate' ),
 			array( $this, 'the_settings_section' ),
 			$this->plugin_prefix . 'settings'
+		);
+
+		add_settings_section(
+			$this->plugin_prefix . 'advanced',
+			null,
+			array( $this, 'the_settings_section' ),
+			$this->plugin_prefix . 'advanced-settings'
 		);
 
 		/**
@@ -197,6 +201,10 @@ final class Shortcodes_Ultimate_Admin_Settings extends Shortcodes_Ultimate_Admin
 
 		if ( empty( $this->plugin_settings ) ) {
 
+			/**
+			 * General settings
+			 */
+
 			$this->plugin_settings[] = array(
 				'id'          => 'su_option_custom-css',
 				'type'        => 'css',
@@ -206,32 +214,6 @@ final class Shortcodes_Ultimate_Admin_Settings extends Shortcodes_Ultimate_Admin
 			);
 
 			$this->plugin_settings[] = array(
-				'id'          => 'su_option_prefix',
-				'sanitize'    => array( $this, 'sanitize_prefix' ),
-				'title'       => __( 'Shortcodes prefix', 'shortcodes-ultimate' ),
-				'description' => __( 'This prefix will be used in shortcode names. For example: set <code>MY_</code> prefix and shortcodes will look like <code>[MY_button]</code>. Please note that this setting does not change shortcodes that have been inserted earlier. Change this setting very carefully.', 'shortcodes-ultimate' ),
-			);
-
-			$this->plugin_settings[] = array(
-				'id'          => 'su_option_custom-formatting',
-				'type'        => 'checkbox',
-				'sanitize'    => array( $this, 'sanitize_checkbox' ),
-				'title'       => __( 'Custom formatting', 'shortcodes-ultimate' ),
-				'description' => __( 'Enable this option if you face any problems with formatting of nested shortcodes.', 'shortcodes-ultimate' ),
-			);
-
-			$this->plugin_settings[] = array(
-				'id'          => 'su_option_skip',
-				'type'        => 'checkbox',
-				'sanitize'    => array( $this, 'sanitize_checkbox' ),
-				'title'       => __( 'Skip default settings', 'shortcodes-ultimate' ),
-				'description' => __( 'Enable this option if you don\'t want the inserted shortcode to contain any settings that were not changed by you. As a result, inserted shortcodes will be much shorter.', 'shortcodes-ultimate' ),
-			);
-
-			/**
-			 * @since 5.1.0
-			 */
-			$this->plugin_settings[] = array(
 				'id'          => 'su_option_supported_blocks',
 				'type'        => 'checkbox-group',
 				'sanitize'    => array( $this, 'sanitize_checkbox_group' ),
@@ -240,18 +222,6 @@ final class Shortcodes_Ultimate_Admin_Settings extends Shortcodes_Ultimate_Admin
 				'options'     => su_get_config( 'supported-blocks' ),
 			);
 
-			/**
-			 * @since 5.2.0
-			 */
-			$this->plugin_settings[] = array(
-				'id'          => 'su_option_generator_access',
-				'title'       => __( 'Required user capability', 'shortcodes-ultimate' ),
-				'description' => __( 'A user must have this capability to be able to use the "Insert Shortcode" button. Do not change this value if you do not understand its meaning as this may lower the plugin security.', 'shortcodes-ultimate' ),
-			);
-
-			/**
-			 * @since 5.2.0
-			 */
 			$this->plugin_settings[] = array(
 				'id'          => 'su_option_enable_shortcodes_in',
 				'type'        => 'checkbox-group',
@@ -262,6 +232,62 @@ final class Shortcodes_Ultimate_Admin_Settings extends Shortcodes_Ultimate_Admin
 					'category_description' => __( 'Category descriptions', 'shortcodes-ultimate' ),
 					'widget_text'          => __( 'Text widgets', 'shortcodes-ultimate' ),
 				),
+			);
+
+			/**
+			 * Advanced settings
+			 */
+
+			$this->plugin_settings[] = array(
+				'id'          => 'su_option_prefix',
+				'sanitize'    => array( $this, 'sanitize_prefix' ),
+				'page'        => $this->plugin_prefix . 'advanced-settings',
+				'group'       => $this->plugin_prefix . 'advanced-settings',
+				'section'     => $this->plugin_prefix . 'advanced',
+				'title'       => __( 'Shortcodes prefix', 'shortcodes-ultimate' ),
+				'description' => __( 'This prefix will be used in shortcode names. For example: set <code>MY_</code> prefix and shortcodes will look like <code>[MY_button]</code>. Please note that this setting does not change shortcodes that have been inserted earlier. Change this setting very carefully.', 'shortcodes-ultimate' ),
+			);
+
+			$this->plugin_settings[] = array(
+				'id'          => 'su_option_custom-formatting',
+				'type'        => 'checkbox',
+				'sanitize'    => array( $this, 'sanitize_checkbox' ),
+				'page'        => $this->plugin_prefix . 'advanced-settings',
+				'group'       => $this->plugin_prefix . 'advanced-settings',
+				'section'     => $this->plugin_prefix . 'advanced',
+				'title'       => __( 'Custom formatting', 'shortcodes-ultimate' ),
+				'description' => __( 'Enable this option if you face any problems with formatting of nested shortcodes.', 'shortcodes-ultimate' ),
+			);
+
+			$this->plugin_settings[] = array(
+				'id'          => 'su_option_skip',
+				'type'        => 'checkbox',
+				'sanitize'    => array( $this, 'sanitize_checkbox' ),
+				'page'        => $this->plugin_prefix . 'advanced-settings',
+				'group'       => $this->plugin_prefix . 'advanced-settings',
+				'section'     => $this->plugin_prefix . 'advanced',
+				'title'       => __( 'Skip default settings', 'shortcodes-ultimate' ),
+				'description' => __( 'Enable this option if you don\'t want the inserted shortcode to contain any settings that were not changed by you. As a result, inserted shortcodes will be much shorter.', 'shortcodes-ultimate' ),
+			);
+
+			$this->plugin_settings[] = array(
+				'id'          => 'su_option_generator_access',
+				'page'        => $this->plugin_prefix . 'advanced-settings',
+				'group'       => $this->plugin_prefix . 'advanced-settings',
+				'section'     => $this->plugin_prefix . 'advanced',
+				'title'       => __( 'Required user capability', 'shortcodes-ultimate' ),
+				'description' => __( 'A user must have this capability to be able to use the "Insert Shortcode" button. Do not change this value if you do not understand its meaning as this may lower the plugin security.', 'shortcodes-ultimate' ),
+			);
+
+			$this->plugin_settings[] = array(
+				'id'          => 'su_option_hide_deprecated',
+				'type'        => 'checkbox',
+				'sanitize'    => array( $this, 'sanitize_checkbox' ),
+				'page'        => $this->plugin_prefix . 'advanced-settings',
+				'group'       => $this->plugin_prefix . 'advanced-settings',
+				'section'     => $this->plugin_prefix . 'advanced',
+				'title'       => __( 'Hide deprecated shortcodes', 'shortcodes-ultimate' ),
+				'description' => __( 'This option hides all deprecated shortcodes from the Insert Shortcode window and at the Available Shortcodes page. Hidden shortcodes will continue to work.', 'shortcodes-ultimate' ),
 			);
 
 		}
