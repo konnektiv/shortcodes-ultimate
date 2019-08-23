@@ -7,6 +7,11 @@ su_add_shortcode( array(
 		'name' => __( 'Carousel', 'shortcodes-ultimate' ),
 		'type' => 'single',
 		'group' => 'gallery',
+		'note'  => sprintf(
+			'<p>%s</p><p><button class="button button-primary" onclick="document.querySelector(\'[data-shortcode=image_carousel]\').click(); return false;">%s &rarr;</button></p>',
+			__( 'There is a much better shortcode for your images. Have you already tried the Image Carousel? It can create both sliders and carousels.', 'shortcodes-ultimate' ),
+			__( 'Switch to Image Carousel', 'shortcodes-ultimate' )
+		),
 		'atts' => array(
 			'source' => array(
 				'type'    => 'image_source',
