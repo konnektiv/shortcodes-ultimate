@@ -88,19 +88,7 @@ class Shortcodes_Ultimate_Activator {
 	 */
 	private static function setup_defaults() {
 
-		$defaults = array(
-			'su_option_custom-formatting'    => 'on',
-			'su_option_skip'                 => 'on',
-			'su_option_prefix'               => 'su_',
-			'su_option_custom-css'           => '',
-			'su_option_supported_blocks'     => array(
-				'core/paragraph',
-				'core/shortcode',
-				'core/freeform',
-			),
-			'su_option_generator_access'     => 'manage_options',
-			'su_option_enable_shortcodes_in' => array( 'category_description' ),
-		);
+		$defaults = su_get_config( 'default-settings' );
 
 		foreach ( $defaults as $option => $value ) {
 
