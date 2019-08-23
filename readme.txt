@@ -153,6 +153,13 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 
 = 5.4.0 =
 
+**Important change**
+
+`[su_slider]` and `[su_carousel]` were replaced with the new `[su_image_carousel]` shortcode. The new shortcode can be used to create both slider and carousel. Old shortcodes will continue to work, but will be hidden in the Insert Shortcode window.
+
+See the [FAQ](https://getshortcodes.com/support/#faqs) if you have questions.
+
+
 **What's new**
 
 - New attribute `download` for the `[su_button]` shortcode (allows immediate downloading of specified URL in a button)
