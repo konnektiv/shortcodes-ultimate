@@ -11,7 +11,8 @@
 		<?php if ( isset( $_GET['advanced'] ) ) : ?>
 
 			<div class="notice notice-warning">
-				<p><strong><?php esc_html_e( 'Warning!', 'shortcodes-ultimate' ); ?></strong> <?php esc_html_e( 'You are editing advanced settings. Be careful and do not edit settings you do not understand', 'shortcodes-ultimate' ); ?>. <a href="<?php echo esc_attr( $this->get_component_url() ); ?>"><?php esc_html_e( 'Return to general settings', 'shortcodes-ultimate' ); ?></a>.</p>
+				<p><strong><?php esc_html_e( 'Warning!', 'shortcodes-ultimate' ); ?></strong><br><?php esc_html_e( 'You are editing advanced settings. Do not edit these settings if you do not understand their purpose.', 'shortcodes-ultimate' ); ?></p>
+				<p><a href="<?php echo esc_attr( $this->get_component_url() ); ?>">&larr; <?php esc_html_e( 'Return to main settings', 'shortcodes-ultimate' ); ?></a></p>
 			</div>
 
 			<?php settings_fields( $this->plugin_prefix . 'advanced-settings' ); ?>
