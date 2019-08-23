@@ -1,7 +1,6 @@
 <?php
 
 su_add_shortcode( array(
-		'deprecated' => true,
 		'id' => 'slider',
 		'callback' => 'su_shortcode_slider',
 		'image' => su_get_plugin_url() . 'admin/images/shortcodes/slider.svg',
