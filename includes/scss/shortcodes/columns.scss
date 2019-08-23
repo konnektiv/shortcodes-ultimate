@@ -30,10 +30,10 @@
 .su-row .su-column:first-child {
 	margin-left: 0;
 }
-.su-column-centered {
-	margin-right: auto !important;
-	margin-left: auto !important;
-	float: none !important;
+.su-row .su-column.su-column-centered {
+	margin-right: auto;
+	margin-left: auto;
+	float: none;
 }
 .su-column img,
 .su-column iframe,
@@ -83,14 +83,13 @@
 	width: 82.66%;
 }
 
-// Styles for screens that are less than 768px
 @media only screen and (max-width: 768px) {
-	.su-column {
-		width: 100% !important;
-		margin: 0 0 1.5em !important;
-		float: none !important;
+	.su-row .su-column {
+		width: 100%;
+		margin: 0 0 1.5em;
+		float: none;
 	}
 	.su-row .su-column:last-child {
-		margin-bottom: 0 !important;
+		margin-bottom: 0;
 	}
 }
