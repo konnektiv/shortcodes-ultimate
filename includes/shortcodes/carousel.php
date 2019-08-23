@@ -1,7 +1,6 @@
 <?php
 
 su_add_shortcode( array(
-		'deprecated' => true,
 		'id' => 'carousel',
 		'callback' => 'su_shortcode_carousel',
 		'image' => su_get_plugin_url() . 'admin/images/shortcodes/carousel.svg',
