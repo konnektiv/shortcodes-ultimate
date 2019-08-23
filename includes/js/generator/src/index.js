@@ -1153,6 +1153,7 @@ SUG.App = ( ( $ ) => {
 			type: 'inline',
 			alignTop: true,
 			// closeOnBgClick: false,
+			mainClass: 'su-generator-mfp',
 			items: {
 				src: '#su-generator'
 			},
@@ -1167,7 +1168,7 @@ SUG.App = ( ( $ ) => {
 				window.setTimeout( () => $search.focus(), 200 );
 			}
 
-			self.el.body.addClass( 'su-mfp-shown' );
+			// self.el.body.addClass( 'su-mfp-shown' );
 
 			if (
 				typeof tinyMCE !== 'undefined'
@@ -1190,7 +1191,7 @@ SUG.App = ( ( $ ) => {
 
 			self.state.mceSelection = '';
 
-			self.el.body.removeClass( 'su-mfp-shown' );
+			// self.el.body.removeClass( 'su-mfp-shown' );
 
 		};
 
