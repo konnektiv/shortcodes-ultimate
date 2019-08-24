@@ -2326,11 +2326,12 @@
 }
 
 .su-table table {
-  min-width: 100% !important;
+  width: 100% !important;
   margin: 0 !important;
   border-collapse: collapse !important;
   font-size: 1em !important;
   border: 1px solid #ccc !important;
+  table-layout: auto !important;
 }
 
 .su-table table th {
@@ -2353,6 +2354,10 @@
   overflow-x: auto;
 }
 
+.su-table-responsive table {
+  width: auto !important;
+}
+
 .su-table-responsive table th,
 .su-table-responsive table td {
   word-break: initial !important;
@@ -2364,10 +2369,6 @@
 
 .su-table-fixed table {
   table-layout: fixed !important;
-}
-
-.su-table:not(.su-table-responsive) table {
-  width: 100% !important;
 }
 
 .su-tabs {
