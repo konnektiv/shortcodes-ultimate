@@ -52,19 +52,19 @@ A comprehensive collection of visual components for your site
 = Available Shortcodes =
 
 `
-Heading       Tabs          Spoiler     Accordion
-Divider       Spacer        Highlight   Label
-Quote         Pullquote     Dropcap     Columns
-List          Button        Service     Box
-Note          Expand        Lightbox    Tooltip
-Private       YouTube       Vimeo       Dailymotion
-Audio         Video         Table       Permalink
-Members       Guests        RSS         Menu
-Sub pages     Siblings      Document    Google map
-Slider        Carousel      Gallery     Posts
-Dummy text    Dummy image   Animation   Meta data
-User data     Post data     Template    QR code
-Scheduler
+Heading         Tabs        Spoiler      Accordion
+Divider         Spacer      Highlight    Label
+Quote           Pullquote   Dropcap      Columns
+List            Button      Service      Box
+Note            Expand      Lightbox     Tooltip
+Private         YouTube     Vimeo        Dailymotion
+Audio           Video       Table        Permalink
+Members         Guests      RSS          Menu
+Sub pages       Siblings    Document     Google map
+Image carousel  Slider      Carousel     Gallery
+Posts           Dummy text  Dummy image  Animation
+Meta data       User data   Post data    Template
+QR code         Scheduler
 `
 
 
