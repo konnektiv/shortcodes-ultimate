@@ -168,6 +168,7 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 - Slightly improved appearance of the *Available shortcodes* screen
 - *Vertical tabs* are now aligned with CSS flexbox, not JS
 - Added `shortcodes.full.css` file to reference the default shortcode styles
+- Minor improvements to `[su_table]`, `[su_row]`, and `[su_column]` shortcodes
 
 **Fixes**
 

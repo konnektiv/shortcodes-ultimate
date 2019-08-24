@@ -3,11 +3,12 @@
 	margin-bottom: 1.5em;
 
 	table {
-		min-width: 100% !important;
+		width: 100% !important;
 		margin: 0 !important;
 		border-collapse: collapse !important;
 		font-size: 1em !important;
 		border: 1px solid #ccc !important;
+		table-layout: auto !important;
 
 		th {
 			text-align: center !important;
@@ -29,19 +30,21 @@
 	&-responsive {
 		overflow-x: auto;
 
-		table th,
-		table td {
-			word-break: initial !important;
+		table {
+			width: auto !important;
+
+			th,
+			td {
+				word-break: initial !important;
+			}
 		}
 	}
+
 	&-alternate table tr:nth-child(even) td {
 		background-color: #f7f7f7 !important;
 	}
+
 	&-fixed table {
 		table-layout: fixed !important;
-	}
-
-	&:not(.su-table-responsive) table {
-		width: 100% !important;
 	}
 }
