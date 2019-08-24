@@ -1287,12 +1287,15 @@
   right: 20px;
 }
 
-.su-image-carousel ol.flickity-page-dots {
+.su-image-carousel > ol.flickity-page-dots {
   position: absolute;
   top: 50%;
   left: 50%;
   bottom: auto;
   width: auto;
+  margin: 0;
+  padding: 0;
+  list-style: none;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   pointer-events: none;
@@ -1301,12 +1304,14 @@
   transition: opacity 0.2s ease;
 }
 
-.su-image-carousel ol.flickity-page-dots li.dot {
+.su-image-carousel > ol.flickity-page-dots > li.dot {
   position: relative;
   width: 20px;
   height: 20px;
   display: inline-block;
   margin: 5px;
+  padding: 0;
+  list-style: none;
   pointer-events: all;
   border-radius: 50%;
   opacity: 0.5;
@@ -1314,21 +1319,27 @@
   transition: opacity 0.2s ease;
 }
 
-.su-image-carousel ol.flickity-page-dots li.dot:hover {
+.su-image-carousel > ol.flickity-page-dots > li.dot:hover {
   opacity: 1;
 }
 
-.su-image-carousel ol.flickity-page-dots li.dot.is-selected::before {
+.su-image-carousel > ol.flickity-page-dots > li.dot::before {
   position: absolute;
   top: 50%;
   left: 50%;
-  display: block;
+  display: none;
   width: 10px;
   height: 10px;
+  margin: 0;
+  padding: 0;
   content: '';
   border-radius: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+}
+
+.su-image-carousel > ol.flickity-page-dots > li.dot.is-selected::before {
+  display: block;
 }
 
 .su-image-carousel:hover ol.flickity-page-dots {
