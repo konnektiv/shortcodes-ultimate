@@ -2367,6 +2367,7 @@
 
 .su-table-responsive table {
   width: auto !important;
+  min-width: 100% !important;
 }
 
 .su-table-responsive table th,
