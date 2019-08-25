@@ -105,18 +105,18 @@ jQuery(document).ready(function($) {
 					return true;
 				},
 				type: type,
-				tClose: su_magnific_popup.close,
-				tLoading: su_magnific_popup.loading,
+				tClose: SUShortcodesL10n.magnificPopup.close,
+				tLoading: SUShortcodesL10n.magnificPopup.loading,
 				gallery: {
-					tPrev: su_magnific_popup.prev,
-					tNext: su_magnific_popup.next,
-					tCounter: su_magnific_popup.counter
+					tPrev: SUShortcodesL10n.magnificPopup.prev,
+					tNext: SUShortcodesL10n.magnificPopup.next,
+					tCounter: SUShortcodesL10n.magnificPopup.counter
 				},
 				image: {
-					tError: su_magnific_popup.error
+					tError: SUShortcodesL10n.magnificPopup.error
 				},
 				ajax: {
-					tError: su_magnific_popup.error
+					tError: SUShortcodesL10n.magnificPopup.error
 				}
 			})
 			.magnificPopup('open');

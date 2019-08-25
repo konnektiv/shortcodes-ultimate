@@ -99,12 +99,12 @@ jQuery(document).ready(function($) {
 						enabled: true,
 						navigateByImgClick: true,
 						preload: [0, 1],
-						tPrev: su_magnific_popup.prev,
-						tNext: su_magnific_popup.next,
-						tCounter: su_magnific_popup.counter
+						tPrev: SUShortcodesL10n.magnificPopup.prev,
+						tNext: SUShortcodesL10n.magnificPopup.next,
+						tCounter: SUShortcodesL10n.magnificPopup.counter
 					},
-					tClose: su_magnific_popup.close,
-					tLoading: su_magnific_popup.loading
+					tClose: SUShortcodesL10n.magnificPopup.close,
+					tLoading: SUShortcodesL10n.magnificPopup.loading
 				},
 				$(this).data('index')
 			);
