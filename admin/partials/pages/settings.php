@@ -20,7 +20,7 @@
 
 		<?php else : ?>
 
-			<?php settings_fields( $this->plugin_prefix . 'settings' ); ?>
+			<?php settings_fields( rtrim( $this->plugin_prefix, '-_' ) ); ?>
 			<?php do_settings_sections( $this->plugin_prefix . 'settings' ); ?>
 
 		<?php endif; ?>

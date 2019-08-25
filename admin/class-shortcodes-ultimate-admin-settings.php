@@ -47,7 +47,7 @@ final class Shortcodes_Ultimate_Admin_Settings extends Shortcodes_Ultimate_Admin
 			'description' => '',
 			'page'        => $this->plugin_prefix . 'settings',
 			'section'     => $this->plugin_prefix . 'general',
-			'group'       => $this->plugin_prefix . 'settings',
+			'group'       => rtrim( $this->plugin_prefix, '-_' ),
 			'callback'    => array( $this, 'the_settings_field' ),
 			'sanitize'    => 'sanitize_text_field',
 		);
