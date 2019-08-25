@@ -151,6 +151,11 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 
 == Changelog ==
 
+= 5.4.1 =
+
+This update fix various issues related to version 5.4.0
+
+
 = 5.4.0 =
 
 **What's new**
