@@ -218,8 +218,11 @@ function su_get_gallery_slides( $source, $args = array() ) {
 		}
 
 		if ( 'recent' !== $source['ids'] ) {
-			$query['post__in'] = $source['ids'];
-			$query['orderby']  = 'post__in';
+
+			$query['posts_per_page'] = -1;
+			$query['post__in']       = $source['ids'];
+			$query['orderby']        = 'post__in';
+
 		}
 
 	}
@@ -234,8 +237,9 @@ function su_get_gallery_slides( $source, $args = array() ) {
 
 		if ( 'recent' !== $source['ids'] ) {
 
-			$query['post__in'] = $source['ids'];
-			$query['orderby']  = 'post__in';
+			$query['posts_per_page'] = -1;
+			$query['post__in']       = $source['ids'];
+			$query['orderby']        = 'post__in';
 
 		}
 
