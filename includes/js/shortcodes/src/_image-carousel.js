@@ -3,7 +3,7 @@ jQuery(document).ready(function($) {
 
 	self.MFPItems = {};
 
-	self.l10n = su_magnific_popup;
+	self.MFPL10n = SUShortcodesL10n.magnificPopup;
 
 	self.initGalleries = function() {
 		var galleries = document.querySelectorAll(
@@ -58,12 +58,12 @@ jQuery(document).ready(function($) {
 					enabled: true,
 					navigateByImgClick: true,
 					preload: [1, 1],
-					tPrev: self.l10n.prev,
-					tNext: self.l10n.next,
-					tCounter: self.l10n.counter
+					tPrev: self.MFPL10n.prev,
+					tNext: self.MFPL10n.next,
+					tCounter: self.MFPL10n.counter
 				},
-				tClose: self.l10n.close,
-				tLoading: self.l10n.loading
+				tClose: self.MFPL10n.close,
+				tLoading: self.MFPL10n.loading
 			},
 			itemIndex
 		);

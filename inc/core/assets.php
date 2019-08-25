@@ -57,14 +57,6 @@ class Su_Assets {
 		// Magnific Popup
 		wp_register_style( 'magnific-popup', plugins_url( 'includes/css/magnific-popup.css', SU_PLUGIN_FILE ), false, '1.1.0', 'all' );
 		wp_register_script( 'magnific-popup', plugins_url( 'includes/js/magnific-popup/magnific-popup.js', SU_PLUGIN_FILE ), array( 'jquery' ), '1.1.0', true );
-		wp_localize_script( 'magnific-popup', 'su_magnific_popup', array(
-				'close'   => __( 'Close (Esc)', 'shortcodes-ultimate' ),
-				'loading' => __( 'Loading...', 'shortcodes-ultimate' ),
-				'prev'    => __( 'Previous (Left arrow key)', 'shortcodes-ultimate' ),
-				'next'    => __( 'Next (Right arrow key)', 'shortcodes-ultimate' ),
-				'counter' => sprintf( __( '%s of %s', 'shortcodes-ultimate' ), '%curr%', '%total%' ),
-				'error'   => sprintf( __( 'Failed to load this link. %sOpen link%s.', 'shortcodes-ultimate' ), '<a href="%url%" target="_blank"><u>', '</u></a>' )
-			) );
 		// Swiper
 		wp_register_script( 'swiper', plugins_url( 'includes/js/swiper/swiper.js', SU_PLUGIN_FILE ), array( 'jquery' ), '2.6.1', true );
 		// Flickity
@@ -124,7 +116,16 @@ class Su_Assets {
 			'su-shortcodes',
 			'SUShortcodesL10n',
 			array(
-				'noPreview' => __( 'This shortcode doesn\'t work in live preview. Please insert it into editor and preview on the site.', 'shortcodes-ultimate' ),
+				'noPreview'     => __( 'This shortcode doesn\'t work in live preview. Please insert it into editor and preview on the site.', 'shortcodes-ultimate' ),
+				'magnificPopup' => array(
+					'close'   => __( 'Close (Esc)', 'shortcodes-ultimate' ),
+					'loading' => __( 'Loading...', 'shortcodes-ultimate' ),
+					'prev'    => __( 'Previous (Left arrow key)', 'shortcodes-ultimate' ),
+					'next'    => __( 'Next (Right arrow key)', 'shortcodes-ultimate' ),
+					// translators: %1$s of %2$s represents image counter in lightbox, will be replaced with "1 of 5"
+					'counter' => sprintf( __( '%1$s of %2$s', 'shortcodes-ultimate' ), '%curr%', '%total%' ),
+					'error'   => sprintf( '%1$s. <a href="%url%" target="_blank"><u>%2$</u></a>', __( 'Failed to load content.', 'shortcodes-ultimate' ), __( 'Open link', 'shortcodes-ultimate' ) ),
+				),
 			)
 		);
 		// Hook to deregister assets or add custom
