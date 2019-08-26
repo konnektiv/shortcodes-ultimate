@@ -307,19 +307,12 @@ function su_set_file_extension( $path, $extension ) {
 
 	$path_info = pathinfo( $path );
 
-	// Remove file extension
 	if ( ! $extension ) {
-
-		return path_join(
-			$path_info( $path, PATHINFO_DIRNAME ),
-			$path_info( $path, PATHINFO_FILENAME )
-		);
-
+		return path_join( $path_info['dirname'], $path_info['filename'] );
 	}
 
-	// Add file extension, if needed
 	if ( $path_info['extension'] !== $extension ) {
-		$path .= $extension;
+		$path .= ".{$extension}";
 	}
 
 	return $path;
