@@ -21,13 +21,6 @@
 		<?php endforeach; ?>
 
 	</ul>
-
-	<?php /*
-	<form class="search-form" action="<?php echo $this->component_url; ?>">
-		<label class="screen-reader-text" for="wp-filter-search-input"><?php _e( 'Search shortcodes', 'shortcodes-ultimate' ); ?></label>
-		<input placeholder="<?php _e( 'Search shortcodes', 'shortcodes-ultimate' ); ?>&hellip;" type="search" id="wp-filter-search-input" class="wp-filter-search">
-	</form>
-	*/ ?>
 </div>
 
 <div class="su-admin-shortcodes-list wp-clearfix">
