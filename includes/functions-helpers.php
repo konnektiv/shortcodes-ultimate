@@ -274,11 +274,16 @@ function su_is_valid_template_name( $path ) {
 
 	$path = su_set_file_extension( $path, 'php' );
 
-	$child  = get_stylesheet_directory();
-	$parent = get_template_directory();
-	$plugin = realpath( plugin_dir_path( __FILE__ ) . '../' );
+	$allowed = apply_filters(
+		'su/allowed_template_paths',
+		array(
+			get_stylesheet_directory(),
+			get_template_directory(),
+			plugin_dir_path( dirname( __FILE__ ) ),
+		)
+	);
 
-	foreach ( array( $child, $parent, $plugin ) as $dir ) {
+	foreach ( $allowed as $dir ) {
 
 		if ( strpos( realpath( path_join( $dir, $path ) ), $dir ) === 0 ) {
 			return true;
@@ -302,19 +307,12 @@ function su_set_file_extension( $path, $extension ) {
 
 	$path_info = pathinfo( $path );
 
-	// Remove file extension
 	if ( ! $extension ) {
-
-		return path_join(
-			$path_info( $path, PATHINFO_DIRNAME ),
-			$path_info( $path, PATHINFO_FILENAME )
-		);
-
+		return path_join( $path_info['dirname'], $path_info['filename'] );
 	}
 
-	// Add file extension, if needed
 	if ( $path_info['extension'] !== $extension ) {
-		$path .= $extension;
+		$path .= ".{$extension}";
 	}
 
 	return $path;
