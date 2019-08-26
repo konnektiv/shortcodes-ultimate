@@ -274,11 +274,16 @@ function su_is_valid_template_name( $path ) {
 
 	$path = su_set_file_extension( $path, 'php' );
 
-	$child  = get_stylesheet_directory();
-	$parent = get_template_directory();
-	$plugin = realpath( plugin_dir_path( __FILE__ ) . '../' );
+	$allowed = apply_filters(
+		'su/allowed_template_paths',
+		array(
+			get_stylesheet_directory(),
+			get_template_directory(),
+			plugin_dir_path( dirname( __FILE__ ) ),
+		)
+	);
 
-	foreach ( array( $child, $parent, $plugin ) as $dir ) {
+	foreach ( $allowed as $dir ) {
 
 		if ( strpos( realpath( path_join( $dir, $path ) ), $dir ) === 0 ) {
 			return true;
