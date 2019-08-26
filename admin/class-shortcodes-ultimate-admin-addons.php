@@ -102,7 +102,7 @@ final class Shortcodes_Ultimate_Admin_Addons extends Shortcodes_Ultimate_Admin {
 	 * @access   private
 	 * @return  array The plugin add-ons collection.
 	 */
-	protected function get_addons() {
+	public function get_addons() {
 
 		if ( empty( $this->addons ) ) {
 			$this->addons = $this->load_addons();

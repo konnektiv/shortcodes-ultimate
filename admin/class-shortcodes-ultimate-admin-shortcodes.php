@@ -90,7 +90,7 @@ final class Shortcodes_Ultimate_Admin_Shortcodes extends Shortcodes_Ultimate_Adm
 	 * @since  5.0.0
 	 * @return string      Shortcode code
 	 */
-	protected function get_shortcode_code( $args ) {
+	public function get_shortcode_code( $args ) {
 
 		$defaults = array(
 			'id'     => '',
@@ -182,7 +182,7 @@ final class Shortcodes_Ultimate_Admin_Shortcodes extends Shortcodes_Ultimate_Adm
 	 * @since  5.0.0
 	 * @return array  Shortcodes data.
 	 */
-	protected function get_available_shortcodes() {
+	public function get_available_shortcodes() {
 
 		$shortcodes = su_get_all_shortcodes();
 		$available  = array();
@@ -230,7 +230,7 @@ final class Shortcodes_Ultimate_Admin_Shortcodes extends Shortcodes_Ultimate_Adm
 	 * @since  5.0.0
 	 * @return mixed  Array with shortcode data, or FALSE if shortcode was not found.
 	 */
-	protected function get_current_shortcode() {
+	public function get_current_shortcode() {
 
 		return isset( $_GET['shortcode'] )
 			? su_get_shortcode( sanitize_key( $_GET['shortcode'] ) )
@@ -266,7 +266,7 @@ final class Shortcodes_Ultimate_Admin_Shortcodes extends Shortcodes_Ultimate_Adm
 	 * @since  5.0.0
 	 * @return array  Array with groups data.
 	 */
-	protected function get_groups() {
+	public function get_groups() {
 
 		$groups        = su_get_config( 'groups' );
 		$groups['all'] = __( 'All shortcodes', 'shortcodes-ultimate' );
@@ -300,7 +300,7 @@ final class Shortcodes_Ultimate_Admin_Shortcodes extends Shortcodes_Ultimate_Adm
 	 * @since  5.0.0
 	 * @return mixed  Array with shortcode data, or FALSE if shortcode was not found.
 	 */
-	protected function get_single_shortcode_options() {
+	public function get_single_shortcode_options() {
 
 		$options   = array();
 		$shortcode = $this->get_current_shortcode();
@@ -331,7 +331,7 @@ final class Shortcodes_Ultimate_Admin_Shortcodes extends Shortcodes_Ultimate_Adm
 	 * @since  5.0.0
 	 * @return boolean True on success, false on failure.
 	 */
-	protected function is_single_shortcode_page() {
+	public function is_single_shortcode_page() {
 		return isset( $_GET['shortcode'] );
 	}
 
@@ -342,7 +342,7 @@ final class Shortcodes_Ultimate_Admin_Shortcodes extends Shortcodes_Ultimate_Adm
 	 * @param array   $args Attribute details.
 	 * @return string       Possible values.
 	 */
-	protected function get_possible_values( $args ) {
+	public function get_possible_values( $args ) {
 
 		$args = wp_parse_args(
 			$args,
@@ -391,7 +391,7 @@ final class Shortcodes_Ultimate_Admin_Shortcodes extends Shortcodes_Ultimate_Adm
 	 * @param array   $args Attribute details.
 	 * @return string       Default value.
 	 */
-	protected function get_default_value( $args ) {
+	public function get_default_value( $args ) {
 
 		if ( isset( $args['default'] ) && $args['default'] !== '' ) {
 			return $args['default'];
