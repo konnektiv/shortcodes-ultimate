@@ -276,7 +276,7 @@ abstract class Shortcodes_Ultimate_Admin {
 	 * @since    5.0.0
 	 * @access   protected
 	 */
-	protected function the_page_title() {
+	public function the_page_title() {
 		echo $this->get_page_title();
 	}
 
@@ -377,7 +377,7 @@ abstract class Shortcodes_Ultimate_Admin {
 	 * @access   protected
 	 * @return   array   The URL of the component menu page.
 	 */
-	protected function get_component_url() {
+	public function get_component_url() {
 		return $this->component_url;
 	}
 
