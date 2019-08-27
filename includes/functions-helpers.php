@@ -279,13 +279,18 @@ function su_is_valid_template_name( $path ) {
 		array(
 			get_stylesheet_directory(),
 			get_template_directory(),
-			plugin_dir_path( dirname( __FILE__ ) ),
+			untrailingslashit( plugin_dir_path( dirname( __FILE__ ) ) ),
 		)
 	);
 
 	foreach ( $allowed as $dir ) {
 
-		if ( strpos( realpath( path_join( $dir, $path ) ), $dir ) === 0 ) {
+		$real = realpath( $dir . DIRECTORY_SEPARATOR . $path );
+
+		$real = str_replace( '\\', '/', $real );
+		$dir  = str_replace( '\\', '/', $dir );
+
+		if ( strpos( $real, $dir ) === 0 ) {
 			return true;
 		}
 
