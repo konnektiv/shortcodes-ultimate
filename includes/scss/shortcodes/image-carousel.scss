@@ -425,7 +425,7 @@
 	// Outline
 	// --------------------------------------------------------------------------
 
-	&-has-outline:focus {
+	&-has-outline.flickity-enabled:focus {
 		outline: 1px dotted currentColor;
 	}
 }
