@@ -329,6 +329,8 @@ function su_shortcode_image_carousel( $atts = null, $content = null ) {
 		$flickity['friction']           = $transitions[ $atts['speed'] ][1];
 	}
 
+	$uniqid = uniqid( 'su_image_carousel_' );
+
 	$flickity = apply_filters(
 		'su/shortcode/image_carousel/flickity',
 		$flickity,
@@ -345,12 +347,19 @@ function su_shortcode_image_carousel( $atts = null, $content = null ) {
 	su_query_asset( 'css', 'flickity' );
 	su_query_asset( 'css', 'su-shortcodes' );
 
+	$script = sprintf(
+		'<script id="%1$s_script">if(window.SUImageCarousel){setTimeout(function() {window.SUImageCarousel.initGallery(document.getElementById("%1$s"))}, 0);}var %1$s_script=document.getElementById("%1$s_script");%s_script.parentNode.removeChild(%1$s_script);</script>',
+		esc_js( $uniqid )
+	);
+
 	return sprintf(
-		'<div class="su-image-carousel %1$s" style="%2$s" data-flickity=\'%3$s\'>%4$s</div>',
+		'<div class="su-image-carousel %1$s" style="%2$s" data-flickity-options=\'%3$s\' id="%4$s">%5$s</div>%6$s',
 		esc_attr( su_get_css_class( $atts ) ),
 		esc_attr( implode( ';', $styles ) ),
 		wp_json_encode( $flickity ),
-		implode( $items )
+		esc_attr( $uniqid ),
+		implode( $items ),
+		$script
 	);
 
 }
