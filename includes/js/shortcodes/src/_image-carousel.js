@@ -5,7 +5,9 @@ window.SUImageCarousel = (function() {
 	};
 
 	self.initGalleries = function() {
-		document.querySelectorAll('.su-image-carousel').forEach(self.initGallery);
+		var galleries = document.querySelectorAll('.su-image-carousel');
+
+		Array.prototype.forEach.call(galleries, self.initGallery);
 	};
 
 	self.initGallery = function(gallery) {
@@ -30,7 +32,7 @@ window.SUImageCarousel = (function() {
 
 			self.MFPItems[galleryID] = [];
 
-			items.forEach(function(item, itemIndex) {
+			Array.prototype.forEach.call(items, function(item, itemIndex) {
 				item.setAttribute('data-gallery', galleryID);
 				item.setAttribute('data-index', itemIndex);
 
