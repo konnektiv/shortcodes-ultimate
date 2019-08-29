@@ -157,6 +157,12 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 
 - New option `outline` for `[su_image_carousel]` which allows disabling carousel outline (when it gets focus)
 
+
+**Improvements**
+
+- Improved compatibility of `[su_image_carousel]` with various themes
+
+
 = 5.4.1 =
 
 This update fix various issues related to version 5.4.0
