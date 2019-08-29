@@ -176,6 +176,12 @@ su_add_shortcode(
 				'name'    => __( 'Images size (quality)', 'shortcodes-ultimate' ),
 				'desc'    => __( 'This option controls the size of carousel slide images. This option only affects image quality, not the actual slide size.', 'shortcodes-ultimate' ),
 			),
+			'outline'        => array(
+				'type'    => 'bool',
+				'default' => 'yes',
+				'name'    => __( 'Outline on focus', 'shortcodes-ultimate' ),
+				'desc'    => __( 'This option enables outline when carousel gets focus. The outline improves keyboard navigation.', 'shortcodes-ultimate' ),
+			),
 			'class'          => array(
 				'type'    => 'extra_css_class',
 				'name'    => __( 'Extra CSS class', 'shortcodes-ultimate' ),
@@ -281,6 +287,10 @@ function su_shortcode_image_carousel( $atts = null, $content = null ) {
 
 	if ( 'lightbox' === $atts['link'] ) {
 		$atts['class'] .= ' su-image-carousel-has-lightbox';
+	}
+
+	if ( 'yes' === $atts['outline'] ) {
+		$atts['class'] .= ' su-image-carousel-has-outline';
 	}
 
 	if ( 'yes' === $atts['adaptive'] ) {

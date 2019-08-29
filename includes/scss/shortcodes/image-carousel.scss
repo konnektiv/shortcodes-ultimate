@@ -56,10 +56,6 @@
 		margin-bottom: 0;
 	}
 
-	&:focus {
-		outline: 1px dotted currentColor;
-	}
-
 	// --------------------------------------------------------------------------
 	// Items and content
 	// --------------------------------------------------------------------------
@@ -69,10 +65,14 @@
 		box-sizing: border-box;
 	}
 
-	&-item-content {
+	& &-item-content {
 		position: relative;
 
 		a,
+		a:hover,
+		a:focus,
+		a:visited,
+		a:active,
 		img {
 			display: block;
 			width: 100%;
@@ -84,6 +84,13 @@
 			text-decoration: none;
 			border: none;
 			border-radius: 0;
+		}
+
+		a::before,
+		a::after,
+		img::before,
+		img::after {
+			display: none;
 		}
 
 		span {
@@ -199,9 +206,11 @@
 		display: block;
 		width: 44px;
 		height: 44px;
-		margin-top: -22px;
+		margin: -22px 0 0;
+		padding: 0;
 		opacity: 0;
 		outline: none;
+		border-radius: 50%;
 		transform: none;
 		transition: opacity 0.2s ease, transform 0.2s ease;
 	}
@@ -410,5 +419,13 @@
 		button.mfp-arrow {
 			z-index: 102004 !important;
 		}
+	}
+
+	// --------------------------------------------------------------------------
+	// Outline
+	// --------------------------------------------------------------------------
+
+	&-has-outline:focus {
+		outline: 1px dotted currentColor;
 	}
 }

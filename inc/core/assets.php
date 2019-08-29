@@ -40,42 +40,42 @@ class Su_Assets {
 	 */
 	public static function register() {
 		// Chart.js
-		wp_register_script( 'chartjs', plugins_url( 'includes/js/chartjs/chart.js', SU_PLUGIN_FILE ), false, '0.2', true );
+		wp_register_script( 'chartjs', plugins_url( 'vendor/chartjs/chart.js', SU_PLUGIN_FILE ), false, '0.2', true );
 		// SimpleSlider
-		wp_register_script( 'simpleslider', plugins_url( 'includes/js/simpleslider/simpleslider.js', SU_PLUGIN_FILE ), array( 'jquery' ), '1.0.0', true );
-		wp_register_style( 'simpleslider', plugins_url( 'includes/css/simpleslider.css', SU_PLUGIN_FILE ), false, '1.0.0', 'all' );
+		wp_register_script( 'simpleslider', plugins_url( 'vendor/simpleslider/simpleslider.js', SU_PLUGIN_FILE ), array( 'jquery' ), '1.0.0', true );
+		wp_register_style( 'simpleslider', plugins_url( 'vendor/simpleslider/simpleslider.css', SU_PLUGIN_FILE ), false, '1.0.0', 'all' );
 		// Owl Carousel
-		wp_register_script( 'owl-carousel', plugins_url( 'includes/js/owl-carousel/owl-carousel.js', SU_PLUGIN_FILE ), array( 'jquery' ), '2.3.4', true );
-		wp_register_style( 'owl-carousel', plugins_url( 'includes/css/owl-carousel.css', SU_PLUGIN_FILE ), false, '2.3.4', 'all' );
+		wp_register_script( 'owl-carousel', plugins_url( 'vendor/owl-carousel/owl-carousel.js', SU_PLUGIN_FILE ), array( 'jquery' ), '2.3.4', true );
+		wp_register_style( 'owl-carousel', plugins_url( 'vendor/owl-carousel/owl-carousel.css', SU_PLUGIN_FILE ), false, '2.3.4', 'all' );
 		// Animate.css
-		wp_register_style( 'animate', plugins_url( 'includes/css/animate.css', SU_PLUGIN_FILE ), false, '3.1.1', 'all' );
+		wp_register_style( 'animate', plugins_url( 'vendor/animatecss/animate.css', SU_PLUGIN_FILE ), false, '3.1.1', 'all' );
 		// InView
-		wp_register_script( 'jquery-inview', plugins_url( 'includes/js/inview/inview.js', SU_PLUGIN_FILE ), array( 'jquery' ), '1.1.2', true );
+		wp_register_script( 'jquery-inview', plugins_url( 'vendor/jquery-inview/jquery-inview.js', SU_PLUGIN_FILE ), array( 'jquery' ), '1.1.2', true );
 		// qTip
-		wp_register_style( 'qtip', plugins_url( 'includes/css/qtip.css', SU_PLUGIN_FILE ), false, '2.1.1', 'all' );
-		wp_register_script( 'qtip', plugins_url( 'includes/js/qtip/qtip.js', SU_PLUGIN_FILE ), array( 'jquery' ), '2.1.1', true );
+		wp_register_style( 'qtip', plugins_url( 'vendor/qtip/qtip.css', SU_PLUGIN_FILE ), false, '2.1.1', 'all' );
+		wp_register_script( 'qtip', plugins_url( 'vendor/qtip/qtip.js', SU_PLUGIN_FILE ), array( 'jquery' ), '2.1.1', true );
 		// Magnific Popup
-		wp_register_style( 'magnific-popup', plugins_url( 'includes/css/magnific-popup.css', SU_PLUGIN_FILE ), false, '1.1.0', 'all' );
-		wp_register_script( 'magnific-popup', plugins_url( 'includes/js/magnific-popup/magnific-popup.js', SU_PLUGIN_FILE ), array( 'jquery' ), '1.1.0', true );
+		wp_register_style( 'magnific-popup', plugins_url( 'vendor/magnific-popup/magnific-popup.css', SU_PLUGIN_FILE ), false, '1.1.0', 'all' );
+		wp_register_script( 'magnific-popup', plugins_url( 'vendor/magnific-popup/magnific-popup.js', SU_PLUGIN_FILE ), array( 'jquery' ), '1.1.0', true );
 		// Swiper
-		wp_register_script( 'swiper', plugins_url( 'includes/js/swiper/swiper.js', SU_PLUGIN_FILE ), array( 'jquery' ), '2.6.1', true );
+		wp_register_script( 'swiper', plugins_url( 'vendor/swiper/swiper.js', SU_PLUGIN_FILE ), array( 'jquery' ), '2.6.1', true );
 		// Flickity
 		wp_register_script(
 			'flickity',
-			plugins_url( 'includes/js/flickity/flickity.pkgd.min.js', SU_PLUGIN_FILE ),
+			plugins_url( 'vendor/flickity/flickity.js', SU_PLUGIN_FILE ),
 			array(),
 			'2.2.1',
 			true
 		);
 		wp_register_style(
 			'flickity',
-			plugins_url( 'includes/css/flickity.min.css', SU_PLUGIN_FILE ),
+			plugins_url( 'vendor/flickity/flickity.css', SU_PLUGIN_FILE ),
 			array(),
 			'2.2.1',
 			'all'
 		);
 		// jPlayer
-		wp_register_script( 'jplayer', plugins_url( 'includes/js/jplayer/jplayer.js', SU_PLUGIN_FILE ), array( 'jquery' ), '2.4.0', true );
+		wp_register_script( 'jplayer', plugins_url( 'vendor/jplayer/jplayer.js', SU_PLUGIN_FILE ), array( 'jquery' ), '2.4.0', true );
 		// Generator
 		wp_register_style( 'su-generator', plugins_url( 'admin/css/generator.css', SU_PLUGIN_FILE ), array( 'farbtastic', 'magnific-popup', 'simpleslider' ), SU_PLUGIN_VERSION, 'all' );
 		wp_register_script( 'su-generator', plugins_url( 'includes/js/generator/index.js', SU_PLUGIN_FILE ), array( 'farbtastic', 'magnific-popup', 'simpleslider' ), SU_PLUGIN_VERSION, true );

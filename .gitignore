@@ -4,6 +4,10 @@ node_modules/
 # Build directory
 build/
 
+# Generated assets
+/*/css/
+/*/js/*/*.js
+
 # OS-specific files
 Thumbs.db
 Desktop.ini
