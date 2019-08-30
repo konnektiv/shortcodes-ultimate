@@ -161,6 +161,7 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 **Improvements**
 
 - Improved compatibility of `[su_image_carousel]` with various themes
+- `[su_image_carousel]` can now be loaded through AJAX
 
 
 = 5.4.1 =
