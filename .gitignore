@@ -8,6 +8,10 @@ build/
 /*/css/
 /*/js/*/*.js
 
+# Local languages
+/languages/*.po
+/languages/*.mo
+
 # OS-specific files
 Thumbs.db
 Desktop.ini
