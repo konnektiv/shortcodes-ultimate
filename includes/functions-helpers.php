@@ -45,7 +45,7 @@ function su_get_plugin_version() {
  * @param string  $key
  * @return mixed      Config data if found, False otherwise.
  */
-function su_get_config( $key = null ) {
+function su_get_config( $key = null, $default = false ) {
 
 	static $config = array();
 
@@ -53,7 +53,7 @@ function su_get_config( $key = null ) {
 		empty( $key ) ||
 		preg_match( '/^(?!-)[a-z0-9-_]+(?<!-)(\/(?!-)[a-z0-9-_]+(?<!-))*$/', $key ) !== 1
 	) {
-		return false;
+		return $default;
 	}
 
 	if ( isset( $config[ $key ] ) ) {
@@ -63,7 +63,7 @@ function su_get_config( $key = null ) {
 	$config_file = su_get_plugin_path() . 'includes/config/' . $key . '.php';
 
 	if ( ! file_exists( $config_file ) ) {
-		return false;
+		return $default;
 	}
 
 	$config[ $key ] = include $config_file;
