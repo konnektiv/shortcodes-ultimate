@@ -552,9 +552,15 @@ class Su_Generator {
 	 */
 	public static function is_addons_active() {
 
-		foreach ( su_get_config( 'addon-ids' ) as $addon ) {
+		foreach ( su_get_config( 'addons' ) as $addon ) {
 
-			if ( ! did_action( "su/{$addon}/ready" ) ) {
+			if ( isset( $addon['is_bundle'] ) && $addon['is_bundle'] ) {
+				continue;
+			}
+
+			$addon_id = sanitize_key( $addon['id'] );
+
+			if ( ! did_action( "su/{$addon_id}/ready" ) ) {
 				return false;
 			}
 
