@@ -1,0 +1,135 @@
+// =============================================================================
+// Available shortcodes screen
+// =============================================================================
+
+.su-admin-shortcodes {
+	$color-wp-link: #0073aa;
+	$color-wp-link-hover: #0096dd;
+
+	.wp-filter {
+		padding-left: 20px;
+	}
+
+	&-list {
+		&-not-found {
+			margin: 0;
+			padding: 100px 0;
+			color: #666;
+			text-align: center;
+			font-style: normal;
+			font-size: 18px;
+		}
+
+		&-item {
+			float: left;
+			margin: 0 22px 22px 0;
+			width: 150px;
+			text-decoration: none;
+
+			&-image {
+				display: block;
+				padding: 15px;
+				width: 120px;
+				height: 120px;
+				background: #fff;
+				transition: box-shadow 0.2s ease;
+			}
+
+			&:hover .su-admin-shortcodes-list-item-image {
+				box-shadow: 0 0 0 4px rgba($color-wp-link-hover, 0.2),
+					0 0 0 1px $color-wp-link-hover;
+			}
+
+			&-title {
+				display: block;
+				overflow: hidden;
+				margin: 8px 0;
+				height: 18px;
+				text-align: center;
+				text-transform: capitalize;
+				line-height: 18px;
+			}
+		}
+	}
+
+	&-single {
+		padding-top: 20px;
+
+		&-section {
+			margin-bottom: 30px;
+			max-width: 840px;
+		}
+
+		&-back span {
+			margin-right: 0.3em;
+			vertical-align: middle;
+			font-size: 1.25em;
+		}
+
+		&-description {
+			overflow: hidden;
+
+			& > span {
+				display: block;
+				float: left;
+				margin: 0 1.3em 0 0;
+				padding: 10px;
+				width: 60px;
+				height: 60px;
+				background: #fff;
+			}
+
+			h2 {
+				margin: 5px 0 10px;
+				height: 20px;
+				font-size: 1.3em;
+				line-height: 20px;
+			}
+
+			p {
+				display: block;
+				overflow: hidden;
+				margin: 0;
+				height: 40px;
+				font-size: 13px;
+				line-height: 20px;
+			}
+		}
+
+		&-preview {
+			&-content {
+				padding: 2em;
+				background: #fff;
+
+				& :first-child {
+					margin-top: 0 !important;
+				}
+
+				& :last-child {
+					margin-bottom: 0 !important;
+				}
+			}
+
+			.su-column {
+				outline: 1px dotted #ccc;
+			}
+		}
+
+		&-code pre code {
+			display: block;
+			padding: 1em;
+		}
+
+		&-options-table > table {
+			table-layout: fixed;
+
+			td {
+				word-break: break-word;
+			}
+		}
+
+		&-options-table + &-options-table {
+			margin-top: 20px;
+		}
+	}
+}

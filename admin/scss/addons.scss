@@ -1,0 +1,83 @@
+// =============================================================================
+// Add-ons screen
+// =============================================================================
+
+.su-admin-addons {
+	$size-base: 22px;
+	$color-title: #0073aa;
+	$color-description: #777;
+
+	&-list {
+		display: flex;
+		flex-wrap: wrap;
+		margin-top: $size-base;
+	}
+
+	&-item {
+		position: relative;
+		flex: 0 0 300px;
+		box-sizing: border-box;
+		margin: 0 $size-base $size-base 0;
+		padding: $size-base * 1.5 $size-base;
+		max-width: 100%;
+		border-radius: 5px;
+		background: white;
+		background: linear-gradient(
+			to bottom,
+			white 0%,
+			white 30%,
+			mix(black, white, 3%) 100%
+		);
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+		transition: transform 0.2s ease, box-shadow 0.2s ease;
+	}
+	&-item:hover {
+		background: white;
+		box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+		transform: scale(1.03);
+	}
+	&-item:hover &-item-image {
+		transform: scale(1.05);
+	}
+
+	&-item-content {
+		text-align: center;
+	}
+
+	&-item-image {
+		margin: 0 0 $size-base;
+		padding: 0;
+		width: 80px;
+		height: 80px;
+		border: none;
+		transition: transform 0.2s ease;
+
+		object-fit: cover;
+	}
+
+	&-item-title {
+		margin: 0 0 $size-base * .5;
+		color: $color-title;
+		font-size: 1.05rem;
+		line-height: 1;
+	}
+
+	&-item-description {
+		margin: 0 0 $size-base;
+		color: $color-description;
+		font-size: 0.9rem;
+		line-height: 1.2;
+	}
+
+	&-item-overlay {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		text-indent: -999%;
+	}
+}

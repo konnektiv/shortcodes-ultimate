@@ -77,7 +77,12 @@ final class Shortcodes_Ultimate_Admin_Shortcodes extends Shortcodes_Ultimate_Adm
 			return;
 		}
 
-		wp_enqueue_style( 'shortcodes-ultimate-admin', $this->plugin_url . 'admin/css/admin.css', array( 'su-icons' ), $this->plugin_version );
+		wp_enqueue_style(
+			'shortcodes-ultimate-admin-available-shortcodes',
+			plugins_url( 'css/available-shortcodes.css', __FILE__ ),
+			array( 'su-icons' ),
+			filemtime( plugin_dir_path( __FILE__ ) . 'css/available-shortcodes.css' )
+		);
 
 	}
 
