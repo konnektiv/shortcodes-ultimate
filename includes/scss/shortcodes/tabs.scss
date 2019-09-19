@@ -99,4 +99,11 @@
 	.su-tabs-mobile-stack span {
 		display: block;
 	}
+
+	.su-tabs-mobile-scroll .su-tabs-nav {
+		display: flex;
+		align-items: flex-end;
+		white-space: nowrap;
+		overflow-x: auto;
+	}
 }
