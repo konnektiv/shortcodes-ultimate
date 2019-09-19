@@ -319,6 +319,7 @@ function su_shortcode_image_carousel( $atts = null, $content = null ) {
 		'prevNextButtons' => 'yes' === $atts['arrows'],
 		'pageDots'        => 'yes' === $atts['dots'],
 		'autoPlay'        => $atts['autoplay'] > 0 ? $atts['autoplay'] * 1000 : false,
+		'imagesLoaded'    => true,
 		// Disable 'contain' if slides have variable height
 		// @see: https://github.com/metafizzy/flickity/issues/554
 		'contain'         => 'none' !== $atts['crop'],
