@@ -361,13 +361,9 @@ function su_shortcode_button( $atts = null, $content = null ) {
 		? ' onClick="' . $atts['onclick'] . '"'
 		: '';
 
-	// Prepend `noopener` to the rel attribute value
-	if ( 'blank' === $atts['target'] ) {
-
-		$atts['rel'] = $atts['rel']
-			? 'noopener noreferrer ' . esc_attr( $atts['rel'] )
-			: 'noopener noreferrer';
-
+	// Set rel attribute to `noopener noreferrer` if it's empty and target=blank
+	if ( 'blank' === $atts['target'] && '' === $atts['rel'] ) {
+		$atts['rel'] = 'noopener noreferrer';
 	}
 
 	// Prepare download attribute
