@@ -184,6 +184,10 @@ function su_shortcode_youtube_advanced( $atts = null, $content = null ) {
 		return su_error_message( 'YouTube Advanced', __( 'please specify correct url', 'shortcodes-ultimate' ) );
 	}
 
+	if ( 'alt' === $atts['controls'] ) {
+		$atts['controls'] = 'yes';
+	}
+
 	$url_params = array();
 	$yt_options = array(
 		'autohide',
