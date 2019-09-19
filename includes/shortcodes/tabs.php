@@ -40,8 +40,8 @@ su_add_shortcode(
 				'type'    => 'select',
 				'values'  => array(
 					'stack'   => __( 'Stack – tab handles will stack vertically', 'shortcodes-ultimate' ),
+					'desktop' => __( 'Desktop – tabs will be displayed as on the desktop', 'shortcodes-ultimate' ),
 					'scroll'  => __( 'Scroll – tab bar will be scrollable horizontally', 'shortcodes-ultimate' ),
-					'desktop' => __( 'Desktop – tabs will be displayed the same way as on the desktop', 'shortcodes-ultimate' ),
 				),
 				'default' => 'stack',
 				'name'    => __( 'Appearance on mobile devices', 'shortcodes-ultimate' ),
