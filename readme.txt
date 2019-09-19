@@ -156,6 +156,7 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 **What's new**
 
 - New option `outline` for `[su_image_carousel]` which allows disabling carousel outline (when it gets focus)
+- New option `mobile` for `[su_tabs]` which allows disabling tab stacking on mobile devices
 
 
 **Improvements**
