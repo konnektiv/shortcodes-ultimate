@@ -1152,7 +1152,7 @@ SUG.App = ( ( $ ) => {
 		var mfpOptions = {
 			type: 'inline',
 			alignTop: true,
-			// closeOnBgClick: false,
+			closeOnBgClick: false,
 			mainClass: 'su-generator-mfp',
 			items: {
 				src: '#su-generator'
