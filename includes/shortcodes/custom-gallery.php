@@ -107,10 +107,6 @@ function su_shortcode_custom_gallery( $atts = null, $content = null ) {
 		'custom_gallery'
 	);
 
-	// TODO: `category` source support was removed in `su_parse_images_source()` (5)
-	// Add: `$atts['source'] = str_replace( 'category:', 'taxonomy:category/', $atts['source'] );`
-	// Also remove category source from generator
-
 	$slides = su_get_slides( $atts );
 	$slides = apply_filters( 'su/shortcode/custom_gallery/slides', $slides, $atts );
 
