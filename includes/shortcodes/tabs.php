@@ -36,6 +36,17 @@ su_add_shortcode(
 				'name'    => __( 'Vertical', 'shortcodes-ultimate' ),
 				'desc'    => __( 'Align tabs vertically', 'shortcodes-ultimate' ),
 			),
+			'mobile'   => array(
+				'type'    => 'select',
+				'values'  => array(
+					'stack'   => __( 'Stack – tab handles will stack vertically', 'shortcodes-ultimate' ),
+					'scroll'  => __( 'Scroll – tab bar will be scrollable horizontally', 'shortcodes-ultimate' ),
+					'desktop' => __( 'Desktop – tabs will be displayed the same way as on the desktop', 'shortcodes-ultimate' ),
+				),
+				'default' => 'stack',
+				'name'    => __( 'Appearance on mobile devices', 'shortcodes-ultimate' ),
+				'desc'    => __( 'This option controls how shortcode will look and function on mobile devices.', 'shortcodes-ultimate' ),
+			),
 			'class'    => array(
 				'type'    => 'extra_css_class',
 				'name'    => __( 'Extra CSS class', 'shortcodes-ultimate' ),
@@ -117,6 +128,7 @@ function su_shortcode_tabs( $atts = null, $content = null ) {
 			'active'   => 1,
 			'vertical' => 'no',
 			'style'    => 'default', // 3.x
+			'mobile'   => 'stack',
 			'class'    => '',
 		),
 		$atts,
@@ -152,7 +164,9 @@ function su_shortcode_tabs( $atts = null, $content = null ) {
 
 	}
 
-	$output = '<div class="su-tabs su-tabs-style-' . $atts['style'] . su_get_css_class( $atts ) . '" data-active="' . (string) $atts['active'] . '"><div class="su-tabs-nav">' . implode( '', $tabs ) . '</div><div class="su-tabs-panes">' . implode( "\n", $panes ) . '</div></div>';
+	$atts['mobile'] = sanitize_key( $atts['mobile'] );
+
+	$output = '<div class="su-tabs su-tabs-style-' . $atts['style'] . ' su-tabs-mobile-' . $atts['mobile'] . su_get_css_class( $atts ) . '" data-active="' . (string) $atts['active'] . '"><div class="su-tabs-nav">' . implode( '', $tabs ) . '</div><div class="su-tabs-panes">' . implode( "\n", $panes ) . '</div></div>';
 
 	// Reset tabs
 	$shortcodes_ultimate_global_tabs       = array();
