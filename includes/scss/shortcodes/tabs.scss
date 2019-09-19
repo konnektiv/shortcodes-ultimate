@@ -81,9 +81,6 @@
 }
 
 @media only screen and (max-width: 768px) {
-	.su-tabs-nav span {
-		display: block;
-	}
 
 	.su-tabs-vertical {
 		flex-direction: column;
@@ -97,5 +94,9 @@
 				border-radius: 3px;
 			}
 		}
+	}
+
+	.su-tabs-mobile-stack span {
+		display: block;
 	}
 }
