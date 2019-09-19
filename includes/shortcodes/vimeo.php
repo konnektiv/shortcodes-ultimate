@@ -61,6 +61,11 @@ su_add_shortcode(
 				'desc'    => __( 'A brief description of the embedded content (used by screenreaders)', 'shortcodes-ultimate' ),
 				'default' => '',
 			),
+			'texttrack'  => array(
+				'name'    => __( 'Subtitles', 'shortcodes-ultimate' ),
+				'desc'    => __( 'Use language code as the value to enable subtitles. Example values: en, es', 'shortcodes-ultimate' ),
+				'default' => '',
+			),
 			'class'      => array(
 				'type'    => 'extra_css_class',
 				'name'    => __( 'Extra CSS class', 'shortcodes-ultimate' ),
@@ -86,6 +91,7 @@ function su_shortcode_vimeo( $atts = null, $content = null ) {
 			'mute'       => 'no',
 			'responsive' => 'yes',
 			'title'      => '',
+			'texttrack'  => '',
 			'class'      => '',
 		),
 		$atts,
@@ -107,17 +113,18 @@ function su_shortcode_vimeo( $atts = null, $content = null ) {
 	}
 
 	$url_params = array(
-		'title'    => 0,
-		'byline'   => 0,
-		'portrait' => 0,
-		'color'    => 'ffffff',
-		'autoplay' => 'yes' === $atts['autoplay'] ? 1 : 0,
-		'dnt'      => 'yes' === $atts['dnt'] ? 1 : 0,
-		'muted'    => 'yes' === $atts['mute'] ? 1 : 0,
+		'title'     => 0,
+		'byline'    => 0,
+		'portrait'  => 0,
+		'color'     => 'ffffff',
+		'autoplay'  => 'yes' === $atts['autoplay'] ? 1 : 0,
+		'dnt'       => 'yes' === $atts['dnt'] ? 1 : 0,
+		'muted'     => 'yes' === $atts['mute'] ? 1 : 0,
+		'texttrack' => $atts['texttrack'],
 	);
 
 	su_query_asset( 'css', 'su-shortcodes' );
 
-	return '<div class="su-vimeo su-u-responsive-media-' . $atts['responsive'] . su_get_css_class( $atts ) . '"><iframe width="' . $atts['width'] . '" height="' . $atts['height'] . '" src="//player.vimeo.com/video/' . $video_id . '?' . http_build_query( $url_params ) . '" frameborder="0" allowfullscreen="true" title="' . esc_attr( $atts['title'] ) . '"></iframe></div>';
+	return '<div class="su-vimeo su-u-responsive-media-' . $atts['responsive'] . su_get_css_class( $atts ) . '"><iframe width="' . $atts['width'] . '" height="' . $atts['height'] . '" src="//player.vimeo.com/video/' . $video_id . '?' . esc_attr( http_build_query( $url_params ) ) . '" frameborder="0" allow="autoplay; fullscreen" allowfullscreen title="' . esc_attr( $atts['title'] ) . '"></iframe></div>';
 
 }
