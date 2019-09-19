@@ -163,7 +163,9 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 **Improvements**
 
 - Improved compatibility of `[su_image_carousel]` with various themes
+- `[su_image_carousel]` won't display empty image captions (with whitespace)
 - `[su_image_carousel]` can now be loaded through AJAX
+- `[su_youtube_advanced]` is now always displayed through https
 
 
 = 5.4.1 =
