@@ -112,12 +112,6 @@ su_add_shortcode(
 				'name'    => __( 'Theme', 'shortcodes-ultimate' ),
 				'desc'    => __( 'This parameter indicates whether the embedded player will display player controls (like a play button or volume control) within a dark or light control bar', 'shortcodes-ultimate' ),
 			),
-			'https'          => array(
-				'type'    => 'bool',
-				'default' => 'no',
-				'name'    => __( 'Force HTTPS', 'shortcodes-ultimate' ),
-				'desc'    => __( 'Use HTTPS in player iframe', 'shortcodes-ultimate' ),
-			),
 			'wmode'          => array(
 				'default' => '',
 				'name'    => __( 'WMode', 'shortcodes-ultimate' ),
@@ -167,7 +161,6 @@ function su_shortcode_youtube_advanced( $atts = null, $content = null ) {
 			'rel'            => 'yes',
 			'showinfo'       => 'yes',
 			'theme'          => 'dark',
-			'https'          => 'no',
 			'wmode'          => '',
 			'playsinline'    => 'no',
 			'title'          => '',
@@ -218,16 +211,12 @@ function su_shortcode_youtube_advanced( $atts = null, $content = null ) {
 
 	$url_params = http_build_query( $url_params );
 
-	$protocol = 'yes' === $atts['https']
-		? 'https'
-		: 'http';
-
 	$domain = strpos( $atts['url'], 'youtube-nocookie.com' ) !== false
 		? 'www.youtube-nocookie.com'
 		: 'www.youtube.com';
 
 	su_query_asset( 'css', 'su-shortcodes' );
 
-	return '<div class="su-youtube su-u-responsive-media-' . $atts['responsive'] . su_get_css_class( $atts ) . '"><iframe width="' . $atts['width'] . '" height="' . $atts['height'] . '" src="' . $protocol . '://' . $domain . '/embed/' . $video_id . '?' . $url_params . '" frameborder="0" allowfullscreen="true" title="' . esc_attr( $atts['title'] ) . '"></iframe></div>';
+	return '<div class="su-youtube su-u-responsive-media-' . $atts['responsive'] . su_get_css_class( $atts ) . '"><iframe width="' . $atts['width'] . '" height="' . $atts['height'] . '" src="https://' . $domain . '/embed/' . $video_id . '?' . $url_params . '" frameborder="0" allowfullscreen="true" title="' . esc_attr( $atts['title'] ) . '"></iframe></div>';
 
 }
