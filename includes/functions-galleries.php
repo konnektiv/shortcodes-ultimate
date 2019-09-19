@@ -282,7 +282,7 @@ function su_get_gallery_slides( $source, $args = array() ) {
 
 		$slide = array(
 			'attachment_id' => $attachment_id,
-			'caption'       => wp_get_attachment_caption( $attachment_id ),
+			'caption'       => trim( wp_get_attachment_caption( $attachment_id ) ),
 		);
 
 		switch ( $args['link'] ) {
