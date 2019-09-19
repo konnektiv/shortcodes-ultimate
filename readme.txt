@@ -159,12 +159,12 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 - New option `mobile` for `[su_tabs]` which allows disabling tab stacking on mobile devices
 - New option `texttrack` for `[su_vimeo]` which allows enabling video subtitles
 
-
 **Improvements**
 
 - `[su_youtube_advanced]` is now always served through https
 - Improved compatibility of `[su_image_carousel]` with various themes
 - `[su_image_carousel]` can now be loaded through AJAX
+- Insert Shortcode window will now remain open if the dark background clicked
 
 **Fixes**
 
