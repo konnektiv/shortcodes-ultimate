@@ -21,9 +21,14 @@ window.SUImageCarousel = (function() {
 
 		var flckty = new Flickity(gallery, flickityOptions);
 
+		gallery.removeAttribute('tabindex');
+
+		flckty.on('settle', self.onGallerySettle);
+
 		if (gallery.classList.contains('su-image-carousel-has-lightbox')) {
-			flckty.on('staticClick', self.onStaticClick);
-			gallery.addEventListener('click', self.preventLinkClick);
+			flckty.on('staticClick', self.onFlickityStaticClick);
+			gallery.addEventListener('click', self.preventGalleryLinkClick);
+			gallery.addEventListener('keyup', self.onGalleryKeyUp);
 
 			var galleryID = gallery.getAttribute('id');
 			var items = gallery.querySelectorAll(
@@ -46,7 +51,7 @@ window.SUImageCarousel = (function() {
 		gallery.classList.add('su-image-carousel-ready');
 	};
 
-	self.onStaticClick = function(event, pointer, cellElement, cellIndex) {
+	self.onFlickityStaticClick = function(event, pointer, cellElement, cellIndex) {
 		if (!cellElement) {
 			return;
 		}
@@ -57,13 +62,28 @@ window.SUImageCarousel = (function() {
 			return;
 		}
 
-		var galleryID = clickedLink.getAttribute('data-gallery');
-		var itemIndex = parseInt(clickedLink.getAttribute('data-index'), 10);
-
-		self.openMagnificPopup(galleryID, itemIndex);
+		self.openMagnificPopupFromLink(clickedLink);
 	};
 
-	self.preventLinkClick = function(e) {
+	self.onGallerySettle = function(index) {
+		var items = this.element.querySelectorAll('.su-image-carousel-item');
+
+		Array.prototype.forEach.call(items, function(item, itemIndex) {
+			var link = item.querySelectorAll('a')[0];
+
+			if (!link) {
+				return;
+			}
+
+			link.setAttribute('tabindex', -1);
+
+			if (item.classList.contains('is-selected')) {
+				link.setAttribute('tabindex', 0);
+			}
+		});
+	};
+
+	self.preventGalleryLinkClick = function(e) {
 		var clickedLink = self.closest(e.target, function(el) {
 			return el.tagName && el.tagName.toUpperCase() === 'A';
 		});
@@ -73,6 +93,24 @@ window.SUImageCarousel = (function() {
 		}
 
 		e.preventDefault();
+	};
+
+	self.onGalleryKeyUp = function(e) {
+
+		if (!e.keyCode || 13 !== e.keyCode) {
+			console.log('invalid key'); //todo:remove
+			return;
+		}
+
+		var clickedLink = self.closest(e.target, function(el) {
+			return el.tagName && el.tagName.toUpperCase() === 'A';
+		});
+
+		if (!clickedLink) {
+			return;
+		}
+
+		self.openMagnificPopupFromLink(clickedLink);
 	};
 
 	self.openMagnificPopup = function(galleryID, itemIndex) {
@@ -94,6 +132,13 @@ window.SUImageCarousel = (function() {
 			},
 			itemIndex
 		);
+	};
+
+	self.openMagnificPopupFromLink = function(linkEl) {
+		var galleryID = linkEl.getAttribute('data-gallery');
+		var itemIndex = parseInt(linkEl.getAttribute('data-index'), 10);
+
+		self.openMagnificPopup(galleryID, itemIndex);
 	};
 
 	self.closest = function closest(el, fn) {
