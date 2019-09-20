@@ -24,7 +24,7 @@
 
 	$ratios: (
 		// landscape
-		16 9,
+			16 9,
 		16 10,
 		21 9,
 		5 4,
@@ -32,9 +32,9 @@
 		3 2,
 		2 1,
 		// square
-		1 1,
+			1 1,
 		// portrait
-		1 2,
+			1 2,
 		2 3,
 		3 4,
 		4 5,
@@ -67,6 +67,16 @@
 
 	& &-item-content {
 		position: relative;
+
+		a {
+			position: absolute;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			width: 100%;
+			height: 100%;
+		}
 
 		a,
 		a:hover,
@@ -425,7 +435,20 @@
 	// Outline
 	// --------------------------------------------------------------------------
 
-	&-has-outline.flickity-enabled:focus {
-		outline: 1px dotted currentColor;
+	&-has-outline {
+		button.flickity-prev-next-button:focus,
+		.su-image-carousel-item-content a:focus img {
+			outline-width: 2px;
+			outline-style: solid;
+			outline-color: Highlight;
+		}
+
+		@media (-webkit-min-device-pixel-ratio: 0) {
+			button.flickity-prev-next-button:focus,
+			.su-image-carousel-item-content a:focus {
+				outline-color: -webkit-focus-ring-color;
+				outline-style: auto;
+			}
+		}
 	}
 }
