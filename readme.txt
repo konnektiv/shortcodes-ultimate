@@ -162,8 +162,9 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 **Improvements**
 
 - `[su_youtube_advanced]` is now always served through https
-- Improved compatibility of `[su_image_carousel]` with various themes
-- `[su_image_carousel]` can now be loaded through AJAX
+- `[su_image_carousel]`: improved compatibility with various themes
+- `[su_image_carousel]`: the gallery can now be loaded through AJAX
+- `[su_image_carousel]`: improved keyboard navigation
 - Insert Shortcode window will now remain open if the dark background clicked
 
 **Fixes**
