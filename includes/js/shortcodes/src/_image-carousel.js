@@ -98,7 +98,6 @@ window.SUImageCarousel = (function() {
 	self.onGalleryKeyUp = function(e) {
 
 		if (!e.keyCode || 13 !== e.keyCode) {
-			console.log('invalid key'); //todo:remove
 			return;
 		}
 
