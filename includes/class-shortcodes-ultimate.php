@@ -159,6 +159,7 @@ class Shortcodes_Ultimate {
 		require_once $this->plugin_path . 'includes/functions-html.php';
 		require_once $this->plugin_path . 'includes/functions-shortcodes.php';
 		require_once $this->plugin_path . 'includes/functions-galleries.php';
+		require_once $this->plugin_path . 'includes/functions-colors.php';
 
 		/**
 		 * Deprecated stuff.
