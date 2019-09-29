@@ -226,7 +226,7 @@ function su_shortcode_button( $atts = null, $content = null ) {
 	// Common styles for button
 	$styles = array(
 		'size'     => round( ( $atts['size'] + 7 ) * 1.3 ),
-		'ts_color' => ( $atts['ts_color'] === 'light' ) ? su_adjust_brightness( $atts['background'], 50 ) : su_adjust_brightness( $atts['background'], -40 ),
+		'ts_color' => ( $atts['ts_color'] === 'light' ) ? su_adjust_lightness( $atts['background'], 50 ) : su_adjust_lightness( $atts['background'], -40 ),
 		'ts_pos'   => ( $atts['ts_pos'] !== null ) ? $shadows[ $atts['ts_pos'] ] : $shadows['none'],
 	);
 
@@ -243,7 +243,7 @@ function su_shortcode_button( $atts = null, $content = null ) {
 	$a_rules = array(
 		'color'                 => $atts['color'],
 		'background-color'      => $atts['background'],
-		'border-color'          => su_adjust_brightness( $atts['background'], -20 ),
+		'border-color'          => su_adjust_lightness( $atts['background'], -20 ),
 		'border-radius'         => $radius,
 		'-moz-border-radius'    => $radius,
 		'-webkit-border-radius' => $radius,
@@ -255,7 +255,7 @@ function su_shortcode_button( $atts = null, $content = null ) {
 		'padding'               => ( $atts['icon'] ) ? round( ( $atts['size'] ) / 2 + 4 ) . 'px ' . round( $atts['size'] * 2 + 10 ) . 'px' : '0px ' . round( $atts['size'] * 2 + 10 ) . 'px',
 		'font-size'             => $styles['size'] . 'px',
 		'line-height'           => ( $atts['icon'] ) ? round( $styles['size'] * 1.5 ) . 'px' : round( $styles['size'] * 2 ) . 'px',
-		'border-color'          => su_adjust_brightness( $atts['background'], 30 ),
+		'border-color'          => su_adjust_lightness( $atts['background'], 30 ),
 		'border-radius'         => $radius,
 		'-moz-border-radius'    => $radius,
 		'-webkit-border-radius' => $radius,
