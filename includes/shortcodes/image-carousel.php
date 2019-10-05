@@ -349,7 +349,7 @@ function su_shortcode_image_carousel( $atts = null, $content = null ) {
 	su_query_asset( 'css', 'su-shortcodes' );
 
 	$script = sprintf(
-		'<script id="%1$s_script">if(window.SUImageCarousel){setTimeout(function() {window.SUImageCarousel.initGallery(document.getElementById("%1$s"))}, 0);}var %1$s_script=document.getElementById("%1$s_script");%s_script.parentNode.removeChild(%1$s_script);</script>',
+		'<script id="%1$s_script">if(window.SUImageCarousel){setTimeout(function() {window.SUImageCarousel.initGallery(document.getElementById("%1$s"))}, 0);}var %1$s_script=document.getElementById("%1$s_script");if(%1$s_script){%s_script.parentNode.removeChild(%1$s_script);}</script>',
 		esc_js( $uniqid )
 	);
 
