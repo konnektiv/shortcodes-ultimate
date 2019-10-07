@@ -1,7 +1,6 @@
 ./.*
 ./*/scss/**
 ./*/js/*/src/**
-**/*.js.map
 node_modules/**
 package.json
 package-lock.json
