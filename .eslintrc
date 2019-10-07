@@ -1,0 +1,10 @@
+{
+	"rules": {},
+	"parserOptions": {
+		"ecmaVersion": 6,
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"sourceType": "module"
+	}
+}
