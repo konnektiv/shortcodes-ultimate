@@ -1,4 +1,4 @@
-/* global wp, SUBlockEditorSettings, SUBlockEditorL10n, SUG */
+/* global wp, SUBlockEditorSettings, SUBlockEditorL10n */
 
 const { Fragment } = wp.element
 const { BlockControls } = wp.editor
@@ -20,7 +20,7 @@ const withInsertShortcodeButton = BlockEdit => {
             /* eslint-disable react/jsx-pascal-case */
             title: SUBlockEditorL10n.insertShortcode,
             onClick: () => {
-              SUG.App.insert('block', { props: props })
+              window.SUG.App.insert('block', { props: props })
             }
           }
         ]}
