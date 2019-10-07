@@ -3,39 +3,15 @@ var del = require('del')
 var gulp = require('gulp')
 var sass = require('gulp-sass')
 var autoprefixer = require('gulp-autoprefixer')
-var babel = require('gulp-babel')
 var rename = require('gulp-rename')
-var uglify = require('gulp-uglify')
 var nodeSass = require('node-sass')
 var sassGlob = require('gulp-sass-glob')
+var uglify = require('gulp-uglify')
 var sourcemaps = require('gulp-sourcemaps')
 var browserify = require('browserify')
 var babelify = require('babelify')
 var tap = require('gulp-tap')
-var log = require('gulplog')
 var buffer = require('gulp-buffer')
-
-function compileJS () {
-  return gulp
-    .src([
-      './includes/js/block-editor/src/index.js',
-      // './includes/js/shortcodes/src/index.js'
-    ], { read: false, base: './' })
-
-    .pipe(tap(function (file) {
-      log.info('Bundling ' + file.path)
-
-      file.contents = browserify(file.path, { debug: true })
-        .transform(babelify.configure({ presets: ['@babel/env', '@babel/react'] }))
-        .bundle()
-    }))
-    .pipe(buffer())
-    .pipe(rename(path => { path.dirname += '/../' }))
-    .pipe(sourcemaps.init({ loadMaps: true }))
-    .pipe(uglify())
-    .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('./'))
-}
 
 function compileSASS () {
   sass.compiler = nodeSass
@@ -53,32 +29,24 @@ function compileSASS () {
     .pipe(gulp.dest('./'))
 }
 
-function oldCompileJS () {
-  return (
-    gulp
-      .src(
-        [
-          './includes/js/block-editor/src/index.js',
-          './includes/js/generator/src/index.js',
-          './includes/js/shortcodes/src/index.js'
-        ],
-        { base: './' }
-      )
-      .pipe(include())
-      .on('error', console.log)
-      .pipe(
-        babel({
-          presets: ['@babel/env', '@babel/react']
-        })
-      )
-      .pipe(
-        rename(function (path) {
-          path.dirname += '/../'
-        })
-      )
-      .pipe(uglify())
-      .pipe(gulp.dest('./'))
-  )
+function compileJS () {
+  return gulp
+    .src([
+      './includes/js/block-editor/src/index.js',
+      './includes/js/generator/src/index.js',
+      './includes/js/shortcodes/src/index.js'
+    ], { read: false, base: './' })
+    .pipe(tap(function (file) {
+      file.contents = browserify(file.path, { debug: true })
+        .transform(babelify.configure({ presets: ['@babel/env', '@babel/react'] }))
+        .bundle()
+    }))
+    .pipe(buffer())
+    .pipe(rename(path => { path.dirname += '/../' }))
+    .pipe(sourcemaps.init({ loadMaps: true }))
+    .pipe(uglify())
+    .pipe(sourcemaps.write('./'))
+    .pipe(gulp.dest('./'))
 }
 
 function watchFiles () {
