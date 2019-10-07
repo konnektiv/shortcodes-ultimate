@@ -1,0 +1,13 @@
+{
+	"extends": "standard",
+	"rules": {
+		"react/jsx-pascal-case": [1, {"allowAllCaps": true} ]
+	},
+	"parserOptions": {
+		"ecmaVersion": 6,
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"sourceType": "module"
+	}
+}
