@@ -12,6 +12,9 @@ var browserify = require('browserify')
 var babelify = require('babelify')
 var tap = require('gulp-tap')
 var buffer = require('gulp-buffer')
+var util = require('gulp-util')
+var gulpif = require('gulp-if')
+var log = require('gulplog')
 
 function compileSASS () {
   sass.compiler = nodeSass
@@ -30,6 +33,7 @@ function compileSASS () {
 }
 
 function compileJS () {
+  log.info(!!util.env.production)
   return gulp
     .src([
       './includes/js/block-editor/src/index.js',
@@ -43,9 +47,9 @@ function compileJS () {
     }))
     .pipe(buffer())
     .pipe(rename(path => { path.dirname += '/../' }))
-    .pipe(sourcemaps.init({ loadMaps: true }))
+    .pipe(gulpif(!!util.env.production, sourcemaps.init({ loadMaps: true })))
     .pipe(uglify())
-    .pipe(sourcemaps.write('./'))
+    .pipe(gulpif(!!util.env.production, sourcemaps.write('./')))
     .pipe(gulp.dest('./'))
 }
 
