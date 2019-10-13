@@ -156,6 +156,7 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 **Fixes**
 
 - Fixed WP-Rocket compatibility issue, `[su_image_carousel]` didn't work on Android Chrome. [Forum topic](https://wordpress.org/support/topic/issues-with-wp-rocket-2/)
+- Fixed issue with `<span>` tags in the `[su_tabs]` shortcode. [Forum topic](https://wordpress.org/support/topic/element-on-next-line-on-mobiles/)
 
 
 = 5.5.0 =
