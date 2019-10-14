@@ -18,6 +18,24 @@ function su_is_valid_hex( $color ) {
 }
 
 /**
+ * Helper function that expands 3-sybol string into 6-sybol by repeating each
+ * symbol twice.
+ *
+ * @since  5.6.0
+ * @param  string $hex Short value.
+ * @return string      Expanded value.
+ */
+function su_expand_short_color( $value ) {
+
+	if ( ! is_string( $value ) || 3 !== strlen( $value ) ) {
+		return $value;
+	}
+
+	return $value[0] . $value[0] . $value[1] . $value[1] . $value[2] . $value[2];
+
+}
+
+/**
  * Helper function that adjusts brightness of a given HEX color value.
  *
  * Examples of use:
@@ -43,10 +61,7 @@ function su_adjust_brightness( $color, $percent ) {
 	$color   = ltrim( $color, '#' );
 
 	if ( 3 === strlen( $color ) ) {
-		$color =
-			str_repeat( substr( $color, 0, 1 ), 2 ) .
-			str_repeat( substr( $color, 1, 1 ), 2 ) .
-			str_repeat( substr( $color, 2, 1 ), 2 );
+		$color = su_expand_short_color( $color );
 	}
 
 	$color_parts = str_split( $color, 2 );
@@ -91,10 +106,7 @@ function su_adjust_lightness( $color, $percent ) {
 	$new_color = '#';
 
 	if ( 3 === strlen( $color ) ) {
-		$color =
-			str_repeat( substr( $color, 0, 1 ), 2 ) .
-			str_repeat( substr( $color, 1, 1 ), 2 ) .
-			str_repeat( substr( $color, 2, 1 ), 2 );
+		$color = su_expand_short_color( $color );
 	}
 
 	$color = array_map( 'hexdec', str_split( $color, 2 ) );
