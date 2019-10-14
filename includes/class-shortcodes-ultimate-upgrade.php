@@ -73,6 +73,40 @@ final class Shortcodes_Ultimate_Upgrade {
 	}
 
 	/**
+	 * Helper function to register a new upgrade routine.
+	 *
+	 * @since 5.4.0
+	 * @param string $version New version number.
+	 */
+	private function maybe_upgrade_to( $version ) {
+
+		if ( ! $this->is_saved_version_less_than( $version ) ) {
+			return;
+		}
+
+		$this->upgrade_to( $version );
+
+	}
+
+	/**
+	 * Helper function to test a new upgrade routine.
+	 *
+	 * @since 5.6.0
+	 * @param string $version New version number.
+	 */
+	private function upgrade_to( $version ) {
+
+		$this->upgrade_path = plugin_dir_path( __FILE__ ) . 'upgrade/' . $version . '.php';
+
+		if ( ! file_exists( $this->upgrade_path ) ) {
+			return;
+		}
+
+		include $this->upgrade_path;
+
+	}
+
+	/**
 	 * Conditional check if plugin was updated.
 	 *
 	 * @since  5.0.0
@@ -97,28 +131,6 @@ final class Shortcodes_Ultimate_Upgrade {
 			$version,
 			'<'
 		);
-
-	}
-
-	/**
-	 * Helper function to register a new upgrade routine.
-	 *
-	 * @since 5.4.0
-	 * @param string $version New version number.
-	 */
-	private function maybe_upgrade_to( $version ) {
-
-		if ( ! $this->is_saved_version_less_than( $version ) ) {
-			return;
-		}
-
-		$this->upgrade_path = su_get_plugin_path() . 'includes/upgrade/' . $version . '.php';
-
-		if ( ! file_exists( $this->upgrade_path ) ) {
-			return;
-		}
-
-		include $this->upgrade_path;
 
 	}
 
