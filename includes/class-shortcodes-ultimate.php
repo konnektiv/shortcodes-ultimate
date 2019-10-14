@@ -308,8 +308,8 @@ class Shortcodes_Ultimate {
 		 */
 		$enable_shortcodes_in = (array) get_option( 'su_option_enable_shortcodes_in' );
 
-		if ( in_array( 'category_description', $enable_shortcodes_in, true ) ) {
-			add_filter( 'category_description', 'do_shortcode' );
+		if ( in_array( 'term_description', $enable_shortcodes_in, true ) ) {
+			add_filter( 'term_description', 'do_shortcode' );
 		}
 
 		if ( in_array( 'widget_text', $enable_shortcodes_in, true ) ) {

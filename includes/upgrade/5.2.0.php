@@ -14,7 +14,7 @@ if ( false === get_option( 'su_option_enable_shortcodes_in' ) ) {
 
 	add_option(
 		'su_option_enable_shortcodes_in',
-		array( 'category_description', 'widget_text' )
+		array( 'term_description', 'widget_text' )
 	);
 
 }

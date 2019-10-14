@@ -13,7 +13,7 @@ return apply_filters(
 			'core/freeform',
 		),
 		'su_option_generator_access'     => 'manage_options',
-		'su_option_enable_shortcodes_in' => array( 'category_description' ),
+		'su_option_enable_shortcodes_in' => array( 'term_description' ),
 		'su_option_hide_deprecated'      => 'on',
 	)
 );

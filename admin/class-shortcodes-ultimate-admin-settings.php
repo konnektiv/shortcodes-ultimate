@@ -228,8 +228,8 @@ final class Shortcodes_Ultimate_Admin_Settings extends Shortcodes_Ultimate_Admin
 				'title'       => __( 'Enable shortcodes in', 'shortcodes-ultimate' ),
 				'description' => __( 'This option allows you to enable shortcodes in places where they are disabled by default', 'shortcodes-ultimate' ),
 				'options'     => array(
-					'category_description' => __( 'Category descriptions', 'shortcodes-ultimate' ),
-					'widget_text'          => __( 'Text widgets', 'shortcodes-ultimate' ),
+					'term_description' => __( 'Term descriptions (Categories, Tags, Custom Taxonomies)', 'shortcodes-ultimate' ),
+					'widget_text'      => __( 'Text widgets', 'shortcodes-ultimate' ),
 				),
 			);
 
