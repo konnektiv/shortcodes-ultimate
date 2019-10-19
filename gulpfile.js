@@ -12,6 +12,9 @@ var browserify = require('browserify')
 var babelify = require('babelify')
 var tap = require('gulp-tap')
 var buffer = require('gulp-buffer')
+var yargv = require('yargs').argv
+var gulpif = require('gulp-if')
+var livereload = require('gulp-livereload')
 
 function compileSASS () {
   sass.compiler = nodeSass
@@ -27,6 +30,7 @@ function compileSASS () {
       })
     )
     .pipe(gulp.dest('./'))
+    .pipe(livereload())
 }
 
 function compileJS () {
@@ -44,12 +48,18 @@ function compileJS () {
     .pipe(buffer())
     .pipe(rename(path => { path.dirname += '/../' }))
     .pipe(sourcemaps.init({ loadMaps: true }))
-    .pipe(uglify())
+    .pipe(gulpif(!yargv.nouglify, uglify()))
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('./'))
+    .pipe(livereload())
 }
 
 function watchFiles () {
+  livereload.listen({
+    host: 'localhost',
+    port: 35729,
+    quiet: true
+  })
   gulp.watch('./*/scss/**/*.scss', compileSASS)
   gulp.watch('./*/js/*/src/**/*.js', compileJS)
 }
@@ -70,7 +80,7 @@ function createBuild () {
   del.sync([buildFolder])
 
   return gulp
-    .src(['./**/*', `!${buildFolder}/**`, ...ignored])
+    .src(['./**/*', '!' + buildFolder + '/**', ...ignored])
     .pipe(gulp.dest(buildFolder))
 }
 
