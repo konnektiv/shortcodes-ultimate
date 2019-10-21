@@ -70,14 +70,18 @@
 }
 #su-generator-tools a.su-add-ons {
 	display: inline-block;
-	padding: 2px 7px;
-	background: #ff7654;
-	color: #fff;
-	border: 1px solid #ff4d21;
+	padding: 3px 8px;
+	background: #ff562d;
+	color: white;
+	font-weight: 700;
 	border-radius: 3px;
+	border: 1px solid mix(black, #ff562d, 5);
+	text-shadow: 1px 1px 1px mix(black, #ff562d, 35);
 }
-#su-generator-tools a.su-add-ons:hover {
-	background: #ff4d21;
+#su-generator-tools a.su-add-ons:hover,
+#su-generator-tools a.su-add-ons:active,
+#su-generator-tools a.su-add-ons:focus {
+	background: mix(white, #ff562d, 20);
 }
 
 /* Search box */
@@ -742,9 +746,11 @@ $color-extra-banner-button: #048ede;
 .su-generator-extra-banner-message {
 	padding: 15px;
 	background: #f0f0f0;
+	border-left: 4px solid #999;
 	color: black;
 	margin: 0 0 2rem;
 	font-size: .9rem;
+	text-align: left;
 }
 .su-generator-extra-banner-message strong {
 	text-transform: capitalize;
