@@ -227,6 +227,14 @@ class Su_Generator {
 		if ( empty( $_REQUEST['shortcode'] ) ) wp_die( __( 'Shortcode not specified', 'shortcodes-ultimate' ) );
 		// Request queried shortcode
 		$shortcode = su_get_shortcode( sanitize_key( $_REQUEST['shortcode'] ) );
+		// Call custom callback
+		if (
+			isset( $shortcode['generator_callback'] ) &&
+			is_callable( $shortcode['generator_callback'] )
+		) {
+			call_user_func( $shortcode['generator_callback'], $shortcode );
+			exit;
+		}
 		// Prepare skip-if-default option
 		$skip = ( get_option( 'su_option_skip' ) === 'on' ) ? ' su-generator-skip' : '';
 		// Prepare actions
