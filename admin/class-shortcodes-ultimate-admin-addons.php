@@ -24,7 +24,10 @@ final class Shortcodes_Ultimate_Admin_Addons extends Shortcodes_Ultimate_Admin {
 		$this->add_submenu_page(
 			rtrim( $this->plugin_prefix, '-_' ),
 			__( 'Add-ons', 'shortcodes-ultimate' ),
-			__( 'Add-ons', 'shortcodes-ultimate' ),
+			sprintf(
+				'<span style="color:#0cfac3">&#9733; %s</span>',
+				__( 'Add-ons', 'shortcodes-ultimate' )
+			),
 			$this->get_capability(),
 			$this->plugin_prefix . 'addons',
 			array( $this, 'the_menu_page' )
