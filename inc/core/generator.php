@@ -196,9 +196,14 @@ class Su_Generator {
 					<?php
 		// Choices loop
 		foreach ( self::get_shortcodes() as $name => $shortcode ) {
-			$icon = ( isset( $shortcode['icon'] ) ) ? $shortcode['icon'] : 'puzzle-piece';
+			if ( ! isset( $shortcode['icon'] ) ) {
+				$shortcode['icon'] = 'puzzle-piece';
+			}
+			if ( strpos( $shortcode['icon'], '/' ) === false ) {
+				$shortcode['icon'] = 'icon:' . $shortcode['icon'];
+			}
 			$shortcode['name'] = ( isset( $shortcode['name'] ) ) ? $shortcode['name'] : $name;
-			echo '<span data-name="' . $shortcode['name'] . '" data-shortcode="' . $name . '" title="' . esc_attr( $shortcode['desc'] ) . '" data-desc="' . esc_attr( $shortcode['desc'] ) . '" data-group="' . $shortcode['group'] . '">' . su_html_icon( 'icon:' . $icon ) . $shortcode['name'] . '</span>' . "\n";
+			echo '<span data-name="' . $shortcode['name'] . '" data-shortcode="' . $name . '" title="' . esc_attr( $shortcode['desc'] ) . '" data-desc="' . esc_attr( $shortcode['desc'] ) . '" data-group="' . $shortcode['group'] . '">' . su_html_icon( $shortcode['icon'] ) . $shortcode['name'] . '</span>' . "\n";
 		}
 ?>
 				</div>
