@@ -25,7 +25,7 @@ final class Shortcodes_Ultimate_Admin_Addons extends Shortcodes_Ultimate_Admin {
 			rtrim( $this->plugin_prefix, '-_' ),
 			__( 'Add-ons', 'shortcodes-ultimate' ),
 			sprintf(
-				'<span style="color:#0cfac3">&#9733; %s</span>',
+				'<span style="color:#2afd39">&#9733; %s</span>',
 				__( 'Add-ons', 'shortcodes-ultimate' )
 			),
 			$this->get_capability(),
