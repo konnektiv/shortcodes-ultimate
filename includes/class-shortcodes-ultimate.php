@@ -300,6 +300,7 @@ class Shortcodes_Ultimate {
 		$this->admin_extra_shortcodes = new Shortcodes_Ultimate_Admin_Extra_Shortcodes();
 
 		add_action( 'admin_init', array( $this->admin_extra_shortcodes, 'register_shortcodes' ) );
+		add_filter( 'su/data/groups', array( $this->admin_extra_shortcodes, 'register_group' ) );
 
 	}
 
