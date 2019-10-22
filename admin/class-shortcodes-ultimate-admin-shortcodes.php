@@ -39,7 +39,35 @@ final class Shortcodes_Ultimate_Admin_Shortcodes extends Shortcodes_Ultimate_Adm
 	 * @return   string   Menu page markup.
 	 */
 	public function the_menu_page() {
-		$this->the_template( 'admin/partials/pages/shortcodes' );
+
+		$shortcode = $this->get_current_shortcode();
+
+		if ( ! $shortcode ) {
+			return $this->the_template( 'admin/partials/pages/shortcodes-list' );
+		}
+
+		if ( isset( $shortcode['id'] ) ) {
+			return $this->the_template( 'admin/partials/pages/shortcodes-single' );
+		}
+
+	}
+
+	public function single_shortcode_page_content() {
+
+		$shortcode = $this->get_current_shortcode();
+
+		if (
+			isset( $shortcode['as_callback'] ) &&
+			is_callable( $shortcode['as_callback'] )
+		) {
+			return call_user_func( $shortcode['as_callback'], $shortcode );
+		}
+
+		$this->the_template(
+			'admin/partials/pages/shortcodes-single-content',
+			$shortcode
+		);
+
 	}
 
 	/**
