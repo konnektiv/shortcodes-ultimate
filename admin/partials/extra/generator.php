@@ -10,7 +10,7 @@
 	<div class="su-generator-extra-banner-message">
 		<?php esc_html_e( 'This shortcode is available with the Extra Shortcodes add-on', 'shortcodes-ultimate' ); ?>
 	</div>
-	<img src="<?php echo esc_attr( $this->get_image_url( 'generator/icon-banner.png' ) ); ?>" class="su-generator-extra-banner-icon">
+	<img src="<?php echo esc_attr( $this->get_image_url( 'icon-banner.png' ) ); ?>" class="su-generator-extra-banner-icon">
 	<h3 class="su-generator-extra-banner-title"><?php esc_html_e( 'Extra Shortcodes', 'shortcodes-ultimate' ); ?></h3>
 	<p class="su-generator-extra-banner-description"><?php esc_html_e( 'This add-on extends Shortcodes Ultimate with 15 new shortcodes. Parallax sections, responsive content slider, pricing tables and more', 'shortcodes-ultimate' ); ?></p>
 	<p class="su-generator-extra-banner-action">
