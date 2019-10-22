@@ -117,6 +117,7 @@
 
 		&-code pre code {
 			display: block;
+			overflow-x: auto;
 			padding: 1em;
 		}
 
@@ -132,4 +133,58 @@
 			margin-top: 20px;
 		}
 	}
+}
+
+.su-admin-shortcodes-extra {
+	max-width: 500px;
+	margin-bottom: 2rem;
+	padding: 20px 20px 0;
+	background: white;
+	box-shadow: 0 1px 1px 0 rgba(black, .1);
+	text-align: center;
+}
+
+.su-admin-shortcodes-extra-message {
+	padding: 15px;
+	background: #f0f0f0;
+	border-left: 4px solid #999;
+	color: black;
+	margin: 0 0 2rem;
+	font-size: .9rem;
+	text-align: left;
+}
+.su-admin-shortcodes-extra-icon {
+	width: 80px;
+	height: 80px;
+	margin: 0 0 1.75rem;
+}
+.su-admin-shortcodes-extra-title {
+	margin: 0 0 .75rem;
+	font-size: 1.5rem;
+	font-weight: bold;
+	color: #333;
+}
+.su-admin-shortcodes-extra-description {
+	margin: 0 0 1.75rem;
+	font-size: .95rem;
+	color: #555;
+}
+.su-admin-shortcodes-extra-action {
+	margin: 0 0 2rem;
+}
+.su-admin-shortcodes-extra-action > a.button {
+	padding: 12px 24px;
+	font-weight: bold;
+	font-size: .9rem;
+	height: auto;
+	border-radius: 5px;
+	line-height: 1;
+}
+.su-admin-shortcodes-extra-screenshot {
+	max-height: 300px;
+	overflow: hidden;
+}
+.su-admin-shortcodes-extra-screenshot img {
+	display: block;
+	width: 100%;
 }
