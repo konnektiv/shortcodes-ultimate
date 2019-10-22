@@ -23,6 +23,7 @@ class Shortcodes_Ultimate_Admin_Extra_Shortcodes {
 						'callback'           => '__return_empty_string',
 						'atts'               => array(),
 						'generator_callback' => array( $this, 'generator_callback' ),
+						'as_callback'        => array( $this, 'as_callback' ),
 					)
 				)
 			);
@@ -44,6 +45,12 @@ class Shortcodes_Ultimate_Admin_Extra_Shortcodes {
 	public function generator_callback( $shortcode ) {
 		// phpcs:disable
 		echo $this->get_template( 'generator', $shortcode );
+		// phpcs:enable
+	}
+
+	public function as_callback( $shortcode ) {
+		// phpcs:disable
+		echo $this->get_template( 'available-shortcodes', $shortcode );
 		// phpcs:enable
 	}
 
