@@ -5,7 +5,7 @@ Donate link: https://paypal.me/anovladimir
 Tags: shortcode, toggle, columns, button, slider, video, map, visual, responsive, shortcodes, youtube, vimeo, audio, mp3, tabs, jquery, box, accordion, toggle, pullquote, list, image, gallery, navigation, permalink, feed, rss, members, membership, guests, carousel, icons, rtl, multilingual
 Requires at least: 3.5
 Requires PHP: 5.2.4
-Tested up to: 4.9
+Tested up to: 5.3
 Stable tag: trunk
 
 A comprehensive collection of visual components for your site
@@ -15,30 +15,67 @@ A comprehensive collection of visual components for your site
 
 [Shortcodes Ultimate](https://getshortcodes.com/) is a comprehensive collection of various visual and functional elements, which you can use in the post editor, text widgets or even in template files. Using Shortcodes Ultimate you can easily create tabs, buttons, boxes, sliders and carousels, responsive videos and much, much more.
 
-= Feature highlights =
-* [50+ beautiful shortcodes](https://getshortcodes.com/shortcodes/)
+
+= Features =
+
+* 50+ beautiful shortcodes
 * 1-click shortcode insertion with live preview
+* Gutenberg-ready
 * Works with any theme
 * Modern responsive design
-* [Comprehensive documentation](http://docs.getshortcodes.com/)
+* Documentation
 * Custom CSS editor
 * Custom widget
-* Translated into 9 languages
+* Translation-ready
 * RTL support
-* Powerful API
+* Developer-friendly
+
+
+= Links =
+
+* [Available shortcodes](https://getshortcodes.com/shortcodes/)
+* [Add-ons](https://getshortcodes.com/add-ons/)
+* [Documentation](https://getshortcodes.com/docs/)
+* [Support forum](https://wordpress.org/support/plugin/shortcodes-ultimate)
+* [Premium support](https://getshortcodes.com/support/)
+* [GitHub](https://github.com/vanokhin/shortcodes-ultimate)
+
 
 = Check out premium add-ons! =
+
 * [Extra Shortcodes](https://getshortcodes.com/add-ons/extra-shortcodes/) - 15+ additional shortcodes
-* [Additional Skins](https://getshortcodes.com/add-ons/additional-skins/) - 60+ additional skins for plugin shortcodes
-* [Shortcode Creator](https://getshortcodes.com/add-ons/shortcode-creator/) - allows you to create your own custom shortcodes
+* [Additional Skins](https://getshortcodes.com/add-ons/additional-skins/) - 60+ additional skins
+* [Shortcode Creator](https://getshortcodes.com/add-ons/shortcode-creator/) - create your own custom shortcodes
 * __[Add-ons Bundle](https://getshortcodes.com/add-ons/add-ons-bundle/)__ - All-in-one!
 
+
+= Available Shortcodes =
+
+`
+Heading         Tabs        Spoiler      Accordion
+Divider         Spacer      Highlight    Label
+Quote           Pullquote   Dropcap      Columns
+List            Button      Service      Box
+Note            Expand      Lightbox     Tooltip
+Private         YouTube     Vimeo        Dailymotion
+Audio           Video       Table        Permalink
+Members         Guests      RSS          Menu
+Sub pages       Siblings    Document     Google map
+Image carousel  Slider      Carousel     Gallery
+Posts           Dummy text  Dummy image  Animation
+Meta data       User data   Post data    Template
+QR code         Scheduler
+`
+
+
 = Thanks to these great guys for contribution =
-* [Detailed reviews by advanced users](http://docs.getshortcodes.com/article/84-external-resources)
+
+* [Reviews by advanced users](https://getshortcodes.com/docs/external-resources/)
 * Dmitry Semenov - [Magnific Popup jQuery plugin](http://dimsemenov.com/plugins/magnific-popup/)
 * Craig Thompson - [qTip jQuery plugin](http://qtip2.com/)
 * Vladimir Kharlampidi - [Swiper jQuery plugin](http://www.idangero.us/sliders/swiper/)
-* Dave Gandy - [Font Awesome](http://fortawesome.github.io/Font-Awesome/)
+* David DeSandro - [Flickity – Touch, responsive, flickable carousels](https://flickity.metafizzy.co/)
+* [Fork Awesome & Dave Gandy](https://github.com/ForkAwesome/Fork-Awesome)
 * James Smith - [Simple Slider jQuery plugin](http://loopj.com/jquery-simple-slider/)
 * pt_br locale: [Ibidem Translations](http://www.ibidem-translations.com/)
 * fr_fr locale: [Nicolas Leclerc](http://etic-studio.fr/)
@@ -47,16 +84,24 @@ A comprehensive collection of visual components for your site
 * cs_cz locale: [Punc00](http://nuze.cz/)
 * sv_se locale: [Javier Marcilla](http://ninjaseo.es/)
 
+
 == Installation ==
 
-Unzip plugin file and upload "shortcodes-ultimate" folder under your "/wp-content/plugins/" directory.
+= From within dashboard (recommended) =
 
-Resulted plugin path should be:
-"/wp-content/plugins/shortcodes-ultimate/**"
+1. Navigate to `Dashboard` ▸ `Plugins` ▸ `Add New`;
+2. Search for `Shortcodes Ultimate`;
+3. Click `Install`, then `Activate`.
 
-Activate the plugin at "Dashboard – Plugins" administration page.
+[Watch video of the process](https://www.youtube.com/watch?v=6xhplrZJD9c).
 
-[Complete installation guide](http://docs.getshortcodes.com/article/13-plugin-installation).
+= Manual installation =
+
+1. Download the plugin as a .zip file;
+2. Unzip downloaded archive and upload `shortcodes-ultimate` folder under your `/wp-content/plugins/` directory (resulted plugin path should be `/wp-content/plugins/shortcodes-ultimate/**`);
+1. Navigate to `Dashboard` ▸ `Plugins` and activate the plugin.
+
+[Detailed installation guide](https://getshortcodes.com/docs/plugin-installation/).
 
 
 == Screenshots ==
@@ -71,46 +116,166 @@ Activate the plugin at "Dashboard – Plugins" administration page.
 == Frequently Asked Questions ==
 
 = How this plugin works =
-[How Shortcodes Ultimate plugin works](http://docs.getshortcodes.com/article/36-shortcodes-ultimate).
+[How Shortcodes Ultimate plugin works](https://getshortcodes.com/docs/how-shortcodes-ultimate-plugin-works/).
 
 = Shortcodes do not work. Why? =
-The most common reasons of this issue are listed [here](http://docs.getshortcodes.com/article/41-shortcodes-do-not-work).
+The most common reasons of this issue are listed [here](https://getshortcodes.com/docs/shortcodes-do-not-work/).
 
 = Insert shortcode button do not work. Why? =
-The most common reasons of this issue are listed [here](http://docs.getshortcodes.com/article/42-insert-shortcode-button-do-not-work).
+The most common reasons of this issue are listed [here](https://getshortcodes.com/docs/insert-shortcode-button-do-not-work/).
 
 = Can I remove default shortcodes? =
-Yes, you can remove default shortcodes using 'su/data/shortcodes' filter. Tutorial: [How to remove default shortcodes](http://docs.getshortcodes.com/article/51-how-to-remove-default-shortcodes).
+Yes, you can remove default shortcodes using 'su/data/shortcodes' filter. Tutorial: [How to remove default shortcodes](https://getshortcodes.com/docs/disabling-built-in-shortcodes/).
 
 = Can I create custom shortcodes? =
-Yes, you can create custom shortcodes using 'su/data/shortcodes' filter. Tutorial: [How to add custom shortcodes](http://docs.getshortcodes.com/article/45-how-to-add-custom-shortcodes).
+Yes, you can create custom shortcodes using 'su/data/shortcodes' filter. Tutorial: [How to add custom shortcodes](https://getshortcodes.com/docs/registering-custom-shortcodes/).
 Alternatively, you can use [Shortcode Creator add-on](https://getshortcodes.com/add-ons/shortcode-creator/).
 
 = Can I use shortcodes in template files? =
-Yes! [How to use shortcodes in template files](http://docs.getshortcodes.com/article/52-using-of-shortcodes-in-template-files).
+Yes! [How to use shortcodes in template files](https://getshortcodes.com/docs/using-shortcodes-in-template-files/).
 
 = Will this plugin work with my theme? =
 Yes! Shortcodes Ultimate is designed to work with any theme, but your theme must include very basic things: 'wp_head' and 'wp_footer' template tags. Sometimes, the plugin may not work properly because of javascript errors caused by third-party plugins/themes.
 
 = Where can I report a bug? =
-You should [create an issue at GitHub](https://github.com/gndev/shortcodes-ultimate/) or [open new support ticket](https://getshortcodes.com/account/open-support-ticket/) (for premium add-ons only).
+You should [create an issue at GitHub](https://github.com/gndev/shortcodes-ultimate/) or [open new support ticket](https://getshortcodes.com/contact/) (for premium add-ons only).
 
 = Where to find additional information? =
-Plugin has comprehensive [documentation](http://docs.getshortcodes.com/).
+Plugin has comprehensive [documentation](http://getshortcodes.com/docs/).
 Also, you can find more answers at [support page](https://getshortcodes.com/support/).
 
 = Where can I get support or talk to other users? =
 If you get stuck, you can ask for help in [official plugin forum](https://wordpress.org/support/plugin/shortcodes-ultimate).
-For help with premium add-ons, please [open new support ticket](https://getshortcodes.com/account/open-support-ticket/).
+For help with premium add-ons, please [open new support ticket](https://getshortcodes.com/contact/).
 
 
 == Changelog ==
+
+= 5.6.0 =
+
+**What's new**
+
+- Shortcodes can now be enabled not only in Category descriptions, but in any Term description. See `Enable shortcodes in` option at plugin settings page
+
+**Fixes**
+
+- Fixed WP-Rocket compatibility issue, `[su_image_carousel]` didn't work on Android Chrome. [Forum topic](https://wordpress.org/support/topic/issues-with-wp-rocket-2/)
+- Fixed issue with `<span>` tags in the `[su_tabs]` shortcode. [Forum topic](https://wordpress.org/support/topic/element-on-next-line-on-mobiles/)
+- Fixed issue with ghost-style button colors
+
+
+= 5.5.0 =
+
+**What's new**
+
+- New option `outline` for `[su_image_carousel]` which allows disabling carousel outline (when it gets focus)
+- New option `mobile` for `[su_tabs]` which allows disabling tab stacking on mobile devices
+- New option `texttrack` for `[su_vimeo]` which allows enabling video subtitles
+
+**Improvements**
+
+- `[su_youtube_advanced]` is now always served through https
+- `[su_image_carousel]`: improved compatibility with various themes
+- `[su_image_carousel]`: the gallery can now be loaded through AJAX
+- `[su_image_carousel]`: improved keyboard navigation
+- Insert Shortcode window will now remain open if the dark background clicked
+
+**Fixes**
+
+- Fixed `[su_image_carousel]` issue with empty image captions (with whitespace)
+- Fixed `[su_image_carousel]` issue where images weren't shown when crop is disabled
+
+
+= 5.4.1 =
+
+This update fix various issues related to version 5.4.0
+
+
+= 5.4.0 =
+
+**What's new**
+
+- New shortcode `[su_image_carousel]` which will take place of `[su_slider]` and `[su_carousel]` in the future
+- New attribute `download` for the `[su_button]` shortcode (allows immediate downloading of specified URL in a button)
+- New attribute `id` for the `[su_heading]` shortcode (allows linking to a heading)
+- New attribute `wrapper` for the `[su_dummy_text]` shortcode (allows disabling of the div wrapper)
+- New attribute `mobile` for the `[su_lightbox]` shortcode (allows disabling lightbox on mobile devices)
+
+**Improvements**
+
+- *Custom CSS code* field now has syntax highlighting
+- `[su_button]` with `target=blank` will now be displayed with `rel='noopener noreferrer`
+- Slightly improved appearance of the *Available shortcodes* screen
+- *Vertical tabs* are now aligned with CSS flexbox, not JS
+- Added `shortcodes.full.css` file to reference the default shortcode styles
+- Minor improvements to `[su_table]`, `[su_row]`, and `[su_column]` shortcodes
+
+**Fixes**
+
+- Fixed issue with `[su_lightbox]` on iOS
+- Removed `!important` from column styles for mobile devices
+
+**Security**
+
+- `[su_posts]` and `[su_template]` are now allow only templates from active theme or plugin folders
+- *Error messages* are now displayed only to allowed users (user must have required capability)
+
+
+= 5.3.0 =
+
+**What's new**
+
+- New shortcode `[su_csv_table]` for displaying CSV tables
+- New option `indent` for the `[su_list]` shortcode, which allows adjusting of list indentation
+
+**Fixes**
+
+- Fixed inaccessible fields in media modal (while inserting Gallery/Slider/Carousel shortcodes)
+- Fixed close icon class name in the presets menu
+- Fixed issue with unwanted content inside single shortcodes
+- Fixed warning when non-numeric value is used for the button size attribute
+- Min-width for responsive tables is set to 100%
+
+
+= 5.2.0 =
+
+**Improvements**
+
+- Tabs and accordions/spoilers are now accessible from keyboard
+- Tabs are now working better with nested sliders/carousels
+- Improved stability of some responsive elements, such as Google Maps
+- YouTube and YouTube Advanced settings descriptions are now more clear
+- New setting `Required user capability` which allows enabling the `Insert Shortcode` button for non-admin users
+- New setting `Enable shortcodes in` which allows enabling shortcodes in text widgets and category descriptions
+
+**Changes**
+
+- youtube_advanced showinfo parameter is deprecated and removed from the plugin. [Why?](https://developers.google.com/youtube/player_parameters#release_notes_08_23_2018)
+- Font Awesome replaced with [Fork Awesome](https://github.com/ForkAwesome/Fork-Awesome). Font Awesome stylesheet (v 4.7.0) will be completely removed in the next update. All icons are now use CSS class `sui` instead of `fa`
+
+
+= 5.1.1 =
+
+- Gutenberg compatibility enabled by default
+
+
+= 5.1.0 =
+
+**What's new**
+
+- Added compatibility with the Gutenberg editor. [Learn more](https://vanokhin.com/su-now-supports-gutenberg/).
+
+**Fixes**
+
+- Fixed `<img>` icon appearance of the `[su_service]` shortcode
+
 
 = 5.0.8 =
 
 **Fixes**
 
-- Fixed Live Preview
+- Fixed Live Preview, wasn't representing changed settings
+- Fixed `[su_siblings]`, now it works again at top-level pages
 
 **Other**
 
@@ -199,7 +364,7 @@ For help with premium add-ons, please [open new support ticket](https://getshort
 = 5.0.0 =
 * Read [this blog post](https://vanokhin.com/whats-new-in-shortcodes-ultimate-5/) to learn more about update
 * New project website [getshortcodes.com](https://getshortcodes.com/)
-* New documentation [docs.getshortcodes.com](http://docs.getshortcodes.com/)
+* New documentation [getshortcodes.com/docs](https://getshortcodes.com/docs/)
 * Added: 'Available shortcodes' admin menu
 * Removed: 'Examples' admin menu
 * Removed: 'Cheatsheet' admin menu

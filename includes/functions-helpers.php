@@ -15,7 +15,7 @@
  * @return string The URL of the plugin directory (with trailing slash).
  */
 function su_get_plugin_url() {
-	return plugin_dir_url( SU_PLUGIN_FILE );
+	return plugin_dir_url( dirname( __FILE__ ) );
 }
 
 /**
@@ -25,7 +25,17 @@ function su_get_plugin_url() {
  * @return string The filesystem path of the plugin directory (with trailing slash).
  */
 function su_get_plugin_path() {
-	return plugin_dir_path( SU_PLUGIN_FILE );
+	return plugin_dir_path( dirname( __FILE__ ) );
+}
+
+/**
+ * Retrieve the current version of the plugin.
+ *
+ * @since  5.2.0
+ * @return string The current verion of the plugin.
+ */
+function su_get_plugin_version() {
+	return get_option( 'su_option_version', '0' );
 }
 
 /**
@@ -33,17 +43,17 @@ function su_get_plugin_path() {
  *
  * @since  5.0.5
  * @param string  $key
- * @return mixed      Config data if found, Flase otherwise.
+ * @return mixed      Config data if found, False otherwise.
  */
-function su_get_config( $key = null ) {
+function su_get_config( $key = null, $default = false ) {
 
 	static $config = array();
 
 	if (
 		empty( $key ) ||
-		preg_match( "/^(?!-)[a-z0-9-_]+(?<!-)(\/(?!-)[a-z0-9-_]+(?<!-))*$/", $key ) !== 1
+		preg_match( '/^(?!-)[a-z0-9-_]+(?<!-)(\/(?!-)[a-z0-9-_]+(?<!-))*$/', $key ) !== 1
 	) {
-		return false;
+		return $default;
 	}
 
 	if ( isset( $config[ $key ] ) ) {
@@ -53,10 +63,12 @@ function su_get_config( $key = null ) {
 	$config_file = su_get_plugin_path() . 'includes/config/' . $key . '.php';
 
 	if ( ! file_exists( $config_file ) ) {
-		return false;
+		return $default;
 	}
 
-	return $config[ $key ] = require_once $config_file;
+	$config[ $key ] = include $config_file;
+
+	return $config[ $key ];
 
 }
 
@@ -69,6 +81,10 @@ function su_get_config( $key = null ) {
  * @return string          Error message markup.
  */
 function su_error_message( $title = '', $message = '' ) {
+
+	if ( ! su_current_user_can_insert() ) {
+		return;
+	}
 
 	if ( $title ) {
 		$title = "<strong>${title}:</strong> ";
@@ -83,6 +99,23 @@ function su_error_message( $title = '', $message = '' ) {
 }
 
 /**
+ * Conditional check if current user can use the plugin.
+ *
+ * @since 5.4.0
+ * @return bool True if user is allowed to use the plugin, False otherwise.
+ */
+function su_current_user_can_insert() {
+
+	$required_capability = (string) get_option(
+		'su_option_generator_access',
+		'manage_options'
+	);
+
+	return current_user_can( $required_capability );
+
+}
+
+/**
  * Validate filter callback name.
  *
  * @since  5.0.5
@@ -90,13 +123,13 @@ function su_error_message( $title = '', $message = '' ) {
  * @return boolean         True if filter name contains word 'filter', False otherwise.
  */
 function su_is_filter_safe( $filter ) {
-	return is_string( $filter ) && strpos( $filter, 'filter' ) !== false;
+	return is_string( $filter ) && false !== strpos( $filter, 'filter' );
 }
 
 /**
  * Range converter.
  *
- * Converts string range like '1, 3-5, 10' into an array like [1, 3, 4, 5, 10].
+ * Converts string ranges like '1, 3-5' into arrays like [1, 3, 4, 5].
  *
  * @since  5.0.5
  * @param string  $string Range string.
@@ -143,86 +176,86 @@ function su_parse_range( $string = '' ) {
  * @param array   $atts Shortcode atts.
  * @return string       Extra CSS class(es) prepended by a space.
  */
-function su_get_css_class( $atts ) {
-	return $atts['class'] ? ' ' . trim( $atts['class'] ) : '';
-}
+if ( ! function_exists( 'su_get_css_class' ) ) {
 
-/**
- * Get shortcode prefix.
- *
- * @since  5.0.5
- * @return string Shortcode prefix.
- */
-function su_get_shortcode_prefix() {
-	return get_option( 'su_option_prefix' );
-}
-
-/**
- * Do shortcodes in attributes.
- *
- * Replace braces with square brackets: {shortcode} => [shortcode], applies do_shortcode() filter.
- *
- * @since  5.0.5
- * @param string  $value Attribute value with shortcodes.
- * @return string        Parsed string.
- */
-function su_do_attribute( $value ) {
-
-	$value = str_replace( array( '{', '}' ), array( '[', ']' ), $value );
-	$value = do_shortcode( $value );
-
-	return $value;
+	function su_get_css_class( $atts ) {
+		return $atts['class'] ? ' ' . trim( $atts['class'] ) : '';
+	}
 
 }
 
 /**
- * Custom do_shortcode function for nested shortcodes
+ * Helper function to force enqueuing of the shortcode generator assets and
+ * templates.
  *
- * @since  5.0.4
- * @param string  $content Shortcode content.
- * @param string  $pre     First shortcode letter.
- * @return string          Formatted content.
+ * Usage example:
+ * `add_action( 'admin_init', 'su_enqueue_generator' );`
+ *
+ * @since 5.1.0
  */
-function su_do_nested_shortcodes_alt( $content, $pre ) {
+function su_enqueue_generator() {
+	Su_Generator::enqueue_generator();
+}
 
-	if ( strpos( $content, '[_' ) !== false ) {
-		$content = preg_replace( '@(\[_*)_(' . $pre . '|/)@', "$1$2", $content );
+/**
+ * Helper function to check that the given path is related to the current theme
+ * or to the plugin directory.
+ *
+ * @since  5.4.0
+ * @param  string $path Relative path to check.
+ * @return bool         True if the given path relates to theme/plugin directory, False otherwise.
+ */
+function su_is_valid_template_name( $path ) {
+
+	$path = su_set_file_extension( $path, 'php' );
+
+	$allowed = apply_filters(
+		'su/allowed_template_paths',
+		array(
+			get_stylesheet_directory(),
+			get_template_directory(),
+			plugin_dir_path( dirname( __FILE__ ) ),
+		)
+	);
+
+	foreach ( $allowed as $dir ) {
+
+		$dir  = untrailingslashit( $dir );
+		$real = realpath( $dir . DIRECTORY_SEPARATOR . $path );
+
+		$dir  = str_replace( '\\', '/', $dir );
+		$real = str_replace( '\\', '/', $real );
+
+		if ( strpos( $real, $dir ) === 0 ) {
+			return true;
+		}
+
 	}
 
-	return do_shortcode( $content );
+	return false;
 
 }
 
 /**
- * Remove underscores from nested shortcodes.
+ * Helper function to add/remove file extension to/from a given path.
  *
- * @since  5.0.4
- * @param string  $content   String with nested shortcodes.
- * @param string  $shortcode Shortcode tag name (without prefix).
- * @return string            Parsed string.
+ * @since  5.4.0
+ * @param  string      $path      Path to add/remove file extension to/from.
+ * @param  string|bool $extension Extension to add/remove.
+ * @return string                 Modified file path.
  */
-function su_do_nested_shortcodes( $content, $shortcode ) {
+function su_set_file_extension( $path, $extension ) {
 
-	if ( get_option( 'su_option_do_nested_shortcodes_alt' ) ) {
-		return su_do_nested_shortcodes_alt( $content, substr( $shortcode, 0, 1 ) );
+	$path_info = pathinfo( $path );
+
+	if ( ! $extension ) {
+		return path_join( $path_info['dirname'], $path_info['filename'] );
 	}
 
-	$prefix = su_get_shortcode_prefix();
-
-	if ( strpos( $content, '[_' . $prefix . $shortcode ) !== false ) {
-
-		$content = str_replace(
-			array( '[_' . $prefix . $shortcode, '[_/' . $prefix . $shortcode, ),
-			array( '[' . $prefix . $shortcode,  '[/' . $prefix . $shortcode, ),
-			$content
-		);
-
+	if ( $path_info['extension'] !== $extension ) {
+		$path .= ".{$extension}";
 	}
 
-	else {
-		$content = wptexturize( $content );
-	}
-
-	return do_shortcode( $content );
+	return $path;
 
 }
